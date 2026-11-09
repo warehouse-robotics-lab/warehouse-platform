@@ -1,0 +1,29 @@
+name: Задача
+description: Разработка, исследование или настройка проекта
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Цель
+      description: Что нужно сделать и зачем это проекту?
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Ожидаемый результат
+      description: Что должно появиться по итогам задачи?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Критерии готовности
+      description: Как проверить результат? Укажите проверяемые пункты.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Зависимости
+      description: Связанные задачи, необходимые решения и помощь.
