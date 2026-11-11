@@ -1,8 +1,8 @@
 import { validateEnvironment } from './env.validation';
 
 describe('validateEnvironment', () => {
-  it('uses port 3000 when PORT is not specified', () => {
-    expect(validateEnvironment({})).toEqual({ PORT: 3000 });
+  it('uses port 3001 when PORT is not specified', () => {
+    expect(validateEnvironment({})).toEqual({ PORT: 3001 });
   });
 
   it('coerces a valid PORT value to a number', () => {

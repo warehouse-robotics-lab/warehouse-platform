@@ -5,6 +5,13 @@
       "cache": false,
       "persistent": true
     },
+    "@warehouse/api#dev": {
+      "cache": false,
+      "persistent": true,
+      "env": [
+        "PORT"
+      ]
+    },
     "build": {
       "dependsOn": [
         "^build"
