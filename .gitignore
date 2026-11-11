@@ -147,3 +147,8 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Personal OpenCode profile, tools, skills and local runtime.
+.opencode/
+opencode.json
+opencode.jsonc

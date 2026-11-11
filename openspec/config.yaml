@@ -1,0 +1,56 @@
+schema: spec-driven
+
+context: |
+  Language: Russian
+  All artifacts must be written in Russian.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+  Warehouse Platform: apps/web, apps/api, apps/simulation; packages/contracts,
+  packages/warehouse-renderer. Product requirements: docs/product-requirements.md.
+  Follow AGENTS.md and Accepted docs/adr/002-ai-development-workflow.md.
+  ADR-001 is Proposed; do not treat open architecture choices as accepted.
+  Human gates apply even when OpenSpec reports artifacts complete or apply ready:
+  significant behavior: approve specification, then approve tests, then implement;
+  small behavior: approve brief specification and tests together, then implement.
+  Configuration and minor edits: state expected outcome and suitable verification.
+  Artifact completion, task checkboxes and AI review are not human approval.
+  Record approval evidence (person, PR/task/comment reference, reviewed revision)
+  in the change artifacts; preserve prior approvals and re-review material changes.
+  UI tasks must identify the pen.dev document, frame ID, state, viewport and revision
+  or a local design/export. Report design/spec conflicts to the team lead.
+
+rules:
+  design:
+    - Reference applicable ADRs; keep shared architectural rationale in the ADR.
+  tasks:
+    - Separate specification approval, tests approval, implementation and verification.
+    - Stop before a dependent stage until the human approval required by ADR-002 exists.
+operations:
+  apply:
+    guidance:
+      - Check human approval evidence before the next stage; apply readiness is insufficient.
+      - Do not implement behavior before the required specification and test approvals.
+  archive:
+    guidance:
+      - Archive only on an explicit request; include scenario evidence and outstanding limitations.
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing

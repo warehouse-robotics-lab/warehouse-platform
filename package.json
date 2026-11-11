@@ -15,6 +15,7 @@
     "test": "turbo run test"
   },
   "devDependencies": {
+    "@fission-ai/openspec": "1.17.0",
     "turbo": "2.11.10"
   }
 }
