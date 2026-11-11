@@ -15,8 +15,13 @@ context: |
   Artifact completion, task checkboxes and AI review are not human approval.
   Record approval evidence (person, PR/task/comment reference, reviewed revision)
   in the change artifacts; preserve prior approvals and re-review material changes.
-  UI tasks must identify the pen.dev document, frame ID, state, viewport and revision
-  or a local design/export. Report design/spec conflicts to the team lead.
+  UI designs are optional. When a design is provided, use the pen.dev document,
+  frame ID, state, viewport and revision or a local design/export as a reference.
+  Without a design, proceed using agreed requirements, scenarios and existing UI
+  conventions; do not request or require a mockup merely because the task affects UI.
+  Mark design conformance as not applicable when no design is provided; continue
+  checking behavior. Report conflicts between a provided design and the spec to
+  the team lead.
 
 rules:
   design:
