@@ -20,6 +20,81 @@ pnpm install
 
 Если pnpm уже установлен в указанной версии, повторная установка не нужна. При использовании другого менеджера Node.js выберите версию из `.nvmrc`.
 
+## Локальная PostgreSQL
+
+Для запуска требуется Docker Compose v2. Создайте личный файл настроек из
+шаблона — `.env` не попадает в Git:
+
+```sh
+cp .env.example .env
+```
+
+Запустите PostgreSQL и дождитесь завершения проверки готовности:
+
+```sh
+docker compose up -d --wait
+```
+
+Убедитесь, что в столбце `STATUS` сервиса `postgres` указано `healthy`:
+
+```sh
+docker compose ps
+```
+
+Проверьте подключение SQL-запросом. Команда использует имя базы и пользователя
+из переменных внутри контейнера:
+
+```sh
+docker compose exec -T postgres sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 1 AS ready;"'
+```
+
+Запрос должен вернуть одну строку со значением `1` в столбце `ready`.
+
+### Проверка сохранности данных
+
+Создайте контрольную таблицу и запись:
+
+```sh
+docker compose exec -T postgres sh -c \
+  "psql -U \"\$POSTGRES_USER\" -d \"\$POSTGRES_DB\" -c \"CREATE TABLE IF NOT EXISTS local_db_check (id integer PRIMARY KEY, note text NOT NULL); INSERT INTO local_db_check (id, note) VALUES (1, 'persisted') ON CONFLICT (id) DO UPDATE SET note = EXCLUDED.note;\""
+```
+
+Остановите сервис без удаления Docker volume, затем запустите его снова:
+
+```sh
+docker compose down
+docker compose up -d --wait
+```
+
+Убедитесь, что созданная до остановки запись осталась:
+
+```sh
+docker compose exec -T postgres sh -c \
+  "psql -U \"\$POSTGRES_USER\" -d \"\$POSTGRES_DB\" -c \"SELECT note FROM local_db_check WHERE id = 1;\""
+```
+
+Запрос должен вернуть `persisted`: команда `docker compose down` удаляет
+контейнер, но сохраняет именованный Docker volume с данными.
+
+### Остановка и удаление локальных данных
+
+Для штатной остановки PostgreSQL и удаления контейнера, но с сохранением базы
+для следующего запуска, выполните:
+
+```sh
+docker compose down
+```
+
+Чтобы безвозвратно удалить локальные данные PostgreSQL вместе с Docker volume,
+выполните:
+
+```sh
+docker compose down -v
+```
+
+После `down -v` следующий запуск создаст пустую базу. Не используйте эту
+команду, если локальные данные нужны для работы.
+
 ## Структура
 
 ```text
