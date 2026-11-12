@@ -34,7 +34,7 @@ docs/
   adr/                 # Архитектурные решения и их статус
 ```
 
-`apps/web` и `apps/simulation` инициализированы. Simulation пока содержит только запускаемую основу без расчётов и внешних подключений.
+`apps/web`, `apps/api` и `apps/simulation` инициализированы. Simulation пока содержит только запускаемую основу без расчётов и внешних подключений.
 
 ## Команды
 
@@ -47,8 +47,8 @@ pnpm test
 ```
 
 Turbo запускает соответствующие скрипты из `package.json` workspace-пакетов.
-`dev`, `build`, `typecheck` и `lint` выполняют задачи Web и Simulation.
-У `test` пока нет реализованных скриптов.
+`dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
+`test` запускает unit-тесты API; у Web и Simulation тестовый скрипт пока не объявлен.
 
 ## Спецификации OpenSpec
 
