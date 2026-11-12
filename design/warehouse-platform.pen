@@ -6245,6 +6245,2017 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "R0dz4",
+      "x": 6750,
+      "y": -6648,
+      "name": "Warehouse Editor / Owner / Draft",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "i8u9k",
+          "type": "ref",
+          "ref": "t20f7T",
+          "name": "Web / App header",
+          "width": "fill_container"
+        },
+        {
+          "type": "frame",
+          "id": "KRLRN",
+          "name": "Web / Editor body",
+          "width": "fill_container",
+          "height": "fill_container",
+          "children": [
+            {
+              "type": "frame",
+              "id": "b70VPa",
+              "name": "Web / Cabinet sidebar",
+              "width": 240,
+              "height": "fill_container",
+              "fill": "$sidebar",
+              "stroke": "$sidebar-border",
+              "strokeWidth": {
+                "right": 1
+              },
+              "layout": "vertical",
+              "padding": [
+                16,
+                12
+              ],
+              "children": [
+                {
+                  "id": "J90GB",
+                  "type": "ref",
+                  "ref": "s9XZt",
+                  "name": "Web / Return to my warehouses",
+                  "height": 44,
+                  "fill": "$sidebar-accent",
+                  "descendants": {
+                    "SRqEd": {
+                      "icon": "arrow-left"
+                    },
+                    "dR1k2": {
+                      "content": "Мои склады"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "X4F7W",
+              "name": "Web / Editor",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Wq3yV",
+                  "name": "Web / Warehouse heading and save",
+                  "width": "fill_container",
+                  "height": 64,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "LMt8D",
+                      "name": "Warehouse title",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AkgFN",
+                          "name": "Warehouse name",
+                          "fill": "$foreground",
+                          "content": "Склад № 1",
+                          "lineHeight": "$leading-title",
+                          "fontFamily": "$font-sans",
+                          "fontSize": "$text-title",
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "W1e3IN",
+                          "name": "Editor context",
+                          "fill": "$muted-foreground",
+                          "content": "Редактор карты · Владелец",
+                          "lineHeight": "$leading-body",
+                          "fontFamily": "$font-sans",
+                          "fontSize": "$text-body",
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "GFs60",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Web / Save map normal",
+                      "height": 44,
+                      "descendants": {
+                        "rHb8r": {
+                          "icon": "save"
+                        },
+                        "L1iECf": {
+                          "content": "Сохранить карту"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "A7V5df",
+                  "name": "Web / Scene and selection layout",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "c8VA5l",
+                      "name": "Web / Map workspace",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "aHh6f",
+                          "name": "Web / Tool state and viewport intent controls",
+                          "width": "fill_container",
+                          "height": 56,
+                          "fill": "$card",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$border",
+                          "strokeWidth": 1,
+                          "padding": [
+                            6,
+                            8
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "z0kxnf",
+                              "name": "Web / Placement tools",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "Zr3JF",
+                                  "name": "Web / Tool / Выбор",
+                                  "height": 44,
+                                  "fill": "$accent",
+                                  "cornerRadius": "$radius-sm",
+                                  "stroke": "$input",
+                                  "strokeWidth": 1,
+                                  "gap": 8,
+                                  "padding": [
+                                    0,
+                                    12
+                                  ],
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "ZuExJ",
+                                      "name": "Выбор icon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "icon": "mouse-pointer-2",
+                                      "library": "lucide",
+                                      "fill": "$primary"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "G74xCa",
+                                      "name": "Выбор label",
+                                      "fill": "$foreground",
+                                      "content": "Выбор",
+                                      "fontFamily": "$font-sans",
+                                      "fontSize": "$text-body",
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "Bcm4a",
+                                  "name": "Web / Tool / Станция",
+                                  "height": 44,
+                                  "fill": "$card",
+                                  "cornerRadius": "$radius-sm",
+                                  "stroke": "$card",
+                                  "strokeWidth": 1,
+                                  "gap": 8,
+                                  "padding": [
+                                    0,
+                                    12
+                                  ],
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "L9UCxS",
+                                      "name": "Станция icon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "icon": "warehouse",
+                                      "library": "lucide",
+                                      "fill": "$muted-foreground"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "eIZRb",
+                                      "name": "Станция label",
+                                      "fill": "$foreground",
+                                      "content": "Станция",
+                                      "fontFamily": "$font-sans",
+                                      "fontSize": "$text-body",
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "iglpH",
+                                  "name": "Web / Tool / Препятствие",
+                                  "height": 44,
+                                  "fill": "$card",
+                                  "cornerRadius": "$radius-sm",
+                                  "stroke": "$card",
+                                  "strokeWidth": 1,
+                                  "gap": 8,
+                                  "padding": [
+                                    0,
+                                    12
+                                  ],
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "Svrnb",
+                                      "name": "Препятствие icon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "icon": "square",
+                                      "library": "lucide",
+                                      "fill": "$muted-foreground"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "MRBEc",
+                                      "name": "Препятствие label",
+                                      "fill": "$foreground",
+                                      "content": "Препятствие",
+                                      "fontFamily": "$font-sans",
+                                      "fontSize": "$text-body",
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "h7eO5O",
+                                  "name": "Web / Tool / Робот",
+                                  "height": 44,
+                                  "fill": "$card",
+                                  "cornerRadius": "$radius-sm",
+                                  "stroke": "$card",
+                                  "strokeWidth": 1,
+                                  "gap": 8,
+                                  "padding": [
+                                    0,
+                                    12
+                                  ],
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "gsemf",
+                                      "name": "Робот icon",
+                                      "width": 18,
+                                      "height": 18,
+                                      "icon": "bot",
+                                      "library": "lucide",
+                                      "fill": "$muted-foreground"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "UDMU3",
+                                      "name": "Робот label",
+                                      "fill": "$foreground",
+                                      "content": "Робот",
+                                      "fontFamily": "$font-sans",
+                                      "fontSize": "$text-body",
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "lmuw6",
+                              "name": "Web / Zoom intent, gestures undecided",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "id": "p4WOVZ",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Уменьшить масштаб",
+                                  "width": 44,
+                                  "height": 44,
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "minus"
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "UikEi",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Вписать карту",
+                                  "width": 44,
+                                  "height": 44,
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "scan"
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "h4nxby",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Увеличить масштаб",
+                                  "width": 44,
+                                  "height": 44,
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "plus"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "j3V1Ua",
+                          "name": "Renderer / Scene viewport / Data and selection only",
+                          "clip": true,
+                          "width": "fill_container",
+                          "height": 640,
+                          "fill": "$card",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$border",
+                          "strokeWidth": 1,
+                          "layout": "none",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "M3aMPP",
+                              "x": 144,
+                              "y": 28,
+                              "name": "Renderer / Grid 20 × 20 / illustrative 1-based coordinates",
+                              "width": 600,
+                              "height": 600,
+                              "fill": "$card",
+                              "layout": "none",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "id": "Vgb2V",
+                                  "x": 0,
+                                  "y": 0,
+                                  "name": "Grid column line 0",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "V16W0",
+                                  "x": 0,
+                                  "y": 0,
+                                  "name": "Grid row line 0",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "RLjlJ",
+                                  "x": 30,
+                                  "y": 0,
+                                  "name": "Grid column line 1",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "r6WzJ",
+                                  "x": 0,
+                                  "y": 30,
+                                  "name": "Grid row line 1",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "gCr1q",
+                                  "x": 60,
+                                  "y": 0,
+                                  "name": "Grid column line 2",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "EZmoW",
+                                  "x": 0,
+                                  "y": 60,
+                                  "name": "Grid row line 2",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "lt0eU",
+                                  "x": 90,
+                                  "y": 0,
+                                  "name": "Grid column line 3",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "dEfZM",
+                                  "x": 0,
+                                  "y": 90,
+                                  "name": "Grid row line 3",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "l6DtC",
+                                  "x": 120,
+                                  "y": 0,
+                                  "name": "Grid column line 4",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "H3aaO",
+                                  "x": 0,
+                                  "y": 120,
+                                  "name": "Grid row line 4",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "YsQHp",
+                                  "x": 150,
+                                  "y": 0,
+                                  "name": "Grid column line 5",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "j26HVI",
+                                  "x": 0,
+                                  "y": 150,
+                                  "name": "Grid row line 5",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "H0HWo",
+                                  "x": 180,
+                                  "y": 0,
+                                  "name": "Grid column line 6",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "N61wnM",
+                                  "x": 0,
+                                  "y": 180,
+                                  "name": "Grid row line 6",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "l5SOR",
+                                  "x": 210,
+                                  "y": 0,
+                                  "name": "Grid column line 7",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "Orq8I",
+                                  "x": 0,
+                                  "y": 210,
+                                  "name": "Grid row line 7",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "SsVzh",
+                                  "x": 240,
+                                  "y": 0,
+                                  "name": "Grid column line 8",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "A9m00d",
+                                  "x": 0,
+                                  "y": 240,
+                                  "name": "Grid row line 8",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "DU8dp",
+                                  "x": 270,
+                                  "y": 0,
+                                  "name": "Grid column line 9",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "LkYFg",
+                                  "x": 0,
+                                  "y": 270,
+                                  "name": "Grid row line 9",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "tpDJs",
+                                  "x": 300,
+                                  "y": 0,
+                                  "name": "Grid column line 10",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "Pz2Ep",
+                                  "x": 0,
+                                  "y": 300,
+                                  "name": "Grid row line 10",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "d4ukf",
+                                  "x": 330,
+                                  "y": 0,
+                                  "name": "Grid column line 11",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "FqE3V",
+                                  "x": 0,
+                                  "y": 330,
+                                  "name": "Grid row line 11",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "AlSZp",
+                                  "x": 360,
+                                  "y": 0,
+                                  "name": "Grid column line 12",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "q4eCw",
+                                  "x": 0,
+                                  "y": 360,
+                                  "name": "Grid row line 12",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "T4Udf",
+                                  "x": 390,
+                                  "y": 0,
+                                  "name": "Grid column line 13",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "PN5FA",
+                                  "x": 0,
+                                  "y": 390,
+                                  "name": "Grid row line 13",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "YU0qM",
+                                  "x": 420,
+                                  "y": 0,
+                                  "name": "Grid column line 14",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "OXOAD",
+                                  "x": 0,
+                                  "y": 420,
+                                  "name": "Grid row line 14",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "AaLgj",
+                                  "x": 450,
+                                  "y": 0,
+                                  "name": "Grid column line 15",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "ndGQE",
+                                  "x": 0,
+                                  "y": 450,
+                                  "name": "Grid row line 15",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "O1eJFz",
+                                  "x": 480,
+                                  "y": 0,
+                                  "name": "Grid column line 16",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "cgOSo",
+                                  "x": 0,
+                                  "y": 480,
+                                  "name": "Grid row line 16",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "JFRNC",
+                                  "x": 510,
+                                  "y": 0,
+                                  "name": "Grid column line 17",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "o1uGNh",
+                                  "x": 0,
+                                  "y": 510,
+                                  "name": "Grid row line 17",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "L849k",
+                                  "x": 540,
+                                  "y": 0,
+                                  "name": "Grid column line 18",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "S8sZhF",
+                                  "x": 0,
+                                  "y": 540,
+                                  "name": "Grid row line 18",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "xR1JD",
+                                  "x": 570,
+                                  "y": 0,
+                                  "name": "Grid column line 19",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "ukUYE",
+                                  "x": 0,
+                                  "y": 570,
+                                  "name": "Grid row line 19",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "KfpbP",
+                                  "x": 599,
+                                  "y": 0,
+                                  "name": "Grid column line 20",
+                                  "fill": "$border",
+                                  "width": 1,
+                                  "height": 600
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "UET8r",
+                                  "x": 0,
+                                  "y": 599,
+                                  "name": "Grid row line 20",
+                                  "fill": "$border",
+                                  "width": 600,
+                                  "height": 1
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "MI5qu",
+                                  "x": 243,
+                                  "y": 123,
+                                  "name": "Renderer / Obstacle / column 9 row 5",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "SnH58",
+                                  "x": 243,
+                                  "y": 153,
+                                  "name": "Renderer / Obstacle / column 9 row 6",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "AFETA",
+                                  "x": 243,
+                                  "y": 183,
+                                  "name": "Renderer / Obstacle / column 9 row 7",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "zk9cy",
+                                  "x": 243,
+                                  "y": 213,
+                                  "name": "Renderer / Obstacle / column 9 row 8",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "sslib",
+                                  "x": 273,
+                                  "y": 123,
+                                  "name": "Renderer / Obstacle / column 10 row 5",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "RO5bF",
+                                  "x": 273,
+                                  "y": 153,
+                                  "name": "Renderer / Obstacle / column 10 row 6",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "AsGvU",
+                                  "x": 273,
+                                  "y": 183,
+                                  "name": "Renderer / Obstacle / column 10 row 7",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "HbnMb",
+                                  "x": 273,
+                                  "y": 213,
+                                  "name": "Renderer / Obstacle / column 10 row 8",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "OIkPZ",
+                                  "x": 333,
+                                  "y": 303,
+                                  "name": "Renderer / Obstacle / column 12 row 11",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "ejAHD",
+                                  "x": 363,
+                                  "y": 303,
+                                  "name": "Renderer / Obstacle / column 13 row 11",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "m8bNI",
+                                  "x": 393,
+                                  "y": 303,
+                                  "name": "Renderer / Obstacle / column 14 row 11",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "mJUhA",
+                                  "x": 423,
+                                  "y": 303,
+                                  "name": "Renderer / Obstacle / column 15 row 11",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "Zu2YL",
+                                  "x": 93,
+                                  "y": 453,
+                                  "name": "Renderer / Obstacle / column 4 row 16",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "HzOxy",
+                                  "x": 123,
+                                  "y": 453,
+                                  "name": "Renderer / Obstacle / column 5 row 16",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "PsaUD",
+                                  "x": 153,
+                                  "y": 453,
+                                  "name": "Renderer / Obstacle / column 6 row 16",
+                                  "fill": "$muted-foreground",
+                                  "width": 24,
+                                  "height": 24
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "V8kFdf",
+                                  "x": 62,
+                                  "y": 92,
+                                  "name": "Renderer / Station A / column 3 row 4",
+                                  "width": 26,
+                                  "height": 26,
+                                  "fill": "$accent",
+                                  "cornerRadius": 3,
+                                  "stroke": "$foreground",
+                                  "strokeWidth": 1,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "nHcfP",
+                                      "name": "Station A warehouse marker",
+                                      "width": 18,
+                                      "height": 18,
+                                      "icon": "warehouse",
+                                      "library": "lucide",
+                                      "fill": "$foreground"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "CELB9",
+                                  "x": 482,
+                                  "y": 452,
+                                  "name": "Renderer / Station B / column 17 row 16",
+                                  "width": 26,
+                                  "height": 26,
+                                  "fill": "$accent",
+                                  "cornerRadius": 3,
+                                  "stroke": "$foreground",
+                                  "strokeWidth": 1,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "HaPOW",
+                                      "name": "Station B warehouse marker",
+                                      "width": 18,
+                                      "height": 18,
+                                      "icon": "warehouse",
+                                      "library": "lucide",
+                                      "fill": "$foreground"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "id": "bvYhi",
+                                  "x": 180,
+                                  "y": 330,
+                                  "name": "Renderer / Selected cell / column 7 row 12",
+                                  "fill": "$accent",
+                                  "width": 30,
+                                  "height": 30,
+                                  "stroke": "$primary",
+                                  "strokeWidth": 3,
+                                  "strokeAlignment": "inner"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "uscz2",
+                                  "x": 184,
+                                  "y": 334,
+                                  "name": "Renderer / Robot 1 / column 7 row 12",
+                                  "width": 22,
+                                  "height": 22,
+                                  "fill": "$primary",
+                                  "cornerRadius": 11,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "qZ3dF",
+                                      "name": "Robot schematic marker",
+                                      "width": 16,
+                                      "height": 16,
+                                      "icon": "bot",
+                                      "library": "lucide",
+                                      "fill": "$primary-foreground"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "B6hyyZ",
+                              "x": 144,
+                              "y": 7,
+                              "name": "Column 1",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "1",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "l11yM5",
+                              "x": 112,
+                              "y": 35,
+                              "name": "Row 1",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "1",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "lgyAC",
+                              "x": 174,
+                              "y": 7,
+                              "name": "Column 2",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "2",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Lw4SB",
+                              "x": 112,
+                              "y": 65,
+                              "name": "Row 2",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "2",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "r6hjRD",
+                              "x": 204,
+                              "y": 7,
+                              "name": "Column 3",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "3",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "wHoCy",
+                              "x": 112,
+                              "y": 95,
+                              "name": "Row 3",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "3",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "MfC2V",
+                              "x": 234,
+                              "y": 7,
+                              "name": "Column 4",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "4",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "YTswE",
+                              "x": 112,
+                              "y": 125,
+                              "name": "Row 4",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "4",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "I8zuAI",
+                              "x": 264,
+                              "y": 7,
+                              "name": "Column 5",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "5",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "i6uq6",
+                              "x": 112,
+                              "y": 155,
+                              "name": "Row 5",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "5",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "i7Fj9t",
+                              "x": 294,
+                              "y": 7,
+                              "name": "Column 6",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "6",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "AOreO",
+                              "x": 112,
+                              "y": 185,
+                              "name": "Row 6",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "6",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "UG8OU",
+                              "x": 324,
+                              "y": 7,
+                              "name": "Column 7",
+                              "fill": "$primary",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "7",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "EPxdM",
+                              "x": 112,
+                              "y": 215,
+                              "name": "Row 7",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "7",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "R13qD",
+                              "x": 354,
+                              "y": 7,
+                              "name": "Column 8",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "8",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Z60Wn",
+                              "x": 112,
+                              "y": 245,
+                              "name": "Row 8",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "8",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "X4Nl81",
+                              "x": 384,
+                              "y": 7,
+                              "name": "Column 9",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "9",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Z161c",
+                              "x": 112,
+                              "y": 275,
+                              "name": "Row 9",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "9",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "FuUB9",
+                              "x": 414,
+                              "y": 7,
+                              "name": "Column 10",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "10",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "GLXb6",
+                              "x": 112,
+                              "y": 305,
+                              "name": "Row 10",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "10",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "hWn2p",
+                              "x": 444,
+                              "y": 7,
+                              "name": "Column 11",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "11",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "AbMK5",
+                              "x": 112,
+                              "y": 335,
+                              "name": "Row 11",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "11",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "y5qJR",
+                              "x": 474,
+                              "y": 7,
+                              "name": "Column 12",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "12",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "DeWNE",
+                              "x": 112,
+                              "y": 365,
+                              "name": "Row 12",
+                              "fill": "$primary",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "12",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "kKwYG",
+                              "x": 504,
+                              "y": 7,
+                              "name": "Column 13",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "13",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "jVTcz",
+                              "x": 112,
+                              "y": 395,
+                              "name": "Row 13",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "13",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JeGlr",
+                              "x": 534,
+                              "y": 7,
+                              "name": "Column 14",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "14",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "qmcdn",
+                              "x": 112,
+                              "y": 425,
+                              "name": "Row 14",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "14",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ndtgU",
+                              "x": 564,
+                              "y": 7,
+                              "name": "Column 15",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "15",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "xRPpK",
+                              "x": 112,
+                              "y": 455,
+                              "name": "Row 15",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "15",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "L48n9a",
+                              "x": 594,
+                              "y": 7,
+                              "name": "Column 16",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "16",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "G9T02s",
+                              "x": 112,
+                              "y": 485,
+                              "name": "Row 16",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "16",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "coPbq",
+                              "x": 624,
+                              "y": 7,
+                              "name": "Column 17",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "17",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "voFuM",
+                              "x": 112,
+                              "y": 515,
+                              "name": "Row 17",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "17",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "tQ0Fy",
+                              "x": 654,
+                              "y": 7,
+                              "name": "Column 18",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "18",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "eqbxF",
+                              "x": 112,
+                              "y": 545,
+                              "name": "Row 18",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "18",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "xyteX",
+                              "x": 684,
+                              "y": 7,
+                              "name": "Column 19",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "19",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "VKGqH",
+                              "x": 112,
+                              "y": 575,
+                              "name": "Row 19",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "19",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "X1JRVZ",
+                              "x": 714,
+                              "y": 7,
+                              "name": "Column 20",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 30,
+                              "content": "20",
+                              "textAlign": "center",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Hm45b",
+                              "x": 112,
+                              "y": 605,
+                              "name": "Row 20",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": 24,
+                              "content": "20",
+                              "textAlign": "right",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rYWIS",
+                      "name": "Web / Selection details and editing actions",
+                      "width": 264,
+                      "height": "fill_container",
+                      "fill": "$card",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 20,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gGGJO",
+                          "name": "Selection heading",
+                          "fill": "$foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Выбрано",
+                          "lineHeight": 1.45,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 18,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VXg0F",
+                          "name": "Web / Selected robot summary",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "a5DRt",
+                              "name": "Selected object identity",
+                              "width": "fill_container",
+                              "gap": 8,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "V9XBy",
+                                  "name": "Robot identity icon",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "bot",
+                                  "library": "lucide",
+                                  "fill": "$primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "HkIHK",
+                                  "name": "Selected robot name",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Робот 1",
+                                  "lineHeight": 1.45,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "z7hUK",
+                              "name": "Selected cell coordinates",
+                              "fill": "$foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Клетка: 7, 12",
+                              "lineHeight": 1.45,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JJ54Y",
+                              "name": "Coordinate convention",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Столбец, строка · от 1 до 20",
+                              "lineHeight": 1.45,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "dV6KU",
+                          "name": "Selection divider",
+                          "fill": "$border",
+                          "width": "fill_container",
+                          "height": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "WwPAu",
+                          "name": "Web / Object edit intents",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "sNRCo",
+                              "name": "Web / Переместить selected object",
+                              "width": "fill_container",
+                              "height": 44,
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "gap": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "OQ3DD",
+                                  "name": "Переместить icon",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "move",
+                                  "library": "lucide",
+                                  "fill": "$foreground"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "ZYj1d",
+                                  "name": "Переместить label",
+                                  "fill": "$foreground",
+                                  "content": "Переместить",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "j8ROWi",
+                              "name": "Web / Удалить selected object",
+                              "width": "fill_container",
+                              "height": 44,
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "gap": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "QD0oJ",
+                                  "name": "Удалить icon",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "trash-2",
+                                  "library": "lucide",
+                                  "fill": "$destructive"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "xUe0h",
+                                  "name": "Удалить label",
+                                  "fill": "$destructive",
+                                  "content": "Удалить",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "zGrXt",
+                              "name": "Move interaction proposal",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Для перемещения выберите объект, затем свободную клетку.",
+                              "lineHeight": 1.45,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "BELFX",
+                          "name": "Web / Map key",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "cWFZ6",
+                              "name": "Map key title",
+                              "fill": "$foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "На карте",
+                              "lineHeight": 1.45,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "ZtoYD",
+                              "name": "Key / Станция",
+                              "width": "fill_container",
+                              "gap": 10,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "axSTx",
+                                  "name": "Станция key icon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "warehouse",
+                                  "library": "lucide",
+                                  "fill": "$foreground"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "a6q6Y",
+                                  "name": "Станция key label",
+                                  "fill": "$muted-foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Станция",
+                                  "lineHeight": 1.45,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "mAvSm",
+                              "name": "Key / Препятствие",
+                              "width": "fill_container",
+                              "gap": 10,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "C5Lc0",
+                                  "name": "Obstacle solid key",
+                                  "fill": "$muted-foreground",
+                                  "width": 18,
+                                  "height": 18
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "j12i7",
+                                  "name": "Препятствие key label",
+                                  "fill": "$muted-foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Препятствие",
+                                  "lineHeight": 1.45,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "yIxdS",
+                              "name": "Key / Робот",
+                              "width": "fill_container",
+                              "gap": 10,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "htWjl",
+                                  "name": "Робот key icon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "bot",
+                                  "library": "lucide",
+                                  "fill": "$foreground"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "GWFXt",
+                                  "name": "Робот key label",
+                                  "fill": "$muted-foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Робот",
+                                  "lineHeight": 1.45,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {
