@@ -66,6 +66,54 @@ pnpm exec openspec validate <change-id> --strict --no-interactive
 не заменяет человеческие согласования из ADR-002. Личные настройки AI-клиентов
 хранятся вне версионируемых файлов проекта.
 
+### Интеграции AI-клиентов
+
+Общие workflows OpenSpec входят в репозиторий:
+
+- `.agents/skills/openspec-*/` — общие skills, которые OpenCode читает автоматически;
+- `.cursor/skills/` и `.cursor/commands/` — skills и команды `/opsx-*` для Cursor;
+- `.claude/skills/` и `.claude/commands/opsx/` — skills и команды `/opsx:*` для Claude Code.
+
+После клонирования перезапустите AI-клиент для обнаружения skills и команд.
+В OpenCode попросите загрузить нужный skill, например `openspec-propose`.
+Универсальная интеграция `.agents/` не создаёт короткие команды `/opsx-*`.
+Маркер `.agents/skills/.openspec-target` также хранится в Git: он позволяет
+OpenSpec обнаружить универсальную интеграцию при обновлении.
+
+Сгенерированные workflows вызывают `openspec` напрямую. Чтобы запускать их
+без изменения команд, установите глобально версию из `package.json`:
+
+```sh
+pnpm add -g @fission-ai/openspec@1.17.0
+openspec --version
+```
+
+После обновления версии OpenSpec в `package.json` обновите и глобальную установку.
+Альтернатива — использовать локальный CLI через `pnpm exec openspec`;
+в зависимости от AI-клиента и настроек доступа это может потребовать
+дополнительного разрешения. Глобальная установка для этого варианта не нужна.
+
+Поле `allowed-tools: Bash(openspec:*)` в сгенерированных skills и командах
+предварительно разрешает соответствующие вызовы в Claude Code. Остальные
+инструменты подчиняются обычным настройкам доступа клиента.
+
+Генерируем эти файлы штатным CLI установленной в проекте версии:
+
+```sh
+pnpm exec openspec init --tools agents,cursor,claude --profile core --no-animation
+```
+
+После обновления зависимости OpenSpec обновите интеграции той же командой
+и проверьте diff перед включением в PR. Генерируемые инструкции workflows
+поддерживаются CLI; правила Warehouse и человеческие согласования находятся
+в `AGENTS.md`, ADR-002 и `openspec/config.yaml`.
+
+Личный профиль OpenCode (`.opencode/`, `opencode.json`, `opencode.jsonc`)
+остаётся в `.gitignore`. Не храните в `.opencode/skills/` дубликаты
+`openspec-*`: они могут перекрыть общие skills из `.agents/skills/`.
+В `.cursor/` и `.claude/` публикуем только общие интеграции OpenSpec;
+личные настройки и секреты в эти каталоги не добавляем.
+
 ## Подключение приложения или пакета
 
 1. Создайте `package.json` в соответствующем каталоге с уникальным именем `@warehouse/*` и `private: true`.
