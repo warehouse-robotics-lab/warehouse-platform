@@ -1292,7 +1292,8 @@
                   "content": "user@example.com · example@example.com — вводимый текст и placeholder",
                   "lineHeight": "$leading-input",
                   "fontFamily": "$font-sans",
-                  "fontSize": "$text-input"
+                  "fontSize": "$text-input",
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -1327,7 +1328,8 @@
                   "content": "Владелец редактирует склад и управляет симуляцией. The owner edits the warehouse.",
                   "lineHeight": "$leading-body",
                   "fontFamily": "$font-sans",
-                  "fontSize": "$text-body"
+                  "fontSize": "$text-body",
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -1362,7 +1364,8 @@
                   "content": "Ваша роль · Your role",
                   "lineHeight": "$leading-caption",
                   "fontFamily": "$font-sans",
-                  "fontSize": "$text-caption"
+                  "fontSize": "$text-caption",
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -2156,17 +2159,8 @@
                       "name": "Empty State",
                       "reusable": true,
                       "width": "fill_container",
-                      "fill": "$card",
-                      "cornerRadius": "$radius",
-                      "stroke": "$border",
-                      "strokeWidth": 1,
-                      "strokeAlignment": "inner",
                       "layout": "vertical",
                       "gap": "$space-2",
-                      "padding": [
-                        "$space-8",
-                        "$space-6"
-                      ],
                       "alignItems": "center",
                       "children": [
                         {
@@ -2826,7 +2820,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "— Широкий экран: sidebar 240px под шапкой, содержимое — колонка до 960px. Образец y5CUq использует тот же каркас.",
+                      "content": "— Широкий экран: sidebar 240px под шапкой, main padding 32px; fluid-колонка до 1200px (1136px при viewport 1440). Образец y5CUq использует тот же каркас. Пустое состояние без карточки центрируется в свободной области под заголовком.",
                       "lineHeight": "$leading-body",
                       "fontFamily": "$font-sans",
                       "fontSize": "$text-body",
@@ -3152,7 +3146,7 @@
                           "y": 0,
                           "name": "Field error",
                           "enabled": false,
-                          "width": "fill_container(0)",
+                          "width": 280,
                           "gap": "$space-2",
                           "children": [
                             {
@@ -3296,7 +3290,8 @@
                           "stroke": "$destructive"
                         },
                         "guV7O": {
-                          "enabled": true
+                          "enabled": true,
+                          "width": "fill_container"
                         }
                       }
                     }
@@ -3539,7 +3534,8 @@
                           "fill": "$foreground"
                         },
                         "guV7O": {
-                          "enabled": true
+                          "enabled": true,
+                          "width": "fill_container"
                         },
                         "BLkYI": {
                           "content": "Проверьте формат почты"
@@ -3822,7 +3818,8 @@
                               "height": 44
                             },
                             "guV7O": {
-                              "enabled": true
+                              "enabled": true,
+                              "width": "fill_container"
                             },
                             "BLkYI": {
                               "content": "Тестовая длинная строка ошибки для проверки переноса на несколько строк"
@@ -3917,7 +3914,8 @@
                               "content": " "
                             },
                             "guV7O": {
-                              "enabled": true
+                              "enabled": true,
+                              "width": "fill_container"
                             },
                             "BLkYI": {
                               "content": "Enter your password"
@@ -4098,7 +4096,8 @@
                               "stroke": "$destructive"
                             },
                             "guV7O": {
-                              "enabled": true
+                              "enabled": true,
+                              "width": "fill_container"
                             },
                             "BLkYI": {
                               "content": "Enter your email"
@@ -4122,7 +4121,8 @@
                               "content": " "
                             },
                             "guV7O": {
-                              "enabled": true
+                              "enabled": true,
+                              "width": "fill_container"
                             },
                             "BLkYI": {
                               "content": "Enter your password"
@@ -4493,7 +4493,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "— Ошибки полей, общая ошибка и ожидание не показываются одновременно.",
+                      "content": "— Ошибки полей, общая ошибка и ожидание не показываются одновременно. В default / sending под каждым полем зарезервирована строка feedback 28px: inline-ошибки не сдвигают поля. Общая ошибка постоянна в форме перед submit, вместо резерва под паролем; при показанных RU-текстах карточка выше на 40px, поля смещаются только на 20px из-за центрирования. В реализации зоны растут при переносе: не фиксировать высоту ошибок, не накладывать на поля и не заменять toast.",
                       "lineHeight": "$leading-body",
                       "fontFamily": "$font-sans",
                       "fontSize": "$text-body",
@@ -4506,7 +4506,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "— Поля и основная кнопка — 44px на широком и узком экране. Вводимый текст и placeholder — 16px. Body 14px и caption 12px не меняются. Карточка 400px; на узком экране — на всю ширину с внешними отступами 16px.",
+                      "content": "— Поля и основная кнопка — 44px, вводимый текст и placeholder — 16px. Карточка 400px; mobile: ширина с внешними отступами 16px. Форму центрировать flex в доступной области под шапкой с безопасными вертикальными отступами 24px (mobile) / 32px (desktop), без фиксированного top.",
                       "lineHeight": "$leading-body",
                       "fontFamily": "$font-sans",
                       "fontSize": "$text-body",
@@ -4594,7 +4594,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "— Согласовано: вводимый текст и placeholder 16px, поля и основная кнопка 44px на desktop/mobile. Другие размеры экранов и поведение мобильного браузера макет не проверяет.",
+                      "content": "— План короткого viewport / keyboard: main с min-height доступной области, форма не сжимается; при нехватке места — вертикальная прокрутка страницы и безопасное выравнивание к началу, поля и submit доступны через scroll. Клавиатура и динамический viewport в макете НЕ ПРОВЕРЕНЫ.",
                       "lineHeight": "$leading-body",
                       "fontFamily": "$font-sans",
                       "fontSize": "$text-body",
@@ -4985,8 +4985,8 @@
                 {
                   "type": "frame",
                   "id": "i8ktXr",
-                  "name": "Content (max-width 960)",
-                  "width": 960,
+                  "name": "Content (fluid, max-width 1200)",
+                  "width": "fill_container",
                   "layout": "vertical",
                   "gap": "$space-6",
                   "children": [
@@ -5275,8 +5275,9 @@
                 {
                   "type": "frame",
                   "id": "fFp3v",
-                  "name": "Content (max-width 960)",
-                  "width": 960,
+                  "name": "Content (fluid, max-width 1200)",
+                  "width": "fill_container",
+                  "height": "fill_container",
                   "layout": "vertical",
                   "gap": "$space-6",
                   "children": [
@@ -5307,7 +5308,9 @@
                       "type": "ref",
                       "ref": "NPgQH",
                       "name": "Empty state / Нет складов",
-                      "width": "fill_container"
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "justifyContent": "center"
                     }
                   ]
                 }
@@ -5421,10 +5424,9 @@
               "ref": "NPgQH",
               "name": "Empty state / Нет складов",
               "width": "fill_container",
-              "padding": [
-                "$space-8",
-                "$space-4"
-              ]
+              "padding": 0,
+              "height": "fill_container",
+              "justifyContent": "center"
             }
           ]
         }
@@ -5459,12 +5461,8 @@
           "width": "fill_container",
           "height": "fill_container",
           "layout": "vertical",
-          "padding": [
-            144,
-            "$space-8",
-            "$space-8",
-            "$space-8"
-          ],
+          "padding": "$space-8",
+          "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
@@ -5508,6 +5506,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Почта",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Почта"
@@ -5520,6 +5519,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Пароль",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Пароль"
@@ -5589,6 +5589,7 @@
             "$space-6",
             "$space-4"
           ],
+          "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
@@ -5635,6 +5636,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Почта",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Почта"
@@ -5650,6 +5652,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Пароль",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Пароль"
@@ -5718,12 +5721,8 @@
           "width": "fill_container",
           "height": "fill_container",
           "layout": "vertical",
-          "padding": [
-            144,
-            "$space-8",
-            "$space-8",
-            "$space-8"
-          ],
+          "padding": "$space-8",
+          "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
@@ -5775,7 +5774,8 @@
                           "stroke": "$destructive"
                         },
                         "guV7O": {
-                          "enabled": true
+                          "enabled": true,
+                          "width": "fill_container"
                         },
                         "BLkYI": {
                           "content": "Укажите почту"
@@ -5799,7 +5799,8 @@
                           "content": " "
                         },
                         "guV7O": {
-                          "enabled": true
+                          "enabled": true,
+                          "width": "fill_container"
                         },
                         "BLkYI": {
                           "content": "Укажите пароль"
@@ -5858,12 +5859,8 @@
           "width": "fill_container",
           "height": "fill_container",
           "layout": "vertical",
-          "padding": [
-            144,
-            "$space-8",
-            "$space-8",
-            "$space-8"
-          ],
+          "padding": "$space-8",
+          "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
@@ -5894,13 +5891,6 @@
                   "fontWeight": "600"
                 },
                 {
-                  "id": "dUQrn",
-                  "type": "ref",
-                  "ref": "eDsIO",
-                  "name": "Alert / Error (role=alert)",
-                  "width": "fill_container"
-                },
-                {
                   "type": "frame",
                   "id": "fTocY",
                   "name": "Fields",
@@ -5914,6 +5904,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Почта",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Почта"
@@ -5941,6 +5932,13 @@
                       }
                     }
                   ]
+                },
+                {
+                  "id": "dUQrn",
+                  "type": "ref",
+                  "ref": "eDsIO",
+                  "name": "Alert / Error (role=alert)",
+                  "width": "fill_container"
                 },
                 {
                   "id": "Xdyn1",
@@ -5992,12 +5990,8 @@
           "width": "fill_container",
           "height": "fill_container",
           "layout": "vertical",
-          "padding": [
-            144,
-            "$space-8",
-            "$space-8",
-            "$space-8"
-          ],
+          "padding": "$space-8",
+          "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
@@ -6041,6 +6035,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Почта (read-only)",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Почта"
@@ -6060,6 +6055,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Пароль (read-only)",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Пароль"
@@ -6131,12 +6127,8 @@
           "width": "fill_container",
           "height": "fill_container",
           "layout": "vertical",
-          "padding": [
-            144,
-            "$space-8",
-            "$space-8",
-            "$space-8"
-          ],
+          "padding": "$space-8",
+          "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
@@ -6167,18 +6159,6 @@
                   "fontWeight": "600"
                 },
                 {
-                  "id": "bgcdE",
-                  "type": "ref",
-                  "ref": "eDsIO",
-                  "name": "Alert / Error · неверные данные (role=alert)",
-                  "width": "fill_container",
-                  "descendants": {
-                    "wbkvK": {
-                      "content": "Неверная почта или пароль"
-                    }
-                  }
-                },
-                {
                   "type": "frame",
                   "id": "hWSJ0",
                   "name": "Fields",
@@ -6192,6 +6172,7 @@
                       "ref": "vyvgP",
                       "name": "Field / Почта",
                       "width": "fill_container",
+                      "height": 100,
                       "descendants": {
                         "FJllO": {
                           "content": "Почта"
@@ -6219,6 +6200,18 @@
                       }
                     }
                   ]
+                },
+                {
+                  "id": "bgcdE",
+                  "type": "ref",
+                  "ref": "eDsIO",
+                  "name": "Alert / Error · неверные данные (role=alert)",
+                  "width": "fill_container",
+                  "descendants": {
+                    "wbkvK": {
+                      "content": "Неверная почта или пароль"
+                    }
+                  }
                 },
                 {
                   "id": "YW94I",
