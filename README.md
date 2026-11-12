@@ -47,8 +47,8 @@ pnpm test
 ```
 
 Turbo запускает соответствующие скрипты из `package.json` workspace-пакетов.
-`dev`, `build`, `typecheck` и `lint` выполняют задачи Web и Simulation.
-У `test` пока нет реализованных скриптов.
+`dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
+`test` запускает unit-тесты API; у Web и Simulation тестовый скрипт пока не объявлен.
 
 ## Спецификации OpenSpec
 
@@ -65,9 +65,6 @@ pnpm exec openspec validate <change-id> --strict --no-interactive
 Контекст проекта и правила этапов — в `openspec/config.yaml`. Готовность артефактов
 не заменяет человеческие согласования из ADR-002. Личные настройки AI-клиентов
 хранятся вне версионируемых файлов проекта.
-
-Turbo запускает соответствующие скрипты из package.json workspace-пакетов. dev, build, typecheck и lint выполняют задачи Web и Simulation. У test пока нет реализованных скриптов.
-
 
 ## Подключение приложения или пакета
 
