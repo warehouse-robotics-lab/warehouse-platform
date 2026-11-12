@@ -7,7 +7,9 @@ context: |
   Warehouse Platform: apps/web, apps/api, apps/simulation; packages/contracts,
   packages/warehouse-renderer. Product requirements: docs/product-requirements.md.
   Follow AGENTS.md and Accepted docs/adr/002-ai-development-workflow.md.
-  ADR-001 is Proposed; do not treat open architecture choices as accepted.
+  ADR-001 and ADR-003 are Accepted.
+  Open architecture choices such as contracts tooling, renderer library and
+  simulation-core placement remain undecided.
   Human gates apply even when OpenSpec reports artifacts complete or apply ready:
   significant behavior: approve specification, then approve tests, then implement;
   small behavior: approve brief specification and tests together, then implement.
