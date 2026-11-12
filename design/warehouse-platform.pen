@@ -3667,20 +3667,23 @@
                       "id": "DoXVg",
                       "type": "ref",
                       "ref": "f24jhn",
-                      "name": "Button / Primary · sending «Входим…»",
+                      "name": "Button / Primary · sending / loader only",
                       "width": "fill_container",
                       "fill": "$muted",
                       "stroke": "$border",
                       "strokeWidth": 1,
                       "strokeAlignment": "inner",
+                      "height": 44,
+                      "gap": 0,
                       "descendants": {
                         "rHb8r": {
                           "icon": "loader-circle",
                           "fill": "$muted-foreground"
                         },
                         "L1iECf": {
-                          "content": "Входим…",
-                          "fill": "$muted-foreground"
+                          "content": "",
+                          "fill": "$muted-foreground",
+                          "enabled": false
                         }
                       }
                     }
@@ -3830,7 +3833,7 @@
                           "id": "PdCJV",
                           "type": "ref",
                           "ref": "f24jhn",
-                          "name": "Button / Primary · sending «Входим…»",
+                          "name": "Button / Primary · sending / loader only",
                           "width": "fill_container",
                           "fill": "$muted",
                           "stroke": "$border",
@@ -3840,14 +3843,17 @@
                             "$space-3",
                             "$space-4"
                           ],
+                          "height": 44,
+                          "gap": 0,
                           "descendants": {
                             "rHb8r": {
                               "icon": "loader-circle",
                               "fill": "$muted-foreground"
                             },
                             "L1iECf": {
-                              "content": "Входим…",
-                              "fill": "$muted-foreground"
+                              "content": "",
+                              "fill": "$muted-foreground",
+                              "enabled": false
                             }
                           }
                         }
@@ -3926,7 +3932,7 @@
                           "id": "tQaFS",
                           "type": "ref",
                           "ref": "f24jhn",
-                          "name": "Button / Primary · sending «Signing in…»",
+                          "name": "Button / Primary · sending / loader only",
                           "width": "fill_container",
                           "fill": "$muted",
                           "stroke": "$border",
@@ -3936,14 +3942,17 @@
                             "$space-3",
                             "$space-4"
                           ],
+                          "height": 44,
+                          "gap": 0,
                           "descendants": {
                             "rHb8r": {
                               "icon": "loader-circle",
                               "fill": "$muted-foreground"
                             },
                             "L1iECf": {
-                              "content": "Signing in…",
-                              "fill": "$muted-foreground"
+                              "content": "",
+                              "fill": "$muted-foreground",
+                              "enabled": false
                             }
                           }
                         }
@@ -4056,7 +4065,7 @@
                 {
                   "type": "frame",
                   "id": "wC2R5",
-                  "name": "Specimen / EN · форма 336px (карточка 400px): Email / Password / Signing in…",
+                  "name": "Specimen / EN · форма 336px (карточка 400px): Email / Password / Sign in",
                   "width": 336,
                   "layout": "vertical",
                   "gap": "$space-2",
@@ -4480,7 +4489,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "— Ожидание: «Входим…» с индикатором; повторный submit заблокирован, поля временно нельзя менять. Макет не подтверждает реализацию блокировки.",
+                      "content": "— Ожидание: только loader по центру кнопки, без текста; ширина сохранена, высота 44px. Повторный submit заблокирован, поля временно нельзя менять. Блокировка макетом не проверена.",
                       "lineHeight": "$leading-body",
                       "fontFamily": "$font-sans",
                       "fontSize": "$text-body",
@@ -4691,7 +4700,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "— Общая ошибка объявляется при появлении (role=\"alert\"). Ожидание: кнопка недоступна, aria-busy; статус несёт текст «Входим…».",
+                      "content": "— Общая ошибка: role=alert. План ожидания: кнопка недоступна, aria-busy=true, доступное имя «Войти»; скрытый role=status сообщает о загрузке, без видимого текста. Доступность не проверена.",
                       "lineHeight": "$leading-body",
                       "fontFamily": "$font-sans",
                       "fontSize": "$text-body",
@@ -4805,7 +4814,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "— Текст: placeholder 5,2:1; «Войти» 5,2:1; «Входим…» 4,7:1.",
+                      "content": "— Текст: placeholder 5,2:1; «Войти» 5,2:1. Loader на muted: 4,7:1.",
                       "lineHeight": "$leading-body",
                       "fontFamily": "$font-sans",
                       "fontSize": "$text-body",
@@ -6075,20 +6084,23 @@
                   "id": "H1JCd",
                   "type": "ref",
                   "ref": "f24jhn",
-                  "name": "Submit «Входим…» (недоступна, aria-busy)",
+                  "name": "Submit / loader only (недоступна, aria-busy)",
                   "width": "fill_container",
                   "fill": "$muted",
                   "stroke": "$border",
                   "strokeWidth": 1,
                   "strokeAlignment": "inner",
+                  "height": 44,
+                  "gap": 0,
                   "descendants": {
                     "rHb8r": {
                       "icon": "loader-circle",
                       "fill": "$muted-foreground"
                     },
                     "L1iECf": {
-                      "content": "Входим…",
-                      "fill": "$muted-foreground"
+                      "content": "",
+                      "fill": "$muted-foreground",
+                      "enabled": false
                     }
                   }
                 }
