@@ -107,9 +107,19 @@ pnpm --filter @warehouse/api prisma:generate
 pnpm --filter @warehouse/api prisma:migrate
 ```
 
+Для интеграционных тестов создайте отдельную тестовую базу один раз:
+
+```sh
+docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_test'
+```
+
+Тестовая база указывается в `TEST_DATABASE_URL` из `apps/api/.env`. Схема
+`warehouse_api` пересоздаётся автоматически перед запуском тестов.
+
 Подробности о переменных окружения, миграциях и проверках — в
 [README API](apps/api/README.md). Интеграционные тесты API используют
-текущую базу только для чтения: они не создают и не изменяют данные.
+отдельную тестовую базу: setup пересоздаёт схему и применяет миграции,
+а сами проверки только читают данные.
 
 ## Структура
 
@@ -142,8 +152,9 @@ pnpm --filter @warehouse/api test:e2e
 Turbo запускает соответствующие скрипты из `package.json` workspace-пакетов.
 `dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
 `test` запускает unit-тесты API; у Web и Simulation тестовый скрипт пока не объявлен.
-`test:integration` и `test:e2e` проверяют API на PostgreSQL и требуют запущенной
-базы и применённых миграций.
+`test:integration` проверяет API на отдельной тестовой базе из `TEST_DATABASE_URL`,
+`test:e2e` использует базу из `DATABASE_URL`. Обе проверки требуют запущенной
+PostgreSQL и применённых миграций.
 
 ## Спецификации OpenSpec
 

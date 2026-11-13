@@ -34,6 +34,7 @@ cp apps/api/.env.example apps/api/.env
 | --- | --- | --- |
 | `PORT` | `3001` | Порт HTTP-сервера; целое число от `1` до `65535`. |
 | `DATABASE_URL` | — | Строка подключения PostgreSQL; обязательна, начинается с `postgresql://` или `postgres://`. |
+| `TEST_DATABASE_URL` | — | Отдельная база для `test:integration`; обязательна для интеграционных тестов. |
 
 Приложение не запустится, если `PORT` или `DATABASE_URL` имеют недопустимое значение.
 
@@ -47,6 +48,24 @@ cp apps/api/.env.example apps/api/.env
 
 Если параметры PostgreSQL в корневом `.env` изменены, обновите `DATABASE_URL`
 соответственно. Специальные символы в пароле нужно URL-кодировать.
+
+Если в `DATABASE_URL` указан параметр `?schema=...`, Prisma CLI применяет
+миграции в этой схеме, а `PrismaService` передаёт её в `@prisma/adapter-pg`
+для модельных запросов.
+
+### Тестовая PostgreSQL
+
+Интеграционные тесты используют отдельную базу из `TEST_DATABASE_URL`, а не
+`DATABASE_URL`. Создайте её один раз из корня репозитория, если базы ещё нет:
+
+```sh
+docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_test'
+```
+
+В `TEST_DATABASE_URL` укажите тестовую базу с параметром `?schema=warehouse_api`.
+Пример есть в `apps/api/.env.example`. Если параметры PostgreSQL изменены,
+обновите `TEST_DATABASE_URL` так же, как `DATABASE_URL`. Схема должна быть не
+`public`: это проверяет, что Prisma CLI и runtime используют одну и ту же схему.
 
 ## Prisma
 
@@ -130,11 +149,12 @@ pnpm test:e2e
 Из корня репозитория те же скрипты доступны через
 `pnpm --filter @warehouse/api <script>`.
 
-Интеграционные тесты выполняются на PostgreSQL из `DATABASE_URL` и требуют
-применённых миграций. Они только читают данные: проверяют подключение,
-модель `User`, наличие таблицы и уникального индекса. Тесты не создают,
-не изменяют и не удаляют записи. `test:e2e` также требует доступную базу,
-так как API подключается к ней при старте.
+Интеграционные тесты используют `TEST_DATABASE_URL` и отдельную тестовую базу.
+Перед запуском они пересоздают схему `warehouse_api`, применяют миграции и не
+затрагивают dev-базу из `DATABASE_URL`. Сами проверки только читают данные:
+проверяют подключение, модель `User`, наличие таблицы и уникального индекса.
+`test:e2e` использует `DATABASE_URL` и требует доступную базу, так как API
+подключается к ней при старте.
 
 `test:e2e` и `test:integration` запускают Jest с `--experimental-vm-modules`:
 Prisma 7 загружает WASM query compiler через динамический импорт.
