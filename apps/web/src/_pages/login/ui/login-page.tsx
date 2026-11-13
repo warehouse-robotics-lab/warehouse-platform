@@ -1,11 +1,10 @@
 import { Button } from "@/shared/ui/button";
+import { LoginHeader } from "./login-header";
 
 export function LoginPage() {
   return (
     <div className="flex min-h-dvh flex-col bg-slate-50 text-slate-900">
-      <header className="border-b border-slate-200 bg-white px-6 py-4">
-        <span className="text-sm font-semibold">Warehouse Platform</span>
-      </header>
+      <LoginHeader />
       <main className="flex flex-1 flex-col items-center justify-center bg-slate-50 px-4 py-8 text-slate-900">
         <div className="w-full max-w-sm rounded-lg border border-slate-200 bg-white p-6">
           <h1 className="mb-6 w-full max-w-sm text-2xl font-semibold">Вход</h1>
