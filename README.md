@@ -95,6 +95,22 @@ docker compose down -v
 После `down -v` следующий запуск создаст пустую базу. Не используйте эту
 команду, если локальные данные нужны для работы.
 
+## База данных API
+
+API читает строку подключения из `apps/api/.env`. Создайте файл из шаблона,
+сгенерируйте Prisma Client и примените миграции. Команды выполняются из корня
+репозитория:
+
+```sh
+cp apps/api/.env.example apps/api/.env
+pnpm --filter @warehouse/api prisma:generate
+pnpm --filter @warehouse/api prisma:migrate
+```
+
+Подробности о переменных окружения, миграциях и проверках — в
+[README API](apps/api/README.md). Интеграционные тесты API используют
+текущую базу только для чтения: они не создают и не изменяют данные.
+
 ## Структура
 
 ```text
@@ -119,11 +135,15 @@ pnpm build
 pnpm lint
 pnpm typecheck
 pnpm test
+pnpm --filter @warehouse/api test:integration
+pnpm --filter @warehouse/api test:e2e
 ```
 
 Turbo запускает соответствующие скрипты из `package.json` workspace-пакетов.
 `dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
 `test` запускает unit-тесты API; у Web и Simulation тестовый скрипт пока не объявлен.
+`test:integration` и `test:e2e` проверяют API на PostgreSQL и требуют запущенной
+базы и применённых миграций.
 
 ## Спецификации OpenSpec
 
