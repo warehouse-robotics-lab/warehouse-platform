@@ -5,4 +5,5 @@ coverage
 .turbo
 pnpm-lock.yaml
 next-env.d.ts
+apps/api/src/generated
 *.md
