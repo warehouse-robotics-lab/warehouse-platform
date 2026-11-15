@@ -15,7 +15,7 @@
 - Инструментов для тестов в `apps/web` нет.
 
 Макет: `design/warehouse-platform.pen`, ревизия `7419145`, фреймы `Ca1Ii` (1440px)
-и `AFo3y` (390px). Порядок работы — [ADR-002](../../../docs/adr/002-ai-development-workflow.md)
+и `AFo3y` (390px). Порядок работы — [ADR-002](../../../../docs/adr/002-ai-development-workflow.md)
 с адаптацией для этой задачи (см. `tasks.md`).
 
 ## Goals / Non-Goals
