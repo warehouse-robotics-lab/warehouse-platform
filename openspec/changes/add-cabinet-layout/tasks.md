@@ -21,23 +21,23 @@
 
 ## 2. Этап 2: тема
 
-- [ ] 2.1 В `apps/web/src/app/globals.css` записать в `:root` значения цветов из `specs/ui-theme`, добавить токены `--text-title` и `--text-section`. Проверка: значения совпадают со сценариями `ui-theme`, `pnpm --filter @warehouse/web build` проходит.
-- [ ] 2.2 В `apps/web/src/app/layout.tsx` подключить Inter (`latin`, `cyrillic`) и удалить класс `dark` с `<html>`. Проверка: при тёмной теме ОС страница светлая, в DevTools у текста шрифт Inter.
+- [x] 2.1 В `apps/web/src/app/globals.css` записать в `:root` значения цветов из `specs/ui-theme`, добавить токены `--text-title` и `--text-section`. Проверка: значения совпадают со сценариями `ui-theme`, `pnpm --filter @warehouse/web build` проходит.
+- [x] 2.2 В `apps/web/src/app/layout.tsx` подключить Inter (`latin`, `cyrillic`) и удалить класс `dark` с `<html>`. Проверка: при тёмной теме ОС страница светлая, в DevTools у текста шрифт Inter.
 
 ## 3. Этап 2: компоненты shadcn/ui
 
-- [ ] 3.1 Выполнить `pnpm --filter @warehouse/web exec shadcn add sidebar empty`, существующий `button.tsx` не перезаписывать. Проверка: новые файлы лежат в `src/shared/ui` и `src/shared/lib/hooks`, `button.tsx` в diff не изменён, изменения `package.json` и `pnpm-lock.yaml` проверены, `pnpm --filter @warehouse/web typecheck` проходит.
+- [x] 3.1 Выполнить `pnpm --filter @warehouse/web exec shadcn add sidebar empty`, существующий `button.tsx` не перезаписывать. Проверка: новые файлы лежат в `src/shared/ui` и `src/shared/lib/hooks`, `button.tsx` в diff не изменён, изменения `package.json` и `pnpm-lock.yaml` проверены, `pnpm --filter @warehouse/web typecheck` проходит.
 
 ## 4. Этап 2: каркас и страница
 
-- [ ] 4.1 Добавить виджет `src/widgets/app-header`: шапка 56px с текстом «Warehouse Platform». Проверка: сценарии требования «Шапка» из `cabinet-layout`.
-- [ ] 4.2 Добавить виджет `src/widgets/cabinet-layout`: список разделов в `config/navigation.ts`, функцию `lib/is-active-path.ts` без импортов через алиасы и без зависимости от Next.js, боковую панель (`Sidebar`, `collapsible="none"`, 240px), полосу для узкой раскладки, область содержимого и слот для шапки. Раскладки переключаются брейкпоинтом `md`. Проверка: сценарии `cabinet-layout`, кроме сравнения с макетом (оно в 5.4).
-- [ ] 4.3 Добавить страницу `src/_pages/warehouses` и маршруты `src/app/(cabinet)/layout.tsx` и `src/app/(cabinet)/warehouses/page.tsx`. Проверка: `/warehouses` открывается, выполняются сценарии `warehouses-page`.
-- [ ] 4.4 Обновить `apps/web/README.md`: слой `widgets`, правило для `layout.tsx` групп маршрутов, маршрут `/warehouses`. Проверка: README соответствует структуре `src`.
+- [x] 4.1 Добавить виджет `src/widgets/app-header`: шапка 56px с текстом «Warehouse Platform». Проверка: сценарии требования «Шапка» из `cabinet-layout`.
+- [x] 4.2 Добавить виджет `src/widgets/cabinet-layout`: список разделов в `config/navigation.ts`, функцию `lib/is-active-path.ts` без импортов через алиасы и без зависимости от Next.js, боковую панель (`Sidebar`, `collapsible="none"`, 240px), полосу для узкой раскладки, область содержимого и слот для шапки. Раскладки переключаются брейкпоинтом `md`. Проверка: сценарии `cabinet-layout`, кроме сравнения с макетом (оно в 5.4).
+- [x] 4.3 Добавить страницу `src/_pages/warehouses` и маршруты `src/app/(cabinet)/layout.tsx` и `src/app/(cabinet)/warehouses/page.tsx`. Проверка: `/warehouses` открывается, выполняются сценарии `warehouses-page`.
+- [x] 4.4 Обновить `apps/web/README.md`: слой `widgets`, правило для `layout.tsx` групп маршрутов, маршрут `/warehouses`. Проверка: README соответствует структуре `src`.
 
 ## 5. Этап 2: проверки и ревью кода
 
-- [ ] 5.1 Выполнить `pnpm --filter @warehouse/web build`, `typecheck`, `lint` и `pnpm format:check`. Проверка: все команды завершаются без ошибок.
+- [x] 5.1 Выполнить `pnpm --filter @warehouse/web build`, `typecheck`, `lint` и `pnpm format:check`. Проверка: все команды завершаются без ошибок.
 - [ ] 5.2 Проверить поведение в браузере по сценариям `cabinet-layout` и `warehouses-page`, без постоянного набора автотестов и новых зависимостей проекта. Ширины 390, 430, 767, 768, 1024 и 1440px: раскладка навигации, читаемость, переносы текста, отсутствие обрезания и горизонтальной прокрутки страницы. Переход по ссылке, открытие пункта в новой вкладке, Tab и Enter, кольцо фокуса, `aria-current` у активного пункта. Прямое открытие `/warehouses` и обновление страницы. Проверка: результаты реально выполненных проверок и скриншоты ширин записаны в PR.
 - [ ] 5.3 Проверить активность пункта для адресов без маршрутов: разовый вызов `isActivePath` командой Node для `/warehouses`, `/warehouses/123`, `/warehouses-other` и `/settings`. Проверка: результаты совпадают со сценариями требования «Активный раздел» и записаны в PR.
 - [ ] 5.4 Проверка человеком: сравнение с фреймами `Ca1Ii` (1440px) и `AFo3y` (390px), повтор проверки 5.3. Проверка: результаты записаны в PR.
