@@ -95,6 +95,37 @@ docker compose down -v
 После `down -v` следующий запуск создаст пустую базу. Не используйте эту
 команду, если локальные данные нужны для работы.
 
+## База данных API
+
+API читает строку подключения из `apps/api/.env`. Создайте файл из шаблона,
+сгенерируйте Prisma Client и примените миграции. Команды выполняются из корня
+репозитория:
+
+```sh
+cp apps/api/.env.example apps/api/.env
+pnpm --filter @warehouse/api prisma:generate
+pnpm --filter @warehouse/api prisma:migrate
+```
+
+Для интеграционных тестов создайте отдельную тестовую базу один раз:
+
+```sh
+docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_test'
+```
+
+Тестовая база указывается в `TEST_DATABASE_URL` из `apps/api/.env`.
+`TEST_DATABASE_URL` должен указывать на другую физическую базу, чем
+`DATABASE_URL`: перед изменениями setup сравнивает host, port и имя базы и
+останавливается при совпадении. Схема из `?schema=` (`warehouse_api` в примере)
+пересоздаётся автоматически, миграции применяются в неё.
+
+Подробности о переменных окружения, миграциях и проверках — в
+[README API](apps/api/README.md). Интеграционные тесты API используют
+отдельную тестовую базу: setup пересоздаёт только выделенную схему и применяет
+миграции, затем тесты создают и удаляют записи `User` в этой схеме. Объекты в
+`public` и других схемах не изменяются; при наличии `public.User` setup
+останавливается с диагностикой.
+
 ## Структура
 
 ```text
@@ -119,11 +150,16 @@ pnpm build
 pnpm lint
 pnpm typecheck
 pnpm test
+pnpm --filter @warehouse/api test:integration
+pnpm --filter @warehouse/api test:e2e
 ```
 
 Turbo запускает соответствующие скрипты из `package.json` workspace-пакетов.
 `dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
 `test` запускает unit-тесты API; у Web и Simulation тестовый скрипт пока не объявлен.
+`test:integration` проверяет API на отдельной тестовой базе из `TEST_DATABASE_URL`
+и сам применяет миграции в её выделенной схеме. `test:e2e` использует базу из
+`DATABASE_URL` и требует запущенной PostgreSQL с применёнными миграциями.
 
 ## Спецификации OpenSpec
 

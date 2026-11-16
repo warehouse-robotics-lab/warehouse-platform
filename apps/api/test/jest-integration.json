@@ -1,0 +1,13 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "..",
+  "testEnvironment": "node",
+  "testRegex": "\\.integration-spec\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "globalSetup": "<rootDir>/test/integration.global-setup.ts",
+  "setupFiles": ["<rootDir>/test/integration.setup.ts"],
+  "maxWorkers": 1,
+  "testTimeout": 30000
+}
