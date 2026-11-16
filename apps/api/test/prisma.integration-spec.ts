@@ -10,6 +10,12 @@ describe('Prisma integration', () => {
   let app: INestApplication;
   let prisma: PrismaService;
 
+  const validUser = {
+    email: 'user@example.com',
+    password: 'hashed-password',
+    name: 'Test User',
+  };
+
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
@@ -18,6 +24,10 @@ describe('Prisma integration', () => {
     app = moduleFixture.createNestApplication();
     await app.init();
     prisma = app.get(PrismaService);
+  });
+
+  beforeEach(async () => {
+    await prisma.user.deleteMany();
   });
 
   afterAll(async () => {
@@ -43,6 +53,40 @@ describe('Prisma integration', () => {
     await expect(prisma.user.count()).resolves.toEqual(expect.any(Number));
   });
 
+  it('rejects a duplicate email', async () => {
+    await prisma.user.create({ data: validUser });
+
+    await expect(prisma.user.create({ data: validUser })).rejects.toMatchObject(
+      { code: 'P2002' },
+    );
+    await expect(prisma.user.count()).resolves.toBe(1);
+  });
+
+  it('rejects a duplicate email in another case', async () => {
+    await prisma.user.create({ data: validUser });
+
+    await expect(
+      prisma.user.create({
+        data: { ...validUser, email: 'USER@EXAMPLE.COM' },
+      }),
+    ).rejects.toMatchObject({ code: 'P2002' });
+    await expect(prisma.user.count()).resolves.toBe(1);
+  });
+
+  it.each([
+    ['empty email', { email: '' }],
+    ['whitespace email', { email: '   ' }],
+    ['empty password', { password: '' }],
+    ['whitespace password', { password: '   ' }],
+    ['empty name', { name: '' }],
+    ['whitespace name', { name: '   ' }],
+  ])('rejects %s', async (_case, overrides) => {
+    await expect(
+      prisma.user.create({ data: { ...validUser, ...overrides } }),
+    ).rejects.toThrow();
+    await expect(prisma.user.count()).resolves.toBe(0);
+  });
+
   it('has the User table with the expected columns in the configured schema', async () => {
     const columns = await prisma.$queryRaw<Array<{ column_name: string }>>`
       SELECT column_name
@@ -62,7 +106,7 @@ describe('Prisma integration', () => {
     ]);
   });
 
-  it('has a unique index on email in the configured schema', async () => {
+  it('has a case-insensitive unique index on email in the configured schema', async () => {
     const indexes = await prisma.$queryRaw<Array<{ indexdef: string }>>`
       SELECT indexdef
       FROM pg_indexes
@@ -72,7 +116,7 @@ describe('Prisma integration', () => {
 
     expect(
       indexes.some(({ indexdef }) =>
-        /UNIQUE INDEX .*\(email\)/i.test(indexdef),
+        /UNIQUE INDEX .*lower\(btrim\("?email"?\)\)/i.test(indexdef),
       ),
     ).toBe(true);
   });
