@@ -3,11 +3,20 @@ import path from 'node:path';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { config as loadEnv } from 'dotenv';
 import { PrismaClient } from '../src/generated/prisma/client';
+import {
+  getDatabaseLocation,
+  isSameDatabase,
+} from '../src/prisma/database-url';
 
 const appRoot = path.resolve(__dirname, '..');
 const schemaNamePattern = /^[A-Za-z_][A-Za-z0-9_]*$/;
+const systemSchemaPattern = /^pg_/i;
 
-function readTestDatabase(): { databaseUrl: string; schema: string } {
+function readTestDatabase(): {
+  databaseUrl: string;
+  databaseName: string;
+  schema: string;
+} {
   loadEnv({ path: path.join(appRoot, '.env'), quiet: true });
 
   const databaseUrl = process.env.TEST_DATABASE_URL;
@@ -18,9 +27,8 @@ function readTestDatabase(): { databaseUrl: string; schema: string } {
     );
   }
 
-  const url = new URL(databaseUrl);
-  const databaseName = url.pathname.replace(/^\/+/, '');
-  const schema = url.searchParams.get('schema');
+  const { database: databaseName } = getDatabaseLocation(databaseUrl);
+  const schema = new URL(databaseUrl).searchParams.get('schema');
 
   if (!databaseName.endsWith('_test')) {
     throw new Error(
@@ -34,17 +42,49 @@ function readTestDatabase(): { databaseUrl: string; schema: string } {
     );
   }
 
-  if (schema === 'public' || !schemaNamePattern.test(schema)) {
+  if (
+    schema.toLowerCase() === 'public' ||
+    schema.toLowerCase() === 'information_schema' ||
+    systemSchemaPattern.test(schema) ||
+    !schemaNamePattern.test(schema)
+  ) {
     throw new Error(
-      'TEST_DATABASE_URL must use a valid, non-public schema name.',
+      'TEST_DATABASE_URL must use a valid, non-public, non-system schema name.',
     );
   }
 
-  return { databaseUrl, schema };
+  const applicationDatabaseUrl = process.env.DATABASE_URL;
+
+  if (
+    applicationDatabaseUrl &&
+    isSameDatabase(applicationDatabaseUrl, databaseUrl)
+  ) {
+    throw new Error(
+      'DATABASE_URL and TEST_DATABASE_URL point to the same database. Integration tests delete and recreate the test schema, so TEST_DATABASE_URL must use a separate database.',
+    );
+  }
+
+  return { databaseUrl, databaseName, schema };
+}
+
+async function assertNoPublicUser(
+  admin: PrismaClient,
+  databaseName: string,
+  schema: string,
+): Promise<void> {
+  const [{ exists }] = await admin.$queryRaw<Array<{ exists: boolean }>>`
+    SELECT to_regclass('public."User"') IS NOT NULL AS "exists"
+  `;
+
+  if (exists) {
+    throw new Error(
+      `Found table "public"."User" in test database "${databaseName}". Integration test setup only resets the dedicated schema "${schema}" and does not delete objects in the "public" schema. Verify that the table belongs to another test suite, or remove it manually if it is a leftover from this suite.`,
+    );
+  }
 }
 
 export default async function globalSetup(): Promise<void> {
-  const { databaseUrl, schema } = readTestDatabase();
+  const { databaseUrl, databaseName, schema } = readTestDatabase();
   const adminUrl = new URL(databaseUrl);
   adminUrl.searchParams.delete('schema');
 
@@ -53,12 +93,7 @@ export default async function globalSetup(): Promise<void> {
   });
 
   try {
-    await admin.$executeRawUnsafe(
-      'DROP TABLE IF EXISTS "public"."User" CASCADE',
-    );
-    await admin.$executeRawUnsafe(
-      'DROP TABLE IF EXISTS "public"."_prisma_migrations" CASCADE',
-    );
+    await assertNoPublicUser(admin, databaseName, schema);
     await admin.$executeRawUnsafe(`DROP SCHEMA IF EXISTS "${schema}" CASCADE`);
     await admin.$executeRawUnsafe(`CREATE SCHEMA "${schema}"`);
   } finally {
