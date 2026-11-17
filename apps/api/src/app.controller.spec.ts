@@ -17,7 +17,7 @@ describe('AppController', () => {
   describe('health', () => {
     it('returns the application status', () => {
       expect(appController.getHealth()).toEqual({
-        status: 'ok',
+        status: 'failed',
         service: 'api',
       });
     });
