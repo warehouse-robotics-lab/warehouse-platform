@@ -137,3 +137,5 @@
     @apply font-sans;
   }
 }
+
+.ci-format-check{color:red}
