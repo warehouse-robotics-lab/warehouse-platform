@@ -7,6 +7,8 @@ export class AppController {
 
   @Get()
   getHealth(): { service: 'api'; status: 'ok' } {
+    const ciTypecheck: number = 'not a number';
+    void ciTypecheck;
     return this.appService.getHealth();
   }
 }
