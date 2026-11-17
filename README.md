@@ -164,7 +164,7 @@ Turbo запускает соответствующие скрипты из `pac
 ## CI
 
 Workflow GitHub Actions из `.github/workflows/ci.yml` запускается при создании
-или обновлении pull request в `test-branch`, а также при push в эту ветку.
+или обновлении pull request в `main`, а также при push в эту ветку.
 Новый запуск для той же ветки или pull request отменяет предыдущий незавершённый
 запуск.
 
