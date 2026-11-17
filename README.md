@@ -125,6 +125,40 @@ Turbo запускает соответствующие скрипты из `pac
 `dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
 `test` запускает unit-тесты API; у Web и Simulation тестовый скрипт пока не объявлен.
 
+## CI
+
+Workflow GitHub Actions из `.github/workflows/ci.yml` запускается при создании
+или обновлении pull request в `test-branch`, а также при push в эту ветку.
+Новый запуск для той же ветки или pull request отменяет предыдущий незавершённый
+запуск.
+
+В PR отображаются отдельные jobs:
+
+- `Format` — `pnpm format:check`;
+- `Lint` — `pnpm lint`;
+- `Typecheck` — `pnpm typecheck`;
+- `Build` — `pnpm build`;
+- `Test` — `pnpm test`.
+
+Каждая job устанавливает зависимости командой `pnpm install --frozen-lockfile`.
+Это гарантирует, что CI завершится ошибкой, если `package.json` и
+`pnpm-lock.yaml` рассинхронизированы.
+
+Чтобы воспроизвести проверки локально на чистом checkout, выполните из корня
+репозитория:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm build
+pnpm test
+```
+
+Сейчас тесты есть только у API. У Web и Simulation тестовых скриптов нет, поэтому
+job `Test` выполняет только unit-тесты API.
+
 ## Спецификации OpenSpec
 
 Проект использует локальный CLI OpenSpec из devDependencies:
