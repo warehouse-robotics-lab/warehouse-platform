@@ -1,6 +1,9 @@
 import { Button } from "@/shared/ui/button";
 
 export function HomePage() {
+  if (process.env.CI === "true") {
+    throw new Error("CI build check");
+  }
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-6 px-6 py-16">
       <div className="flex max-w-xl flex-col items-center gap-3 text-center">
