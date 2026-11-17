@@ -7,6 +7,7 @@ export class AppController {
 
   @Get()
   getHealth(): { service: 'api'; status: 'ok' } {
+    const ciLintCheck = 1;
     return this.appService.getHealth();
   }
 }
