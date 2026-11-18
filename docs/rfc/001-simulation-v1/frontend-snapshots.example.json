@@ -1,0 +1,152 @@
+[
+  {
+    "warehouseId": "warehouse-1",
+    "runId": "run-1",
+    "processNumber": 1,
+    "snapshotVersion": 11,
+    "tick": 10,
+    "status": "running",
+    "map": {
+      "id": "map-1",
+      "version": 1,
+      "width": 20,
+      "height": 20,
+      "obstacles": [
+        {
+          "x": 2,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "stations": [
+        {
+          "id": "pickup-1",
+          "name": "Приёмка",
+          "position": {
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "id": "delivery-1",
+          "name": "Выдача",
+          "position": {
+            "x": 4,
+            "y": 3
+          }
+        }
+      ],
+      "initialRobot": {
+        "id": "robot-1",
+        "position": {
+          "x": 0,
+          "y": 1
+        }
+      }
+    },
+    "robot": {
+      "id": "robot-1",
+      "position": {
+        "x": 4,
+        "y": 1
+      },
+      "status": "busy",
+      "carryingTaskId": "task-1"
+    },
+    "task": {
+      "id": "task-1",
+      "pickupStationId": "pickup-1",
+      "deliveryStationId": "delivery-1",
+      "assignedRobotId": "robot-1",
+      "status": "in_progress",
+      "phase": "to_delivery",
+      "error": null
+    },
+    "route": [
+      {
+        "x": 4,
+        "y": 2
+      },
+      {
+        "x": 4,
+        "y": 3
+      }
+    ]
+  },
+  {
+    "warehouseId": "warehouse-1",
+    "runId": "run-1",
+    "processNumber": 1,
+    "snapshotVersion": 12,
+    "tick": 11,
+    "status": "running",
+    "map": {
+      "id": "map-1",
+      "version": 1,
+      "width": 20,
+      "height": 20,
+      "obstacles": [
+        {
+          "x": 2,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "stations": [
+        {
+          "id": "pickup-1",
+          "name": "Приёмка",
+          "position": {
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "id": "delivery-1",
+          "name": "Выдача",
+          "position": {
+            "x": 4,
+            "y": 3
+          }
+        }
+      ],
+      "initialRobot": {
+        "id": "robot-1",
+        "position": {
+          "x": 0,
+          "y": 1
+        }
+      }
+    },
+    "robot": {
+      "id": "robot-1",
+      "position": {
+        "x": 4,
+        "y": 2
+      },
+      "status": "busy",
+      "carryingTaskId": "task-1"
+    },
+    "task": {
+      "id": "task-1",
+      "pickupStationId": "pickup-1",
+      "deliveryStationId": "delivery-1",
+      "assignedRobotId": "robot-1",
+      "status": "in_progress",
+      "phase": "to_delivery",
+      "error": null
+    },
+    "route": [
+      {
+        "x": 4,
+        "y": 3
+      }
+    ]
+  }
+]
