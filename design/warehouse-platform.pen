@@ -9168,18 +9168,47 @@
                           "cornerRadius": 3,
                           "stroke": "$foreground",
                           "strokeWidth": 1,
-                          "justifyContent": "center",
-                          "alignItems": "center",
+                          "padding": 2,
                           "children": [
                             {
                               "type": "icon",
                               "id": "M2sIb",
                               "name": "Station A warehouse marker",
-                              "width": 18,
-                              "height": 18,
+                              "width": 16,
+                              "height": 16,
                               "icon": "warehouse",
                               "library": "lucide",
                               "fill": "$foreground"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "B6iuhA",
+                              "layoutPosition": "absolute",
+                              "x": 13,
+                              "y": 13,
+                              "name": "Station short ID A / inside own cell",
+                              "width": 13,
+                              "height": 13,
+                              "fill": "$foreground",
+                              "cornerRadius": 3,
+                              "stroke": "$card",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "outer",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "ZtqeJ",
+                                  "name": "Short ID A",
+                                  "fill": "$card",
+                                  "content": "A",
+                                  "lineHeight": 1,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -10236,18 +10265,47 @@
                           "cornerRadius": 3,
                           "stroke": "$foreground",
                           "strokeWidth": 1,
-                          "justifyContent": "center",
-                          "alignItems": "center",
+                          "padding": 2,
                           "children": [
                             {
                               "type": "icon",
                               "id": "P9WUQl",
                               "name": "Station A warehouse marker",
-                              "width": 18,
-                              "height": 18,
+                              "width": 16,
+                              "height": 16,
                               "icon": "warehouse",
                               "library": "lucide",
                               "fill": "$foreground"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Rmc2k",
+                              "layoutPosition": "absolute",
+                              "x": 13,
+                              "y": 13,
+                              "name": "Station short ID A / inside own cell",
+                              "width": 13,
+                              "height": 13,
+                              "fill": "$foreground",
+                              "cornerRadius": 3,
+                              "stroke": "$card",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "outer",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Z9rdAs",
+                                  "name": "Short ID A",
+                                  "fill": "$card",
+                                  "content": "A",
+                                  "lineHeight": 1,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
                             }
                           ]
                         },
@@ -11467,7 +11525,10 @@
               "stroke": "$border",
               "strokeWidth": 1,
               "gap": 16,
-              "padding": 16,
+              "padding": [
+                10,
+                16
+              ],
               "alignItems": "center",
               "children": [
                 {
@@ -11485,7 +11546,7 @@
                       "fill": "$foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Склад № 1 · Редактор",
+                      "content": "Склад № 1\nВладелец · Редактирование",
                       "lineHeight": 1.45,
                       "fontFamily": "$font-sans",
                       "fontSize": 14,
@@ -11569,7 +11630,10 @@
               "stroke": "$border",
               "strokeWidth": 1,
               "gap": 16,
-              "padding": 16,
+              "padding": [
+                10,
+                16
+              ],
               "alignItems": "center",
               "children": [
                 {
@@ -11587,7 +11651,7 @@
                       "fill": "$foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Склад № 1 · Редактор",
+                      "content": "Склад № 1\nВладелец · Редактирование",
                       "lineHeight": 1.45,
                       "fontFamily": "$font-sans",
                       "fontSize": 14,
@@ -11671,7 +11735,10 @@
               "stroke": "$border",
               "strokeWidth": 1,
               "gap": 16,
-              "padding": 16,
+              "padding": [
+                10,
+                16
+              ],
               "alignItems": "center",
               "children": [
                 {
@@ -11689,7 +11756,7 @@
                       "fill": "$foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Склад № 1 · Редактор",
+                      "content": "Склад № 1\nВладелец · Редактирование",
                       "lineHeight": 1.45,
                       "fontFamily": "$font-sans",
                       "fontSize": 14,
@@ -11779,7 +11846,10 @@
               "stroke": "$border",
               "strokeWidth": 1,
               "gap": 16,
-              "padding": 16,
+              "padding": [
+                10,
+                16
+              ],
               "alignItems": "center",
               "children": [
                 {
@@ -11797,7 +11867,7 @@
                       "fill": "$foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Склад № 1 · Редактор",
+                      "content": "Склад № 1\nВладелец · Редактирование",
                       "lineHeight": 1.45,
                       "fontFamily": "$font-sans",
                       "fontSize": 14,
@@ -11881,7 +11951,10 @@
               "stroke": "$border",
               "strokeWidth": 1,
               "gap": 16,
-              "padding": 16,
+              "padding": [
+                10,
+                16
+              ],
               "alignItems": "center",
               "children": [
                 {
@@ -11899,7 +11972,7 @@
                       "fill": "$foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Склад № 1 · Редактор",
+                      "content": "Склад № 1\nВладелец · Редактирование",
                       "lineHeight": 1.45,
                       "fontFamily": "$font-sans",
                       "fontSize": 14,
@@ -12037,7 +12110,7 @@
                           "fill": "$muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Редактор карты · Владелец",
+                          "content": "Владелец · Редактирование",
                           "lineHeight": 1.45,
                           "fontFamily": "$font-sans",
                           "fontSize": 14,
@@ -12209,14 +12282,24 @@
                                   "alignItems": "center",
                                   "children": [
                                     {
-                                      "type": "icon",
-                                      "id": "b1Ia2",
-                                      "name": "Препятствие icon",
+                                      "type": "frame",
+                                      "id": "E6i6A",
+                                      "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
                                       "width": 18,
                                       "height": 18,
-                                      "icon": "square",
-                                      "library": "lucide",
-                                      "fill": "$muted-foreground"
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "rectangle",
+                                          "cornerRadius": 2,
+                                          "id": "RNXKV",
+                                          "name": "Obstacle silhouette",
+                                          "fill": "$muted-foreground",
+                                          "width": 15,
+                                          "height": 15
+                                        }
+                                      ]
                                     },
                                     {
                                       "type": "text",
@@ -12331,7 +12414,7 @@
                           "fill": "$muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Map editor · Owner",
+                          "content": "Owner · Editing",
                           "lineHeight": 1.45,
                           "fontFamily": "$font-sans",
                           "fontSize": 14,
@@ -12503,14 +12586,24 @@
                                   "alignItems": "center",
                                   "children": [
                                     {
-                                      "type": "icon",
-                                      "id": "UarIV",
-                                      "name": "Препятствие icon",
+                                      "type": "frame",
+                                      "id": "gJZlu",
+                                      "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
                                       "width": 18,
                                       "height": 18,
-                                      "icon": "square",
-                                      "library": "lucide",
-                                      "fill": "$muted-foreground"
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "rectangle",
+                                          "cornerRadius": 2,
+                                          "id": "NvHbx",
+                                          "name": "Obstacle silhouette",
+                                          "fill": "$muted-foreground",
+                                          "width": 15,
+                                          "height": 15
+                                        }
+                                      ]
                                     },
                                     {
                                       "type": "text",
@@ -12647,7 +12740,7 @@
                           "fill": "$muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Редактор карты · Владелец",
+                          "content": "Владелец · Редактирование",
                           "lineHeight": 1.45,
                           "fontFamily": "$font-sans",
                           "fontSize": 14,
@@ -12758,7 +12851,7 @@
                           "fill": "$muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Map editor · Owner",
+                          "content": "Owner · Editing",
                           "lineHeight": 1.45,
                           "fontFamily": "$font-sans",
                           "fontSize": 14,
@@ -14181,14 +14274,24 @@
                       "alignItems": "center",
                       "children": [
                         {
-                          "type": "icon",
-                          "id": "F29ZVW",
-                          "name": "Препятствие icon",
+                          "type": "frame",
+                          "id": "OsP06",
+                          "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
                           "width": 18,
                           "height": 18,
-                          "icon": "square",
-                          "library": "lucide",
-                          "fill": "$muted-foreground"
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 2,
+                              "id": "G4SNSz",
+                              "name": "Obstacle silhouette",
+                              "fill": "$muted-foreground",
+                              "width": 15,
+                              "height": 15
+                            }
+                          ]
                         },
                         {
                           "type": "text",
@@ -15628,7 +15731,7 @@
               "fill": "$muted-foreground",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Редактор карты · Владелец",
+              "content": "Владелец · Редактирование",
               "lineHeight": 1.45,
               "fontFamily": "$font-sans",
               "fontSize": 14,
@@ -15802,14 +15905,24 @@
                       "alignItems": "center",
                       "children": [
                         {
-                          "type": "icon",
-                          "id": "jqBcH",
-                          "name": "Препятствие icon",
+                          "type": "frame",
+                          "id": "NUh6q",
+                          "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
                           "width": 18,
                           "height": 18,
-                          "icon": "square",
-                          "library": "lucide",
-                          "fill": "$muted-foreground"
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 2,
+                              "id": "vJ2Lr",
+                              "name": "Obstacle silhouette",
+                              "fill": "$muted-foreground",
+                              "width": 15,
+                              "height": 15
+                            }
+                          ]
                         },
                         {
                           "type": "text",
@@ -15955,7 +16068,7 @@
                   "type": "frame",
                   "id": "w4aBl",
                   "x": -20,
-                  "y": -180,
+                  "y": -84,
                   "name": "Renderer / 20×20 scene / local viewport crop",
                   "width": 600,
                   "height": 600,
@@ -16559,18 +16672,47 @@
                       "cornerRadius": 3,
                       "stroke": "$foreground",
                       "strokeWidth": 1,
-                      "justifyContent": "center",
-                      "alignItems": "center",
+                      "padding": 2,
                       "children": [
                         {
                           "type": "icon",
                           "id": "sapqq",
                           "name": "Station A warehouse marker",
-                          "width": 18,
-                          "height": 18,
+                          "width": 16,
+                          "height": 16,
                           "icon": "warehouse",
                           "library": "lucide",
                           "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "RsDxe",
+                          "layoutPosition": "absolute",
+                          "x": 13,
+                          "y": 13,
+                          "name": "Station short ID A / inside own cell",
+                          "width": 13,
+                          "height": 13,
+                          "fill": "$foreground",
+                          "cornerRadius": 3,
+                          "stroke": "$card",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "outer",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "T4B1fs",
+                              "name": "Short ID A",
+                              "fill": "$card",
+                              "content": "A",
+                              "lineHeight": 1,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -16586,18 +16728,47 @@
                       "cornerRadius": 3,
                       "stroke": "$foreground",
                       "strokeWidth": 1,
-                      "justifyContent": "center",
-                      "alignItems": "center",
+                      "padding": 2,
                       "children": [
                         {
                           "type": "icon",
                           "id": "PVE8R",
                           "name": "Station B warehouse marker",
-                          "width": 18,
-                          "height": 18,
+                          "width": 16,
+                          "height": 16,
                           "icon": "warehouse",
                           "library": "lucide",
                           "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "vMLGV",
+                          "layoutPosition": "absolute",
+                          "x": 13,
+                          "y": 13,
+                          "name": "Station short ID B / inside own cell",
+                          "width": 13,
+                          "height": 13,
+                          "fill": "$foreground",
+                          "cornerRadius": 3,
+                          "stroke": "$card",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "outer",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "o1lolf",
+                              "name": "Short ID B",
+                              "fill": "$card",
+                              "content": "B",
+                              "lineHeight": 1,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -16782,7 +16953,7 @@
               "fill": "$muted-foreground",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Map editor · Owner",
+              "content": "Owner · Editing",
               "lineHeight": 1.45,
               "fontFamily": "$font-sans",
               "fontSize": 14,
@@ -16956,14 +17127,24 @@
                       "alignItems": "center",
                       "children": [
                         {
-                          "type": "icon",
-                          "id": "tCPf1",
-                          "name": "Препятствие icon",
+                          "type": "frame",
+                          "id": "F4uMC",
+                          "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
                           "width": 18,
                           "height": 18,
-                          "icon": "square",
-                          "library": "lucide",
-                          "fill": "$muted-foreground"
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 2,
+                              "id": "c0Hoyw",
+                              "name": "Obstacle silhouette",
+                              "fill": "$muted-foreground",
+                              "width": 15,
+                              "height": 15
+                            }
+                          ]
                         },
                         {
                           "type": "text",
@@ -17109,7 +17290,7 @@
                   "type": "frame",
                   "id": "H6aHPP",
                   "x": -20,
-                  "y": -180,
+                  "y": -84,
                   "name": "Renderer / 20×20 scene / local viewport crop",
                   "width": 600,
                   "height": 600,
@@ -17713,18 +17894,47 @@
                       "cornerRadius": 3,
                       "stroke": "$foreground",
                       "strokeWidth": 1,
-                      "justifyContent": "center",
-                      "alignItems": "center",
+                      "padding": 2,
                       "children": [
                         {
                           "type": "icon",
                           "id": "z5gw15",
                           "name": "Station A warehouse marker",
-                          "width": 18,
-                          "height": 18,
+                          "width": 16,
+                          "height": 16,
                           "icon": "warehouse",
                           "library": "lucide",
                           "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "A9Wbb",
+                          "layoutPosition": "absolute",
+                          "x": 13,
+                          "y": 13,
+                          "name": "Station short ID A / inside own cell",
+                          "width": 13,
+                          "height": 13,
+                          "fill": "$foreground",
+                          "cornerRadius": 3,
+                          "stroke": "$card",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "outer",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "wjcSb",
+                              "name": "Short ID A",
+                              "fill": "$card",
+                              "content": "A",
+                              "lineHeight": 1,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -17740,18 +17950,47 @@
                       "cornerRadius": 3,
                       "stroke": "$foreground",
                       "strokeWidth": 1,
-                      "justifyContent": "center",
-                      "alignItems": "center",
+                      "padding": 2,
                       "children": [
                         {
                           "type": "icon",
                           "id": "d6XZQJ",
                           "name": "Station B warehouse marker",
-                          "width": 18,
-                          "height": 18,
+                          "width": 16,
+                          "height": 16,
                           "icon": "warehouse",
                           "library": "lucide",
                           "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "r8rEW",
+                          "layoutPosition": "absolute",
+                          "x": 13,
+                          "y": 13,
+                          "name": "Station short ID B / inside own cell",
+                          "width": 13,
+                          "height": 13,
+                          "fill": "$foreground",
+                          "cornerRadius": 3,
+                          "stroke": "$card",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "outer",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ig856",
+                              "name": "Short ID B",
+                              "fill": "$card",
+                              "content": "B",
+                              "lineHeight": 1,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
                         }
                       ]
                     },
