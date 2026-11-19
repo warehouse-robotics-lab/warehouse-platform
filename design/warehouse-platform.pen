@@ -6425,6 +6425,7 @@
                           "cornerRadius": "$radius-md",
                           "stroke": "$border",
                           "strokeWidth": 1,
+                          "gap": 12,
                           "padding": [
                             6,
                             8
@@ -6602,6 +6603,19 @@
                                   ]
                                 }
                               ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "L0gXJE",
+                              "name": "Web / Shared desktop drag hint",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Выбор: перетащите любой объект на свободную клетку",
+                              "lineHeight": 1.45,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
                             },
                             {
                               "type": "frame",
@@ -8039,7 +8053,7 @@
                           "fill": "$foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Выбрано",
+                          "content": "Сведения об объекте",
                           "lineHeight": 1.45,
                           "fontFamily": "$font-sans",
                           "fontSize": 18,
@@ -8207,7 +8221,7 @@
                               "fill": "$muted-foreground",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "Нажмите «Переместить», затем выберите свободную клетку.",
+                              "content": "Для любого объекта: «Переместить» → свободная клетка; «Отмена» — без изменений. «Удалить» удаляет выбранный объект.",
                               "lineHeight": 1.45,
                               "fontFamily": "$font-sans",
                               "fontSize": 14,
@@ -13933,7 +13947,7 @@
                   "fill": "$muted-foreground",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "DRAFT ACTIONS / move pattern = UX proposal",
+                  "content": "SHARED OBJECT ACTIONS / desktop drag first",
                   "lineHeight": 1.45,
                   "fontFamily": "$font-sans",
                   "fontSize": 12,
@@ -14106,7 +14120,7 @@
                           "fill": "$muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Нажмите «Переместить», затем выберите свободную клетку.",
+                          "content": "Любой объект: «Переместить» → свободная клетка — альтернатива.",
                           "lineHeight": 1.45,
                           "fontFamily": "$font-sans",
                           "fontSize": 14,
@@ -14123,7 +14137,7 @@
                   "fill": "$muted-foreground",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Выбрать объект → «Переместить» → свободную клетку: предложение для review, не drag-only контракт. Удаление — действие Web над черновиком. Состояния режима перемещения — блок Move mode ниже.",
+                  "content": "Станция / препятствие / робот: свой инструмент добавления, общий «Выбор» и desktop drag без открытия сведений. Панель — свойства; «Удалить» — для любого выбранного объекта. Общая недраг-альтернатива ниже.",
                   "lineHeight": 1.45,
                   "fontFamily": "$font-sans",
                   "fontSize": 12,
@@ -14371,7 +14385,7 @@
         {
           "type": "frame",
           "id": "Oz2hc",
-          "name": "Move mode / UX proposal pending #7",
+          "name": "Shared non-drag move alternative / Robot 1 example",
           "width": "fill_container",
           "layout": "vertical",
           "gap": 12,
@@ -14383,7 +14397,7 @@
               "fill": "$muted-foreground",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "MOVE MODE / выбранный объект → «Переместить» → свободная клетка или «Отмена» · UX PROPOSAL, PENDING #7 — не готовый контракт и не gesture",
+              "content": "NON-DRAG ALTERNATIVE / для любого объекта: выбор → «Переместить» → свободная клетка или «Отмена» · пример: Робот 1",
               "lineHeight": 1.45,
               "fontFamily": "$font-sans",
               "fontSize": 12,
@@ -15638,7 +15652,7 @@
               "fill": "$muted-foreground",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "MOVE MODE ANNOTATION · UX proposal, pending #7; не готовый контракт и не жест. Web хранит режим, показывает подсказку, ошибку и «Отмена»; renderer рисует preview / invalid и сообщает intent клетки. «Отмена» возвращает выбор без изменения координат. Занятая клетка — ошибка, режим остаётся. Свободная клетка завершает перемещение в черновике, сохранение — отдельно. Не drag-only; модальных форм и shortcuts нет. Способ указания клетки (клик, tap, клавиатура), drag и hit testing — R&D #7. Координаты — иллюстрация, не контракт.",
+              "content": "ОБЩАЯ НЕДРАГ-АЛЬТЕРНАТИВА · станция, препятствие или робот: выбор → «Переместить» → цель. «Отмена» сохраняет координаты; занятая цель не меняет карту, режим остаётся; свободная — меняет черновик. Desktop drag через «Выбор» — основной, открывать сведения не требуется. Web: выбор, режим, изменения, ошибки, права и сохранение; renderer: камера, рисование, pointer → intent. Точные жесты touch, thresholds, клавиатура и API не заданы. Координаты — иллюстрация.",
               "lineHeight": 1.45,
               "fontFamily": "$font-sans",
               "fontSize": 12,
@@ -16848,7 +16862,7 @@
                   "fill": "$foreground",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Выбрано: Робот 1",
+                  "content": "Сведения: Робот 1",
                   "lineHeight": 1.45,
                   "fontFamily": "$font-sans",
                   "fontSize": 14,
@@ -18070,7 +18084,7 @@
                   "fill": "$foreground",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Selected: Robot 1",
+                  "content": "Object details: Robot 1",
                   "lineHeight": 1.45,
                   "fontFamily": "$font-sans",
                   "fontSize": 14,
@@ -18255,7 +18269,7 @@
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Press Move, then select a free cell.",
+                      "content": "Any object: desktop drag with Select.\nOr Move → free cell; Cancel keeps position.\nDelete removes the selected object.",
                       "lineHeight": 1.45,
                       "fontFamily": "$font-sans",
                       "fontSize": 14,
@@ -18279,6 +18293,7 @@
         "mode": "light"
       },
       "width": 940,
+      "height": 1223,
       "fill": "$background",
       "layout": "vertical",
       "gap": 16,
@@ -18356,7 +18371,7 @@
           "fill": "$foreground",
           "textGrowth": "fixed-width",
           "width": "fill_container",
-          "content": "Renderer отображает данные сцены и highlights, сообщает user intent. Web хранит инструмент, обрабатывает формы и изменения, сохранение, ошибки и права. Макет не задаёт API, TS-контракты, обязательные data fields, модель координат или routes.",
+          "content": "Web: права, инструменты, выбранный объект, свойства, изменения и сохранение. Renderer: камера, рисование, pointer → intent. Доменные расчёты — Simulation. Toolbar у canvas не передаёт business-логику renderer. Макет не задаёт API, TS-контракты, data fields, модель координат или routes.",
           "lineHeight": 1.45,
           "fontFamily": "$font-sans",
           "fontSize": 14,
@@ -18382,7 +18397,7 @@
           "fill": "$foreground",
           "textGrowth": "fixed-width",
           "width": "fill_container",
-          "content": "• Клик вне сетки сохраняет selection, не создаёт недопустимые координаты. • Перемещение: выбрать объект → «Переместить» → свободная клетка или «Отмена»; занятая клетка — ошибка, режим остаётся; «Отмена» возвращает выбор без изменения координат. Не drag-only, без модальных форм и shortcuts. • Narrow: инструменты 2 × 2 и раскрываемые inline-сведения под картой, без drawer. 390 × 1120 показывает раскрытое состояние и длинное EN-имя целиком. При ошибке сохранения блок Save перестраивается в колонку: feedback на всю ширину с авто-высотой + «Повторить» 44 px. • Конкретные hover / selected / preview / invalid, значения линий сетки, feedback и удержание draft при ошибке — дизайн-предложения. Draft остаётся в открытом редакторе; восстановление после reload не обещано.",
+          "content": "• Станция, препятствие и робот: добавление своим инструментом, общий «Выбор», перемещение и удаление. Основной desktop-путь — drag любого объекта на свободную клетку без открытия панели. Панель / inline-сведения — имя, координаты и свойства; «Удалить» — общий путь для selected object. • Общая недраг-альтернатива: выбор → «Переместить» → свободная клетка. «Отмена» — без изменения координат; занятая цель не меняет карту, режим остаётся. Без robot-only шагов, modal и новых shortcuts. • Клик вне сетки сохраняет selection. Narrow: инструменты 2 × 2, inline без drawer, длинное EN-имя целиком. Touch-жесты не утверждены. • Ошибка Save: feedback на всю ширину + «Повторить» 44 px. Scene cues и удержание draft — UX proposals; reload не обещан.",
           "lineHeight": 1.45,
           "fontFamily": "$font-sans",
           "fontSize": 14,
@@ -18408,7 +18423,7 @@
           "fill": "$foreground",
           "textGrowth": "fixed-width",
           "width": "fill_container",
-          "content": "1 · Before / after — Map States, Gl554: два отдельных снимка ДО / ПОСЛЕ, по одному роботу, соседние клетки 7, 12 → 8, 12 в одном фрагменте. Обновление входных данных, не анимация и не алгоритм. 2 · Hover и grid — Map States, gM0jJ и все сцены листов и narrow: локальные значения сцены (grid #CBD5E1; hover — тон + прерывистый контур; invalid — рамка + бейдж ✕ на углу клетки), theme tokens и shared definitions не менялись. В R0dz4 изменён только цвет линий сетки. 3 · Move mode — Editor States, блок «Move mode»: ожидание свободной клетки + «Отмена», занятая цель, отмена и завершение. UX proposal, pending #7. 4 · Narrow save — Editor States, блок «Narrow 390»: RU / EN ошибка на всю ширину + «Повторить» 44 px; pending — только loader по центру. Статус narrow приведён к «Есть несохранённые изменения». Закрыто как макет; поведение приложения этим не подтверждено.",
+          "content": "1 · Before / after — Map States, Gl554: два отдельных снимка ДО / ПОСЛЕ, по одному роботу, соседние клетки 7, 12 → 8, 12 в одном фрагменте. Обновление входных данных, не анимация и не алгоритм. 2 · Hover и grid — Map States, gM0jJ и все сцены листов и narrow: локальные значения сцены (grid #CBD5E1; hover — тон + прерывистый контур; invalid — рамка + бейдж ✕ на углу клетки), theme tokens и shared definitions не менялись. 13 Nov в R0dz4 изменён цвет сетки. 3 · Недраг-альтернатива — Editor States: ожидание цели, ошибка, отмена и завершение; общий пример для всех объектов. 4 · Narrow save — Editor States, блок «Narrow 390»: RU / EN ошибка на всю ширину + «Повторить» 44 px; pending — только loader по центру. Статус narrow приведён к «Есть несохранённые изменения». Закрыто как макет; поведение приложения этим не подтверждено.",
           "lineHeight": 1.45,
           "fontFamily": "$font-sans",
           "fontSize": 14,
@@ -18434,7 +18449,7 @@
           "fill": "$foreground",
           "textGrowth": "fixed-width",
           "width": "fill_container",
-          "content": "#7 остаётся открытым: выбор библиотеки, pan / zoom, wheel / pinch / drag и жест указания клетки при перемещении, hit testing, DPR, performance, touch feasibility клеток, canvas keyboard и accessibility. Контракты renderer ↔ Web (данные сцены, highlights, intents), API и модель координат макетом не заданы. Финальные значения scene cues подтверждает #7. Узкие viewport показывают фрагмент 20 × 20, не all-fit. Кнопки масштаба — только intent. Web controls ≥ 44 px.",
+          "content": "Детали pointer / drag, pan / zoom, wheel / pinch, hit testing, DPR, performance, touch feasibility, canvas keyboard и accessibility требуют отдельного согласования и проверки. Основной desktop drag — UX-направление, не thresholds или готовый контракт. Renderer ↔ Web, API и модель координат макетом не заданы. Узкие viewport показывают фрагмент 20 × 20, не all-fit. Кнопки масштаба — только intent. Web controls ≥ 44 px.",
           "lineHeight": 1.45,
           "fontFamily": "$font-sans",
           "fontSize": 14,
@@ -18486,7 +18501,7 @@
           "fill": "$muted-foreground",
           "textGrowth": "fixed-width",
           "width": "fill_container",
-          "content": "Pass 13 Nov, 4 пункта: screenshots до / после просмотрены для before / after, hover, invalid, move mode, narrow 390 RU / EN и итоговых листов. Координаты новых фрагментов сверены с основной сценой (Робот 1 · 7, 12; препятствия 12–13, 11); старые фрагменты Map States остаются схематичными crops. Get problems: только намеренный crop сцены в narrow viewport и вынос focus ring за кнопку. Аномалия API: у узлов, вставленных через Insert, bounds смещены до пересоздания копированием — это не autoPASS. Макет не проверяет приложение, API, клавиатуру или performance. Ранее (review 13 Nov, локальные правки, независимо не подтверждены): R0dz4 — статус черновика рядом с Save, кнопка 184 × 44; pending — вид Foundations «sending»; focus — одно кольцо 2px + offset 2px; подсказка перемещения приведена к proposal «Переместить» → свободная клетка (RU/EN); текст наблюдателя очищен от пометки дизайнера. Остальные originals не изменялись.",
+          "content": "История review 13 Nov: before / after, hover, invalid, move mode, narrow 390 RU / EN проверялись screenshots; независимое подтверждение не заявлено. Основная сцена: Робот 1 · 7, 12; препятствия 12–13, 11. Старые Map States — схематичные crops. Get problems: намеренный narrow crop и вынос focus ring. Ранее отмечалась аномалия bounds после Insert — это не autoPASS. 19 Nov: обязательный путь через панель заменён общим desktop drag через «Выбор»; команда «Переместить» — недраг-альтернатива для всех объектов, RU / EN. Сцена, занятая цель, A / ✕, размеры экранов и narrow crop сохранены. Фактические Get, screenshots и MCP save перечисляются в отчёте этого прохода. Статичный макет не подтверждает приложение, API, клавиатуру, touch или performance. Проверка 19 Nov относится только к указанным состояниям, не ко всем возможным размерам и переводам.",
           "lineHeight": 1.45,
           "fontFamily": "$font-sans",
           "fontSize": 12,
@@ -18673,6 +18688,7 @@
                           "cornerRadius": "$radius-md",
                           "stroke": "$border",
                           "strokeWidth": 1,
+                          "gap": 12,
                           "padding": [
                             6,
                             8
@@ -18850,6 +18866,19 @@
                                   ]
                                 }
                               ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "UHNcX",
+                              "name": "Web / Shared desktop drag hint",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Выбор: перетащите любой объект на свободную клетку",
+                              "lineHeight": 1.45,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
                             },
                             {
                               "type": "frame",
@@ -20322,7 +20351,7 @@
                           "fill": "$foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Выбрано",
+                          "content": "Сведения об объекте",
                           "lineHeight": 1.45,
                           "fontFamily": "$font-sans",
                           "fontSize": 18,
@@ -20492,6 +20521,19 @@
                                   "fontWeight": "500"
                                 }
                               ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "EE4IW",
+                              "name": "Web / Shared non-drag alternative hint",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Общая недраг-альтернатива для любого объекта. «Отмена» — без изменений.",
+                              "lineHeight": 1.45,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
