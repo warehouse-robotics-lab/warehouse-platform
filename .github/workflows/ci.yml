@@ -3,10 +3,10 @@ name: CI
 on:
   pull_request:
     branches:
-      - main
+      - test-ci-main-branch
   push:
     branches:
-      - main
+      - test-ci-main-branch
 
 permissions:
   contents: read
@@ -99,7 +99,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     env:
-      DATABASE_URL: postgresql://warehouse:warehouse@localhost:5432/warehouse?schema=warehouse_api
+      DATABASE_URL: postgresql://warehouse:warehouse@localhost:5433/warehouse?schema=warehouse_api
       TEST_DATABASE_URL: postgresql://warehouse:warehouse@localhost:5432/warehouse_test?schema=warehouse_api
     steps:
       - uses: actions/checkout@v7
