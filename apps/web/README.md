@@ -36,6 +36,7 @@ pnpm dev
 pnpm build
 pnpm typecheck
 pnpm lint
+pnpm test
 pnpm start
 ```
 

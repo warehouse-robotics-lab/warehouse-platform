@@ -1,8 +1,18 @@
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { LoginPage } from "./login-page";
+
+function expectFieldError(field: HTMLElement, message: string) {
+  expect(field).toHaveAttribute("aria-invalid", "true");
+  expect(field).toHaveAccessibleDescription(message);
+}
+
+function expectNoFieldError(field: HTMLElement) {
+  expect(field).not.toHaveAttribute("aria-invalid", "true");
+  expect(field).toHaveAccessibleDescription("");
+}
 
 describe("LoginPage", () => {
   it("показывает поля почты и пароля и кнопку входа", () => {
@@ -12,6 +22,7 @@ describe("LoginPage", () => {
     expect(screen.getByLabelText("Пароль")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Войти" })).toBeInTheDocument();
   });
+
   it("не показывает ошибки полей до первой отправки", () => {
     render(<LoginPage />);
 
@@ -20,6 +31,21 @@ describe("LoginPage", () => {
       screen.queryByText("Введите корректную почту"),
     ).not.toBeInTheDocument();
   });
+
+  it("не показывает ошибку почты при уходе с поля до первой отправки", async () => {
+    const user = userEvent.setup();
+    render(<LoginPage />);
+
+    const emailField = screen.getByLabelText("Почта");
+    await user.type(emailField, "userexample.com");
+    await user.tab();
+
+    expectNoFieldError(emailField);
+    expect(
+      screen.queryByText("Введите корректную почту"),
+    ).not.toBeInTheDocument();
+  });
+
   it("показывает ошибки обязательных полей при отправке пустой формы", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -27,7 +53,22 @@ describe("LoginPage", () => {
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
     expect(screen.getAllByText("Обязательное поле")).toHaveLength(2);
+    expect(screen.getByLabelText("Почта")).toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    expect(screen.getByLabelText("Пароль")).toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    expect(screen.getByLabelText("Почта")).toHaveAccessibleDescription(
+      /Обязательное поле/,
+    );
+    expect(screen.getByLabelText("Пароль")).toHaveAccessibleDescription(
+      /Обязательное поле/,
+    );
   });
+
   it("показывает ошибку, если почта пустая, а пароль заполнен", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -35,8 +76,10 @@ describe("LoginPage", () => {
     await user.type(screen.getByLabelText("Пароль"), "secret");
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
-    expect(screen.getByText("Обязательное поле")).toBeInTheDocument();
+    expectFieldError(screen.getByLabelText("Почта"), "Обязательное поле");
+    expectNoFieldError(screen.getByLabelText("Пароль"));
   });
+
   it("показывает ошибку, если пароль пустой, а почта заполнена", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -44,8 +87,10 @@ describe("LoginPage", () => {
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
-    expect(screen.getByText("Обязательное поле")).toBeInTheDocument();
+    expectFieldError(screen.getByLabelText("Пароль"), "Обязательное поле");
+    expectNoFieldError(screen.getByLabelText("Почта"));
   });
+
   it("показывает ошибку для почты неправильного формата", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -56,6 +101,7 @@ describe("LoginPage", () => {
 
     expect(screen.getByText("Введите корректную почту")).toBeInTheDocument();
   });
+
   it("считает почту из пробелов пустой", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -64,8 +110,21 @@ describe("LoginPage", () => {
     await user.type(screen.getByLabelText("Пароль"), "secret");
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
-    expect(screen.getByText("Обязательное поле")).toBeInTheDocument();
+    expectFieldError(screen.getByLabelText("Почта"), "Обязательное поле");
+    expectNoFieldError(screen.getByLabelText("Пароль"));
   });
+
+  it("считает пароль из пробелов заполненным", async () => {
+    const user = userEvent.setup();
+    render(<LoginPage />);
+
+    await user.type(screen.getByLabelText("Пароль"), "   ");
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    expectFieldError(screen.getByLabelText("Почта"), "Обязательное поле");
+    expectNoFieldError(screen.getByLabelText("Пароль"));
+  });
+
   it("убирает ошибку почты после ввода корректного адреса", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -75,8 +134,10 @@ describe("LoginPage", () => {
 
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
 
-    expect(screen.queryByText("Обязательное поле")).not.toBeInTheDocument();
+    expectNoFieldError(screen.getByLabelText("Почта"));
+    expectFieldError(screen.getByLabelText("Пароль"), "Обязательное поле");
   });
+
   it("убирает ошибку пароля после его заполнения", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -87,16 +148,15 @@ describe("LoginPage", () => {
     await user.type(screen.getByLabelText("Пароль"), "secret");
 
     const passwordField = screen.getByLabelText("Пароль");
-    expect(passwordField.closest("div")?.parentElement).not.toHaveTextContent(
-      "Обязательное поле",
-    );
+    expectNoFieldError(passwordField);
+    expectFieldError(screen.getByLabelText("Почта"), "Обязательное поле");
   });
+
   it("снова показывает ошибку, если исправленную почту сделать некорректной", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
 
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
-    await user.type(screen.getByLabelText("Пароль"), "secret");
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
     await user.clear(screen.getByLabelText("Почта"));
@@ -104,6 +164,7 @@ describe("LoginPage", () => {
 
     expect(screen.getByText("Введите корректную почту")).toBeInTheDocument();
   });
+
   it("снова показывает ошибку, если после исправления очистить пароль", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -112,14 +173,13 @@ describe("LoginPage", () => {
     await user.type(screen.getByLabelText("Пароль"), "secret");
 
     const passwordField = screen.getByLabelText("Пароль");
-    expect(passwordField.closest("div")?.parentElement).not.toHaveTextContent(
-      "Обязательное поле",
-    );
+    expectNoFieldError(passwordField);
 
     await user.clear(passwordField);
 
-    expect(screen.getByText("Обязательное поле")).toBeInTheDocument();
+    expectFieldError(passwordField, "Обязательное поле");
   });
+
   it("убирает ошибку формата почты после исправления адреса", async () => {
     const user = userEvent.setup();
     render(<LoginPage />);
@@ -136,5 +196,183 @@ describe("LoginPage", () => {
     expect(
       screen.queryByText("Введите корректную почту"),
     ).not.toBeInTheDocument();
+  });
+
+  it("вызывает onSuccess один раз и без аргументов после успешной отправки", async ({
+    onTestFinished,
+  }) => {
+    const user = userEvent.setup();
+    const onSuccess = vi.fn();
+
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "success");
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
+
+    onTestFinished(() => {
+      vi.unstubAllEnvs();
+    });
+
+    render(<LoginPage onSuccess={onSuccess} />); // ошибка в onSuccess, потому что тест уже передаёт этот параметр, а текущий LoginPage пока его не принимает
+
+    await user.type(screen.getByLabelText("Почта"), "user@example.com");
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    await vi.waitFor(
+      () => {
+        expect(onSuccess.mock.calls).toEqual([[]]);
+      },
+      { timeout: 3000 },
+    );
+  });
+
+  it("блокирует кнопку во время отправки и разблокирует после ответа", async ({
+    onTestFinished,
+  }) => {
+    const user = userEvent.setup();
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "success");
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "500");
+
+    onTestFinished(() => {
+      vi.unstubAllEnvs();
+    });
+    render(<LoginPage />);
+
+    await user.type(screen.getByLabelText("Почта"), "user@example.com");
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+    const submitButton = screen.getByRole("button", { name: "Войти" });
+    await user.click(submitButton);
+
+    expect(submitButton).toBeDisabled();
+    expect(submitButton).toHaveAccessibleName("Войти");
+    expect(submitButton).toHaveAttribute("aria-busy", "true");
+
+    expect(
+      submitButton.querySelector('[data-testid="login-submit-spinner"]'),
+    ).toBeVisible();
+
+    expect(screen.getByLabelText("Почта")).toHaveAttribute("readonly");
+    expect(screen.getByLabelText("Пароль")).toHaveAttribute("readonly");
+
+    await vi.waitFor(
+      () => {
+        expect(submitButton).toBeEnabled();
+      },
+      { timeout: 3000 },
+    );
+
+    expect(screen.getByLabelText("Почта")).not.toHaveAttribute("readonly");
+    expect(screen.getByLabelText("Пароль")).not.toHaveAttribute("readonly");
+    expect(submitButton).not.toHaveAttribute("aria-busy", "true");
+    expect(submitButton).toHaveTextContent(/^Войти$/);
+
+    expect(
+      submitButton.querySelector('[data-testid="login-submit-spinner"]'),
+    ).not.toBeVisible();
+  });
+
+  it("показывает общее сообщение при неверных учётных данных", async ({
+    onTestFinished,
+  }) => {
+    const user = userEvent.setup();
+
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "invalid-credentials");
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
+
+    onTestFinished(() => {
+      vi.unstubAllEnvs();
+    });
+
+    render(<LoginPage />);
+
+    await user.type(screen.getByLabelText("Почта"), "user@example.com");
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    const errorMessage = await screen.findByText(
+      "Неверная почта или пароль",
+      {},
+      { timeout: 3000 },
+    );
+
+    expect(errorMessage).toBeVisible();
+    expect(errorMessage.closest('[aria-live="polite"]')).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Войти" })).toBeEnabled();
+
+    await user.type(screen.getByLabelText("Пароль"), "2");
+    expect(screen.getByText("Неверная почта или пароль")).toBeVisible();
+
+    await user.clear(screen.getByLabelText("Пароль"));
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    expect(screen.getByText("Неверная почта или пароль")).toBeVisible();
+
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    expect(
+      screen.queryByText("Неверная почта или пароль"),
+    ).not.toBeInTheDocument();
+
+    expect(
+      await screen.findByText(
+        "Неверная почта или пароль",
+        {},
+        { timeout: 3000 },
+      ),
+    ).toBeVisible();
+  });
+
+  it("показывает общее сообщение при технической ошибке", async ({
+    onTestFinished,
+  }) => {
+    const user = userEvent.setup();
+
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "technical-error");
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
+
+    onTestFinished(() => {
+      vi.unstubAllEnvs();
+    });
+
+    render(<LoginPage />);
+
+    await user.type(screen.getByLabelText("Почта"), "user@example.com");
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    expect(
+      await screen.findByText(
+        "Не удалось войти. Попробуйте ещё раз.",
+        {},
+        { timeout: 3000 },
+      ),
+    ).toBeVisible();
+    expect(screen.getByRole("button", { name: "Войти" })).toBeEnabled();
+  });
+
+  it("показывает ошибку, если результат тестового обработчика задан пустой строкой", async ({
+    onTestFinished,
+  }) => {
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "");
+    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
+
+    onTestFinished(() => {
+      vi.unstubAllEnvs();
+    });
+
+    const user = userEvent.setup();
+    render(<LoginPage />);
+
+    expect(
+      screen.getByText(
+        "Ошибка настройки тестового обработчика. Проверьте настройки разработки.",
+      ),
+    ).toBeVisible();
+
+    await user.type(screen.getByLabelText("Почта"), "user@example.com");
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    expect(screen.getByRole("button", { name: "Войти" })).toBeEnabled();
   });
 });
