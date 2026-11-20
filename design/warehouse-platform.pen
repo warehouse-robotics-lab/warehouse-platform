@@ -6519,7 +6519,7 @@
                                 {
                                   "type": "frame",
                                   "id": "iglpH",
-                                  "name": "Web / Tool / Препятствие",
+                                  "name": "Web / Obstacle tool / mode chooser",
                                   "height": 44,
                                   "fill": "$card",
                                   "cornerRadius": "$radius-sm",
@@ -6561,6 +6561,16 @@
                                       "fontFamily": "$font-sans",
                                       "fontSize": "$text-body",
                                       "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "icon",
+                                      "id": "Xfsey",
+                                      "name": "Open obstacle mode menu",
+                                      "width": 12,
+                                      "height": 12,
+                                      "icon": "chevron-down",
+                                      "library": "lucide",
+                                      "fill": "$muted-foreground"
                                     }
                                   ]
                                 },
@@ -6611,7 +6621,7 @@
                               "fill": "$muted-foreground",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "Выбор: перетащите любой объект на свободную клетку",
+                              "content": "Выбор: перетащите объект на свободную клетку",
                               "lineHeight": 1.45,
                               "fontFamily": "$font-sans",
                               "fontSize": 12,
@@ -6670,14 +6680,15 @@
                         {
                           "type": "frame",
                           "id": "j3V1Ua",
-                          "name": "Renderer / Scene viewport / Data and selection only",
+                          "name": "Web map focus cue / Renderer scene viewport",
                           "clip": true,
                           "width": "fill_container",
                           "height": 640,
                           "fill": "$card",
                           "cornerRadius": "$radius-md",
-                          "stroke": "$border",
-                          "strokeWidth": 1,
+                          "stroke": "$ring",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
                           "layout": "none",
                           "children": [
                             {
@@ -8211,6 +8222,34 @@
                                   "fontFamily": "$font-sans",
                                   "fontSize": 14,
                                   "fontWeight": "500"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "t8lOL",
+                                  "name": "Desktop Delete key hint",
+                                  "height": 22,
+                                  "fill": "$muted",
+                                  "cornerRadius": "$radius-sm",
+                                  "stroke": "$input",
+                                  "strokeWidth": 1,
+                                  "strokeAlignment": "inner",
+                                  "padding": [
+                                    0,
+                                    6
+                                  ],
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "uhpnB",
+                                      "name": "Key label",
+                                      "fill": "$foreground",
+                                      "content": "Delete",
+                                      "fontFamily": "$font-sans",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
                                 }
                               ]
                             },
@@ -8221,7 +8260,7 @@
                               "fill": "$muted-foreground",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "Для любого объекта: «Переместить» → свободная клетка; «Отмена» — без изменений. «Удалить» удаляет выбранный объект.",
+                              "content": "Клавиша Delete — когда фокус на карте. Без перетаскивания: «Переместить» → свободная клетка.",
                               "lineHeight": 1.45,
                               "fontFamily": "$font-sans",
                               "fontSize": 14,
@@ -11441,6 +11480,3478 @@
           "fontFamily": "$font-sans",
           "fontSize": 14,
           "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "ewHhh",
+          "name": "Editor / Obstacle area / Map states",
+          "width": "fill_container",
+          "fill": "$background",
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "WumsV",
+              "name": "Designer label / UX draft",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "04 / OBSTACLE AREA · UX-ПРОЕКТ, НЕ СОГЛАСОВАНО",
+              "lineHeight": 1.4,
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "FIxic",
+              "name": "Flow title",
+              "fill": "$foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Прямоугольная область заполняет клетки, а не создаёт объект",
+              "lineHeight": 1.4,
+              "fontFamily": "$font-sans",
+              "fontSize": 22,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "q5fVLL",
+              "name": "Flow annotation",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Два последовательных выбора углов: предварительная подсветка не меняет карту. Второй угол включает свою клетку. Координаты иллюстративны; подсветка не означает выбор нескольких объектов.",
+              "lineHeight": 1.4,
+              "fontFamily": "$font-sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "LbAh3",
+              "name": "Area workflow / First corner, preview, applied",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "sIN8i",
+                  "name": "Editor / Obstacle area / First corner",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Rbwvw",
+                      "name": "Designer state title",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "01 · Первый угол",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sUQPn",
+                      "name": "Web / Active area mode and actions",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "S48KxF",
+                          "name": "Web / Obstacle tool / Area active",
+                          "height": 44,
+                          "fill": "$accent",
+                          "cornerRadius": "$radius-sm",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "J6VFB",
+                              "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
+                              "width": 18,
+                              "height": 18,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "uImHF",
+                                  "name": "Obstacle silhouette",
+                                  "fill": "$muted-foreground",
+                                  "width": 15,
+                                  "height": 15
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "BLcZc",
+                              "name": "Препятствие label",
+                              "fill": "$foreground",
+                              "content": "Область",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-body",
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "orQJn",
+                              "name": "Open obstacle mode menu",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "chevron-down",
+                              "library": "lucide",
+                              "fill": "$muted-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ZeRnM",
+                          "name": "Web / Cancel area",
+                          "height": 44,
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ykhmt",
+                              "name": "Отмена icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "x",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "x2Dxs",
+                              "name": "Отмена label",
+                              "fill": "$foreground",
+                              "content": "Отмена",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "xzjyN",
+                      "name": "Map instruction",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Первый угол выбран. Укажите противоположный.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uPY3a",
+                      "name": "Renderer / Grid crop",
+                      "width": "fill_container",
+                      "height": 184,
+                      "fill": "$background",
+                      "cornerRadius": "$radius-sm",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "R4CQe",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid background",
+                          "fill": "$card",
+                          "width": 180,
+                          "height": 150
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "pM7ry",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid column line 0",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "OLPJd",
+                          "x": 88,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "6",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "uy5bN",
+                          "x": 118,
+                          "y": 24,
+                          "name": "Grid column line 1",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "vzS0X",
+                          "x": 118,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "7",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Bfsg6",
+                          "x": 148,
+                          "y": 24,
+                          "name": "Grid column line 2",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "egv3L",
+                          "x": 148,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "8",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "XddRo",
+                          "x": 178,
+                          "y": 24,
+                          "name": "Grid column line 3",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "Fh2Cr",
+                          "x": 178,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "CQVO2",
+                          "x": 208,
+                          "y": 24,
+                          "name": "Grid column line 4",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "uWtK5",
+                          "x": 208,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "uZq4v",
+                          "x": 238,
+                          "y": 24,
+                          "name": "Grid column line 5",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "P4Gog",
+                          "x": 238,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Aagga",
+                          "x": 268,
+                          "y": 24,
+                          "name": "Grid column line 6",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "YtGQy",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid row line 0",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "KvpR9",
+                          "x": 62,
+                          "y": 31,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "bkKot",
+                          "x": 88,
+                          "y": 54,
+                          "name": "Grid row line 1",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "SZTIq",
+                          "x": 62,
+                          "y": 61,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "qGceC",
+                          "x": 88,
+                          "y": 84,
+                          "name": "Grid row line 2",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "Djy3B",
+                          "x": 62,
+                          "y": 91,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "p3viI",
+                          "x": 88,
+                          "y": 114,
+                          "name": "Grid row line 3",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "Ohrvn",
+                          "x": 62,
+                          "y": 121,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "12",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "ULN7E",
+                          "x": 88,
+                          "y": 144,
+                          "name": "Grid row line 4",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "PGUQ4",
+                          "x": 62,
+                          "y": 151,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "13",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "L26Rn",
+                          "x": 88,
+                          "y": 174,
+                          "name": "Grid row line 5",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n6APFv",
+                          "x": 122,
+                          "y": 118,
+                          "name": "Existing Robot 1 / 7, 12",
+                          "width": 22,
+                          "height": 22,
+                          "fill": "$primary",
+                          "cornerRadius": 11,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "W73Rh",
+                              "name": "Robot schematic marker",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "bot",
+                              "library": "lucide",
+                              "fill": "$primary-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "yS0bE",
+                          "x": 149,
+                          "y": 55,
+                          "name": "First corner outline",
+                          "width": 29,
+                          "height": 29,
+                          "stroke": "$primary",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "GVojz",
+                          "x": 151,
+                          "y": 57,
+                          "name": "First corner",
+                          "width": 16,
+                          "height": 16,
+                          "fill": "$primary",
+                          "cornerRadius": 3,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "TQl2B",
+                              "name": "Marker label",
+                              "fill": "$primary-foreground",
+                              "content": "1",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "TpxYs",
+                      "name": "Designer explanation",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Начните с выбора первой клетки. Маркер «1» — угол области, не выбор объекта.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hh8ct",
+                  "name": "Editor / Obstacle area / Valid preview",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "F3sPkd",
+                      "name": "Designer state title",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "02 · Предпросмотр",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DzMtg",
+                      "name": "Web / Active area mode and actions",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "utRSg",
+                          "name": "Web / Obstacle tool / Area active",
+                          "height": 44,
+                          "fill": "$accent",
+                          "cornerRadius": "$radius-sm",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "vs9wH",
+                              "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
+                              "width": 18,
+                              "height": 18,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "W29oyh",
+                                  "name": "Obstacle silhouette",
+                                  "fill": "$muted-foreground",
+                                  "width": 15,
+                                  "height": 15
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "DmnMd",
+                              "name": "Препятствие label",
+                              "fill": "$foreground",
+                              "content": "Область",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-body",
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "obE1K",
+                              "name": "Open obstacle mode menu",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "chevron-down",
+                              "library": "lucide",
+                              "fill": "$muted-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "k2J7B",
+                          "name": "Web / Cancel area",
+                          "height": 44,
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "WP53T",
+                              "name": "Отмена icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "x",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "b4YGEV",
+                              "name": "Отмена label",
+                              "fill": "$foreground",
+                              "content": "Отмена",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "AO92K",
+                      "name": "Map instruction",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "6 клеток · Укажите второй угол.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "x6bqQi",
+                      "name": "Renderer / Grid crop",
+                      "width": "fill_container",
+                      "height": 184,
+                      "fill": "$background",
+                      "cornerRadius": "$radius-sm",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "AO3aM",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid background",
+                          "fill": "$card",
+                          "width": 180,
+                          "height": 150
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "JQBw6",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid column line 0",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "mSodR",
+                          "x": 88,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "6",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "j1xXI",
+                          "x": 118,
+                          "y": 24,
+                          "name": "Grid column line 1",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "R2VT7",
+                          "x": 118,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "7",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "J9eYSu",
+                          "x": 148,
+                          "y": 24,
+                          "name": "Grid column line 2",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "agRyD",
+                          "x": 148,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "8",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "bB6FE",
+                          "x": 178,
+                          "y": 24,
+                          "name": "Grid column line 3",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "N190f",
+                          "x": 178,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "gtXpJ",
+                          "x": 208,
+                          "y": 24,
+                          "name": "Grid column line 4",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "Xkj9e",
+                          "x": 208,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "skIS6",
+                          "x": 238,
+                          "y": 24,
+                          "name": "Grid column line 5",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "zzc4N",
+                          "x": 238,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "JxhPX",
+                          "x": 268,
+                          "y": 24,
+                          "name": "Grid column line 6",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "s6bJf",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid row line 0",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "rAsAi",
+                          "x": 62,
+                          "y": 31,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "BiNkQ",
+                          "x": 88,
+                          "y": 54,
+                          "name": "Grid row line 1",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "FdgQd",
+                          "x": 62,
+                          "y": 61,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "igHF8",
+                          "x": 88,
+                          "y": 84,
+                          "name": "Grid row line 2",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "VDkjd",
+                          "x": 62,
+                          "y": 91,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "UQ549",
+                          "x": 88,
+                          "y": 114,
+                          "name": "Grid row line 3",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "L3PtaK",
+                          "x": 62,
+                          "y": 121,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "12",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Q9iQy",
+                          "x": 88,
+                          "y": 144,
+                          "name": "Grid row line 4",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "AGTup",
+                          "x": 62,
+                          "y": 151,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "13",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "TaNj7",
+                          "x": 88,
+                          "y": 174,
+                          "name": "Grid row line 5",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "YQWtN",
+                          "x": 149,
+                          "y": 55,
+                          "name": "Proposed range tint",
+                          "opacity": 0.12,
+                          "fill": "$primary",
+                          "width": 89,
+                          "height": 59
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "zfQ0F",
+                          "x": 149,
+                          "y": 55,
+                          "name": "Proposed range outline",
+                          "width": 89,
+                          "height": 59,
+                          "stroke": "$primary",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "g73Lh",
+                          "x": 122,
+                          "y": 118,
+                          "name": "Existing Robot 1 / 7, 12",
+                          "width": 22,
+                          "height": 22,
+                          "fill": "$primary",
+                          "cornerRadius": 11,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "JTwCF",
+                              "name": "Robot schematic marker",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "bot",
+                              "library": "lucide",
+                              "fill": "$primary-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Nsfle",
+                          "x": 151,
+                          "y": 57,
+                          "name": "First corner",
+                          "width": 16,
+                          "height": 16,
+                          "fill": "$primary",
+                          "cornerRadius": 3,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ECOkQ",
+                              "name": "Marker label",
+                              "fill": "$primary-foreground",
+                              "content": "1",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "p7Uf4",
+                          "x": 219,
+                          "y": 95,
+                          "name": "Pointer target / second corner not yet confirmed",
+                          "width": 16,
+                          "height": 16,
+                          "fill": "$primary",
+                          "cornerRadius": 3,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "lrn2m",
+                              "name": "Marker label",
+                              "fill": "$primary-foreground",
+                              "content": "2",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "G35yC",
+                      "name": "Designer explanation",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Контур и метки углов показывают 6 клеток (3×2). Карта ещё не менялась.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vCr5z",
+                  "name": "Editor / Obstacle area / Applied cells",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "suxP8",
+                      "name": "Designer state title",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "03 · Область заполнена",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WtcI1",
+                      "name": "Web / Active area mode and actions",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "QIih2",
+                          "name": "Web / Obstacle tool / Area active",
+                          "height": 44,
+                          "fill": "$accent",
+                          "cornerRadius": "$radius-sm",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "oAFAV",
+                              "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
+                              "width": 18,
+                              "height": 18,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "n5bh9",
+                                  "name": "Obstacle silhouette",
+                                  "fill": "$muted-foreground",
+                                  "width": 15,
+                                  "height": 15
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "p2LaW0",
+                              "name": "Препятствие label",
+                              "fill": "$foreground",
+                              "content": "Область",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-body",
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "O3z1Az",
+                              "name": "Open obstacle mode menu",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "chevron-down",
+                              "library": "lucide",
+                              "fill": "$muted-foreground"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "X0R8Z",
+                      "name": "Map instruction",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Добавлено 6 препятствий. Укажите первый угол.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "L1P3N",
+                      "name": "Renderer / Grid crop",
+                      "width": "fill_container",
+                      "height": 184,
+                      "fill": "$background",
+                      "cornerRadius": "$radius-sm",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "MqiGC",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid background",
+                          "fill": "$card",
+                          "width": 180,
+                          "height": 150
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "XsVYC",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid column line 0",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "p8G4MC",
+                          "x": 88,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "6",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "gHXMg",
+                          "x": 118,
+                          "y": 24,
+                          "name": "Grid column line 1",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "UP4Dj",
+                          "x": 118,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "7",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "y8D5T",
+                          "x": 148,
+                          "y": 24,
+                          "name": "Grid column line 2",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "T6HY1",
+                          "x": 148,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "8",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "mcPvG",
+                          "x": 178,
+                          "y": 24,
+                          "name": "Grid column line 3",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "Fm450",
+                          "x": 178,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "G5GXJo",
+                          "x": 208,
+                          "y": 24,
+                          "name": "Grid column line 4",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "BUg63",
+                          "x": 208,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "JiOQs",
+                          "x": 238,
+                          "y": 24,
+                          "name": "Grid column line 5",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "h15PlT",
+                          "x": 238,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "K4P5A",
+                          "x": 268,
+                          "y": 24,
+                          "name": "Grid column line 6",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "b26s42",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid row line 0",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "OfQgx",
+                          "x": 62,
+                          "y": 31,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "tqp7j",
+                          "x": 88,
+                          "y": 54,
+                          "name": "Grid row line 1",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "x9tYm9",
+                          "x": 62,
+                          "y": 61,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "VrNqr",
+                          "x": 88,
+                          "y": 84,
+                          "name": "Grid row line 2",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "g9xmO",
+                          "x": 62,
+                          "y": 91,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "kyoVW",
+                          "x": 88,
+                          "y": 114,
+                          "name": "Grid row line 3",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "m85P8",
+                          "x": 62,
+                          "y": 121,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "12",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Bc2kG",
+                          "x": 88,
+                          "y": 144,
+                          "name": "Grid row line 4",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "E2l7g",
+                          "x": 62,
+                          "y": 151,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "13",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Y246w",
+                          "x": 88,
+                          "y": 174,
+                          "name": "Grid row line 5",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "jt3sH",
+                          "x": 151,
+                          "y": 57,
+                          "name": "New obstacle / 8, 10",
+                          "fill": "$muted-foreground",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "L2z4OL",
+                          "x": 181,
+                          "y": 57,
+                          "name": "New obstacle / 9, 10",
+                          "fill": "$muted-foreground",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "p0GiS",
+                          "x": 211,
+                          "y": 57,
+                          "name": "New obstacle / 10, 10",
+                          "fill": "$muted-foreground",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "zpscy",
+                          "x": 151,
+                          "y": 87,
+                          "name": "New obstacle / 8, 11",
+                          "fill": "$muted-foreground",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "OnnDF",
+                          "x": 181,
+                          "y": 87,
+                          "name": "New obstacle / 9, 11",
+                          "fill": "$muted-foreground",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 2,
+                          "id": "VNk7Z",
+                          "x": 211,
+                          "y": 87,
+                          "name": "New obstacle / 10, 11",
+                          "fill": "$muted-foreground",
+                          "width": 24,
+                          "height": 24
+                        },
+                        {
+                          "type": "frame",
+                          "id": "j85FF",
+                          "x": 122,
+                          "y": 118,
+                          "name": "Existing Robot 1 / 7, 12",
+                          "width": 22,
+                          "height": 22,
+                          "fill": "$primary",
+                          "cornerRadius": 11,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "b1AuaL",
+                              "name": "Robot schematic marker",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "bot",
+                              "library": "lucide",
+                              "fill": "$primary-foreground"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Jd2am",
+                      "name": "Designer explanation",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Шесть отдельных клеток. В режиме «Выбор» каждую можно выбрать, переместить или удалить отдельно.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NyAH5",
+              "name": "Area workflow / Rejected range, map edge, cancel",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NLE9g",
+                  "name": "Editor / Obstacle area / Occupied cell",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cy5pP",
+                      "name": "Designer state title",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "A · Занятая клетка",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "h2P7P",
+                      "name": "Web / Active area mode and actions",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qgiie",
+                          "name": "Web / Obstacle tool / Area active",
+                          "height": 44,
+                          "fill": "$accent",
+                          "cornerRadius": "$radius-sm",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "U1c9jq",
+                              "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
+                              "width": 18,
+                              "height": 18,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "SMWTr",
+                                  "name": "Obstacle silhouette",
+                                  "fill": "$muted-foreground",
+                                  "width": 15,
+                                  "height": 15
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "Z6gfyR",
+                              "name": "Препятствие label",
+                              "fill": "$foreground",
+                              "content": "Область",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-body",
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "d0zmd",
+                              "name": "Open obstacle mode menu",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "chevron-down",
+                              "library": "lucide",
+                              "fill": "$muted-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pcuDr",
+                          "name": "Web / Cancel area",
+                          "height": 44,
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "O0bCD",
+                              "name": "Отмена icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "x",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "qni4r",
+                              "name": "Отмена label",
+                              "fill": "$foreground",
+                              "content": "Отмена",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "Gw80X",
+                      "type": "ref",
+                      "ref": "eDsIO",
+                      "name": "Web / Area cannot be applied",
+                      "width": "fill_container",
+                      "descendants": {
+                        "wbkvK": {
+                          "content": "Клетка 3, 4 занята станцией A. Область не заполнена."
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "d2ems",
+                      "name": "Renderer / Grid crop",
+                      "width": "fill_container",
+                      "height": 184,
+                      "fill": "$background",
+                      "cornerRadius": "$radius-sm",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "ivXNM",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid background",
+                          "fill": "$card",
+                          "width": 180,
+                          "height": 150
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "DrY1e",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid column line 0",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "lNohX",
+                          "x": 88,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "1",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "xQvQE",
+                          "x": 118,
+                          "y": 24,
+                          "name": "Grid column line 1",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "xvonw",
+                          "x": 118,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "2",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "mt6dj",
+                          "x": 148,
+                          "y": 24,
+                          "name": "Grid column line 2",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "rzPiA",
+                          "x": 148,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "3",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Y9VppL",
+                          "x": 178,
+                          "y": 24,
+                          "name": "Grid column line 3",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "D2dMc",
+                          "x": 178,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "4",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "sRmXe",
+                          "x": 208,
+                          "y": 24,
+                          "name": "Grid column line 4",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "ENA5R",
+                          "x": 208,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "5",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "P65Bt",
+                          "x": 238,
+                          "y": 24,
+                          "name": "Grid column line 5",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "AegRY",
+                          "x": 238,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "6",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "iWKj2",
+                          "x": 268,
+                          "y": 24,
+                          "name": "Grid column line 6",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "p280C",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid row line 0",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "zAjSg",
+                          "x": 62,
+                          "y": 31,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "2",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "rDWW5",
+                          "x": 88,
+                          "y": 54,
+                          "name": "Grid row line 1",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "BejfQ",
+                          "x": 62,
+                          "y": 61,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "3",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "k6cUs",
+                          "x": 88,
+                          "y": 84,
+                          "name": "Grid row line 2",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "ziJ1v",
+                          "x": 62,
+                          "y": 91,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "4",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "RiwiP",
+                          "x": 88,
+                          "y": 114,
+                          "name": "Grid row line 3",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "XiZa0",
+                          "x": 62,
+                          "y": 121,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "5",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "fb2yc",
+                          "x": 88,
+                          "y": 144,
+                          "name": "Grid row line 4",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "kbxAd",
+                          "x": 62,
+                          "y": 151,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "6",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "zhxpy",
+                          "x": 88,
+                          "y": 174,
+                          "name": "Grid row line 5",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "YydrZ",
+                          "x": 119,
+                          "y": 55,
+                          "name": "Rejected range tint",
+                          "opacity": 0.12,
+                          "fill": "$destructive",
+                          "width": 89,
+                          "height": 59
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "A6jO0",
+                          "x": 119,
+                          "y": 55,
+                          "name": "Rejected range outline",
+                          "width": 89,
+                          "height": 59,
+                          "stroke": "$destructive",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xaEjH",
+                          "x": 150,
+                          "y": 86,
+                          "name": "Existing Station A / 3, 4",
+                          "width": 26,
+                          "height": 26,
+                          "fill": "$accent",
+                          "cornerRadius": 3,
+                          "stroke": "$foreground",
+                          "strokeWidth": 1,
+                          "padding": 2,
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "doeR8",
+                              "name": "Station A warehouse marker",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "warehouse",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "x4BK1",
+                              "layoutPosition": "absolute",
+                              "x": 13,
+                              "y": 13,
+                              "name": "Station short ID A / inside own cell",
+                              "width": 13,
+                              "height": 13,
+                              "fill": "$foreground",
+                              "cornerRadius": 3,
+                              "stroke": "$card",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "outer",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "iagW5",
+                                  "name": "Short ID A",
+                                  "fill": "$card",
+                                  "content": "A",
+                                  "lineHeight": 1,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "HJNnl",
+                          "x": 149,
+                          "y": 85,
+                          "name": "Occupied cell / invalid",
+                          "width": 29,
+                          "height": 29,
+                          "stroke": "$destructive",
+                          "strokeWidth": 3,
+                          "strokeAlignment": "inner"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "L2rHU",
+                          "x": 165,
+                          "y": 85,
+                          "name": "Conflict marker",
+                          "width": 16,
+                          "height": 16,
+                          "fill": "$destructive",
+                          "cornerRadius": 3,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "b3ahvy",
+                              "name": "Marker label",
+                              "fill": "$primary-foreground",
+                              "content": "×",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "B0gN4V",
+                          "x": 121,
+                          "y": 57,
+                          "name": "First corner",
+                          "width": 16,
+                          "height": 16,
+                          "fill": "$primary",
+                          "cornerRadius": 3,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "R102z7",
+                              "name": "Marker label",
+                              "fill": "$primary-foreground",
+                              "content": "1",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "i9WRWM",
+                      "name": "Designer explanation",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Черновик правила: робот, станция или существующее препятствие блокируют весь диапазон. Карта не меняется.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gGWDM",
+                  "name": "Editor / Obstacle area / Outside 20×20",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jZbpU",
+                      "name": "Designer state title",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "B · Граница карты",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "H1lGi",
+                      "name": "Web / Active area mode and actions",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Pt5Cy",
+                          "name": "Web / Obstacle tool / Area active",
+                          "height": 44,
+                          "fill": "$accent",
+                          "cornerRadius": "$radius-sm",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Eqcso",
+                              "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
+                              "width": 18,
+                              "height": 18,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "BXTrr",
+                                  "name": "Obstacle silhouette",
+                                  "fill": "$muted-foreground",
+                                  "width": 15,
+                                  "height": 15
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "F9wjZ",
+                              "name": "Препятствие label",
+                              "fill": "$foreground",
+                              "content": "Область",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-body",
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "PIjtC",
+                              "name": "Open obstacle mode menu",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "chevron-down",
+                              "library": "lucide",
+                              "fill": "$muted-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "I6O2j7",
+                          "name": "Web / Cancel area",
+                          "height": 44,
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "qo0t4",
+                              "name": "Отмена icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "x",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "m4pLcW",
+                              "name": "Отмена label",
+                              "fill": "$foreground",
+                              "content": "Отмена",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "NEwVJ",
+                      "type": "ref",
+                      "ref": "eDsIO",
+                      "name": "Web / Area cannot be applied",
+                      "width": "fill_container",
+                      "descendants": {
+                        "wbkvK": {
+                          "content": "Второй угол вне карты 20 × 20. Область не заполнена."
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xRnWf",
+                      "name": "Renderer / Grid crop",
+                      "width": "fill_container",
+                      "height": 184,
+                      "fill": "$background",
+                      "cornerRadius": "$radius-sm",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "nhWqN",
+                          "x": 75,
+                          "y": 24,
+                          "name": "Grid background",
+                          "fill": "$card",
+                          "width": 150,
+                          "height": 150
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "TW3hl",
+                          "x": 75,
+                          "y": 24,
+                          "name": "Grid column line 0",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "r9k3SW",
+                          "x": 75,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "16",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "m5G96w",
+                          "x": 105,
+                          "y": 24,
+                          "name": "Grid column line 1",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "ebcpL",
+                          "x": 105,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "17",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "VrnE5",
+                          "x": 135,
+                          "y": 24,
+                          "name": "Grid column line 2",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "MzKpv",
+                          "x": 135,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "18",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "bs4Qb",
+                          "x": 165,
+                          "y": 24,
+                          "name": "Grid column line 3",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "kPkmK",
+                          "x": 165,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "19",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "ZSwqn",
+                          "x": 195,
+                          "y": 24,
+                          "name": "Grid column line 4",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "h7wMy",
+                          "x": 195,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "20",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "ntMNw",
+                          "x": 225,
+                          "y": 24,
+                          "name": "Grid column line 5",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "t1afGX",
+                          "x": 75,
+                          "y": 24,
+                          "name": "Grid row line 0",
+                          "fill": "#CBD5E1",
+                          "width": 151,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "ywtW1",
+                          "x": 49,
+                          "y": 31,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "16",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "MFGJv",
+                          "x": 75,
+                          "y": 54,
+                          "name": "Grid row line 1",
+                          "fill": "#CBD5E1",
+                          "width": 151,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "IV95f",
+                          "x": 49,
+                          "y": 61,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "17",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "JIyte",
+                          "x": 75,
+                          "y": 84,
+                          "name": "Grid row line 2",
+                          "fill": "#CBD5E1",
+                          "width": 151,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "nIVG5",
+                          "x": 49,
+                          "y": 91,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "18",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "RRNxT",
+                          "x": 75,
+                          "y": 114,
+                          "name": "Grid row line 3",
+                          "fill": "#CBD5E1",
+                          "width": 151,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZSpvy",
+                          "x": 49,
+                          "y": 121,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "19",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "ERrsn",
+                          "x": 75,
+                          "y": 144,
+                          "name": "Grid row line 4",
+                          "fill": "#CBD5E1",
+                          "width": 151,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "HWyuN",
+                          "x": 49,
+                          "y": 151,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "20",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "QS77w",
+                          "x": 75,
+                          "y": 174,
+                          "name": "Grid row line 5",
+                          "fill": "#CBD5E1",
+                          "width": 151,
+                          "height": 1
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "odoCB",
+                          "x": 225,
+                          "y": 24,
+                          "name": "Map right edge",
+                          "fill": "$muted-foreground",
+                          "width": 2,
+                          "height": 150
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "aI7DB",
+                          "x": 75,
+                          "y": 174,
+                          "name": "Map bottom edge",
+                          "fill": "$muted-foreground",
+                          "width": 152,
+                          "height": 2
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Y0IV0",
+                          "x": 107,
+                          "y": 26,
+                          "name": "Existing Station B / 17, 16",
+                          "width": 26,
+                          "height": 26,
+                          "fill": "$accent",
+                          "cornerRadius": 3,
+                          "stroke": "$foreground",
+                          "strokeWidth": 1,
+                          "padding": 2,
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "DboTK",
+                              "name": "Station B warehouse marker",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "warehouse",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "xKzab",
+                              "layoutPosition": "absolute",
+                              "x": 13,
+                              "y": 13,
+                              "name": "Station short ID B / inside own cell",
+                              "width": 13,
+                              "height": 13,
+                              "fill": "$foreground",
+                              "cornerRadius": 3,
+                              "stroke": "$card",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "outer",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "aX4qc",
+                                  "name": "Short ID B",
+                                  "fill": "$card",
+                                  "content": "B",
+                                  "lineHeight": 1,
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 10,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Lo7h7",
+                          "x": 166,
+                          "y": 115,
+                          "name": "First corner outline",
+                          "width": 29,
+                          "height": 29,
+                          "stroke": "$primary",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Wybyv",
+                          "x": 168,
+                          "y": 117,
+                          "name": "First corner",
+                          "width": 16,
+                          "height": 16,
+                          "fill": "$primary",
+                          "cornerRadius": 3,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "fuYDq",
+                              "name": "Marker label",
+                              "fill": "$primary-foreground",
+                              "content": "1",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "yO1Wk",
+                          "x": 241,
+                          "y": 122,
+                          "name": "Pointer outside grid",
+                          "width": 16,
+                          "height": 16,
+                          "fill": "$destructive",
+                          "cornerRadius": 3,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "nEMdl",
+                              "name": "Marker label",
+                              "fill": "$primary-foreground",
+                              "content": "×",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "fQLA3",
+                      "name": "Designer explanation",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Вне контура нет клеток. Диапазон не обрезается и не применяется частично.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n7yRS",
+                  "name": "Editor / Obstacle area / Canceled",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uteGC",
+                      "name": "Designer state title",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "C · Отмена",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ikbv2",
+                      "name": "Web / Active area mode and actions",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "YjFpt",
+                          "name": "Web / Obstacle tool / Area active",
+                          "height": 44,
+                          "fill": "$accent",
+                          "cornerRadius": "$radius-sm",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "tCF6u",
+                              "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
+                              "width": 18,
+                              "height": 18,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 2,
+                                  "id": "jeDWx",
+                                  "name": "Obstacle silhouette",
+                                  "fill": "$muted-foreground",
+                                  "width": 15,
+                                  "height": 15
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "FyHKZ",
+                              "name": "Препятствие label",
+                              "fill": "$foreground",
+                              "content": "Область",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-body",
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "cp9PW",
+                              "name": "Open obstacle mode menu",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "chevron-down",
+                              "library": "lucide",
+                              "fill": "$muted-foreground"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "I9agJz",
+                      "name": "Map instruction",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Область отменена. Укажите первый угол.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "D9RUa",
+                      "name": "Renderer / Grid crop",
+                      "width": "fill_container",
+                      "height": 184,
+                      "fill": "$background",
+                      "cornerRadius": "$radius-sm",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "bpEcc",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid background",
+                          "fill": "$card",
+                          "width": 180,
+                          "height": 150
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "o0oz9g",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid column line 0",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "y7HwjM",
+                          "x": 88,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "6",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "X7zUSZ",
+                          "x": 118,
+                          "y": 24,
+                          "name": "Grid column line 1",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "h9OZ1",
+                          "x": 118,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "7",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "mMsrn",
+                          "x": 148,
+                          "y": 24,
+                          "name": "Grid column line 2",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "NARUz",
+                          "x": 148,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "8",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "M9ools",
+                          "x": 178,
+                          "y": 24,
+                          "name": "Grid column line 3",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "yJG6U",
+                          "x": 178,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "v8H8R",
+                          "x": 208,
+                          "y": 24,
+                          "name": "Grid column line 4",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "yx9qn",
+                          "x": 208,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "nIAUM",
+                          "x": 238,
+                          "y": 24,
+                          "name": "Grid column line 5",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "text",
+                          "id": "BlXOS",
+                          "x": 238,
+                          "y": 5,
+                          "name": "Column label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 30,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "f3R2vd",
+                          "x": 268,
+                          "y": 24,
+                          "name": "Grid column line 6",
+                          "fill": "#CBD5E1",
+                          "width": 1,
+                          "height": 151
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "pnAuM",
+                          "x": 88,
+                          "y": 24,
+                          "name": "Grid row line 0",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "eNgTG",
+                          "x": 62,
+                          "y": 31,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "9",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "BX4bs",
+                          "x": 88,
+                          "y": 54,
+                          "name": "Grid row line 1",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "VgWKF",
+                          "x": 62,
+                          "y": 61,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "10",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "Lmm54",
+                          "x": 88,
+                          "y": 84,
+                          "name": "Grid row line 2",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "UI8JN",
+                          "x": 62,
+                          "y": 91,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "11",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "MLRi0",
+                          "x": 88,
+                          "y": 114,
+                          "name": "Grid row line 3",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "gn4MW",
+                          "x": 62,
+                          "y": 121,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "12",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "gR1yu",
+                          "x": 88,
+                          "y": 144,
+                          "name": "Grid row line 4",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "EbJZX",
+                          "x": 62,
+                          "y": 151,
+                          "name": "Row label",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": 22,
+                          "content": "13",
+                          "lineHeight": 1.4,
+                          "textAlign": "center",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "oTnJr",
+                          "x": 88,
+                          "y": 174,
+                          "name": "Grid row line 5",
+                          "fill": "#CBD5E1",
+                          "width": 181,
+                          "height": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "h6go3q",
+                          "x": 122,
+                          "y": 118,
+                          "name": "Existing Robot 1 / 7, 12",
+                          "width": 22,
+                          "height": 22,
+                          "fill": "$primary",
+                          "cornerRadius": 11,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "NYSF8",
+                              "name": "Robot schematic marker",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "bot",
+                              "library": "lucide",
+                              "fill": "$primary-foreground"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "vDzeC",
+                      "name": "Designer explanation",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "«Отмена» убирает углы и подсветку, сохраняя все клетки и объекты. Режим «Область» остаётся включён.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Z1Xua6",
+              "name": "Designer note / rejection and retry",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "К СОГЛАСОВАНИЮ · Отказ при любой занятой клетке или выходе за край, без частичного заполнения. После отказа первый угол остаётся: укажите другой второй угол или нажмите «Отмена». После применения или отмены инструмент готов принять новый первый угол.",
+              "lineHeight": 1.4,
+              "fontFamily": "$font-sans",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
         }
       ]
     },
@@ -15659,6 +19170,406 @@
               "fontWeight": "normal"
             }
           ]
+        },
+        {
+          "type": "frame",
+          "id": "RHkIA",
+          "name": "Editor / Obstacle area / Choose mode",
+          "width": "fill_container",
+          "fill": "$background",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "F4Nkrc",
+              "name": "Designer note / proposed mode chooser",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "03 / OBSTACLE AREA · UX-ПРОЕКТ · ВЫБОР РЕЖИМА",
+              "lineHeight": 1.4,
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "bhi4H",
+              "name": "Mode chooser specimen and annotation",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "C3SpW",
+                  "name": "Narrow 390 / obstacle menu open",
+                  "width": 390,
+                  "fill": "$card",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "k5xmi",
+                      "name": "Web / Tool grid / menu open",
+                      "width": "fill_container",
+                      "height": 112,
+                      "fill": "$card",
+                      "cornerRadius": 8,
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "OqCIu",
+                          "name": "Web / Tools row",
+                          "width": "fill_container",
+                          "height": 44,
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "V2VOXk",
+                              "name": "Web / Tool / Выбор",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$accent",
+                              "cornerRadius": "$radius-sm",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "gap": 8,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "bA2lW",
+                                  "name": "Выбор icon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "mouse-pointer-2",
+                                  "library": "lucide",
+                                  "fill": "$primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "NGHHz",
+                                  "name": "Выбор label",
+                                  "fill": "$foreground",
+                                  "content": "Выбор",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-body",
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "IdSEk",
+                              "name": "Web / Tool / Станция",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-sm",
+                              "stroke": "$card",
+                              "strokeWidth": 1,
+                              "gap": 8,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "xj3sa",
+                                  "name": "Станция icon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "warehouse",
+                                  "library": "lucide",
+                                  "fill": "$muted-foreground"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "RhyPu",
+                                  "name": "Станция label",
+                                  "fill": "$foreground",
+                                  "content": "Станция",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-body",
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aUbFm",
+                          "name": "Web / Tools row",
+                          "width": "fill_container",
+                          "height": 44,
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "OFWCA",
+                              "name": "Web / Obstacle tool / mode chooser",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-sm",
+                              "stroke": "$card",
+                              "strokeWidth": 1,
+                              "gap": 8,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "U0lss",
+                                  "name": "Препятствие icon / filled obstacle silhouette (as map and key)",
+                                  "width": 18,
+                                  "height": 18,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "rectangle",
+                                      "cornerRadius": 2,
+                                      "id": "Nrpe2",
+                                      "name": "Obstacle silhouette",
+                                      "fill": "$muted-foreground",
+                                      "width": 15,
+                                      "height": 15
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "F0rijW",
+                                  "name": "Препятствие label",
+                                  "fill": "$foreground",
+                                  "content": "Препятствие",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-body",
+                                  "fontWeight": "500"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "B9wfT",
+                                  "name": "Open obstacle mode menu",
+                                  "width": 12,
+                                  "height": 12,
+                                  "icon": "chevron-up",
+                                  "library": "lucide",
+                                  "fill": "$muted-foreground"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "UUFEr",
+                              "name": "Web / Tool / Робот",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-sm",
+                              "stroke": "$card",
+                              "strokeWidth": 1,
+                              "gap": 8,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "TOoix",
+                                  "name": "Робот icon",
+                                  "width": 18,
+                                  "height": 18,
+                                  "icon": "bot",
+                                  "library": "lucide",
+                                  "fill": "$muted-foreground"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "VpBgu",
+                                  "name": "Робот label",
+                                  "fill": "$foreground",
+                                  "content": "Робот",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-body",
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NlsbV",
+                      "name": "Web / Obstacle placement menu",
+                      "width": "fill_container",
+                      "fill": "$card",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "$input",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 6,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Sukfv",
+                          "name": "Menu option / Одна клетка",
+                          "width": "fill_container",
+                          "height": 44,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "Y9lgY",
+                              "name": "Одна клетка icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "square",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "d6gEi",
+                              "name": "Option label",
+                              "fill": "$foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Одна клетка",
+                              "lineHeight": 1.4,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "y3q2WB",
+                          "name": "Menu option / Прямоугольная область",
+                          "width": "fill_container",
+                          "height": 44,
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "lJBjD",
+                              "name": "Прямоугольная область icon",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "scan",
+                              "library": "lucide",
+                              "fill": "$foreground"
+                            },
+                            {
+                              "type": "text",
+                              "id": "SjWRA",
+                              "name": "Option label",
+                              "fill": "$foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Прямоугольная область",
+                              "lineHeight": 1.4,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bBlUR",
+                  "name": "Designer notes / mode choice",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aO0aU",
+                      "name": "Mode chooser title",
+                      "fill": "$foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "У препятствий — два способа размещения",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "n3TeN",
+                      "name": "Mode chooser behavior",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Кнопка «Препятствие» открывает меню. Пока режим не выбран, инструмент карты не меняется. «Одна клетка» сохраняет прежнее размещение; «Прямоугольная область» включает подсказку углов. Активный вариант виден в панели инструментов: «Клетка» или «Область» под тем же меню. «Выбор» и панорамирование — отдельные действия.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zwk3Y",
+                      "name": "EN mode labels",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "EN: Obstacle → Single cell / Rectangular area; active labels: Cell / Area. Точные жесты не заданы.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -15904,7 +19815,7 @@
                     {
                       "type": "frame",
                       "id": "TaIsz",
-                      "name": "Web / Tool / Препятствие",
+                      "name": "Web / Obstacle tool / mode chooser",
                       "width": "fill_container",
                       "height": 44,
                       "fill": "$card",
@@ -15947,6 +19858,16 @@
                           "fontFamily": "$font-sans",
                           "fontSize": "$text-body",
                           "fontWeight": "500"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "cpn3f",
+                          "name": "Open obstacle mode menu",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "chevron-down",
+                          "library": "lucide",
+                          "fill": "$muted-foreground"
                         }
                       ]
                     },
@@ -17126,7 +21047,7 @@
                     {
                       "type": "frame",
                       "id": "qllOV",
-                      "name": "Web / Tool / Препятствие",
+                      "name": "Web / Obstacle tool / mode chooser",
                       "width": "fill_container",
                       "height": 44,
                       "fill": "$card",
@@ -17169,6 +21090,16 @@
                           "fontFamily": "$font-sans",
                           "fontSize": "$text-body",
                           "fontWeight": "500"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "zRsQ6",
+                          "name": "Open obstacle mode menu",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "chevron-down",
+                          "library": "lucide",
+                          "fill": "$muted-foreground"
                         }
                       ]
                     },
@@ -18293,7 +22224,6 @@
         "mode": "light"
       },
       "width": 940,
-      "height": 1223,
       "fill": "$background",
       "layout": "vertical",
       "gap": 16,
@@ -18397,7 +22327,7 @@
           "fill": "$foreground",
           "textGrowth": "fixed-width",
           "width": "fill_container",
-          "content": "• Станция, препятствие и робот: добавление своим инструментом, общий «Выбор», перемещение и удаление. Основной desktop-путь — drag любого объекта на свободную клетку без открытия панели. Панель / inline-сведения — имя, координаты и свойства; «Удалить» — общий путь для selected object. • Общая недраг-альтернатива: выбор → «Переместить» → свободная клетка. «Отмена» — без изменения координат; занятая цель не меняет карту, режим остаётся. Без robot-only шагов, modal и новых shortcuts. • Клик вне сетки сохраняет selection. Narrow: инструменты 2 × 2, inline без drawer, длинное EN-имя целиком. Touch-жесты не утверждены. • Ошибка Save: feedback на всю ширину + «Повторить» 44 px. Scene cues и удержание draft — UX proposals; reload не обещан.",
+          "content": "• Станция, препятствие и робот: добавление своим инструментом, общий «Выбор», перемещение и удаление. Основной desktop-путь — drag любого объекта на свободную клетку без открытия панели. Панель / inline-сведения — имя, координаты и свойства; «Удалить» — общий путь для selected object. • Общая недраг-альтернатива: выбор → «Переместить» → свободная клетка. «Отмена» — без изменения координат; занятая цель не меняет карту, режим остаётся. Перемещение не требует отдельного шага для робота, модали или горячей клавиши. • Клик вне сетки сохраняет selection. Narrow: инструменты 2 × 2, inline без drawer, длинное EN-имя целиком. Touch-жесты не утверждены. • Ошибка Save: feedback на всю ширину + «Повторить» 44 px. Scene cues и удержание draft — UX proposals; reload не обещан.",
           "lineHeight": 1.45,
           "fontFamily": "$font-sans",
           "fontSize": 14,
@@ -18506,6 +22436,86 @@
           "fontFamily": "$font-sans",
           "fontSize": 12,
           "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "oYjs1",
+          "name": "Editor / Delete and obstacle area / Review handoff",
+          "width": "fill_container",
+          "fill": "$card",
+          "cornerRadius": "$radius-md",
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "ygYMX",
+              "name": "Review heading",
+              "fill": "$foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Delete и прямоугольная область · на согласование",
+              "lineHeight": 1.43,
+              "fontFamily": "$font-sans",
+              "fontSize": 20,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "wcPin",
+              "name": "Delete guard / selected object and map focus",
+              "fill": "$foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "DELETE · Desktop: подпись на кнопке «Удалить» и видимый фокус карты (Owner / Draft). Delete выполняет то же действие для одного выбранного робота, станции или клетки препятствия, только при фокусе в рабочей области карты и доступном редактировании. Кнопка остаётся, в том числе на narrow; клавиатурной подсказки на narrow нет.",
+              "lineHeight": 1.43,
+              "fontFamily": "$font-sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "akiZp",
+              "name": "Delete guard / ignored contexts",
+              "fill": "$foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Не удалять без выбранного объекта, вне рабочей области карты, в input / textarea / contenteditable, при открытой модали, в режиме наблюдения и при блокировке карты (в том числе в симуляции). Это не глобальная команда страницы; Backspace не добавляется.",
+              "lineHeight": 1.43,
+              "fontFamily": "$font-sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "FaSkk",
+              "name": "Obstacle area policy / requires human decision",
+              "fill": "$foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "ОБЛАСТЬ · Проект: меню инструмента «Препятствие», два последовательных выбора углов включительно. Только свободные клетки. Робот, станция, уже занятая препятствием клетка или второй угол за границей 20 × 20 — отказ целиком без изменения карты. Существующее препятствие не считается допустимым повторным заполнением. После отказа — выбор другого второго угла или «Отмена»; после применения либо отмены — ожидание первого угла в том же режиме.",
+              "lineHeight": 1.43,
+              "fontFamily": "$font-sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "D35Fp",
+              "name": "Architecture, access and open questions",
+              "fill": "$foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "На человеческом ревью подтвердить выбор режима, показ предпросмотра и порядок завершения, строгий отказ и позицию после отказа/отмены, подсказку и фокус Delete. Web управляет правами, режимами, выбором, изменениями и сохранением; renderer рисует и передаёт действия с указателем; Simulation сохраняет доменную ответственность. Точные touch-жесты, keyboard/API-контракты и серверная атомарность макетом не задаются. ADR-002: согласование и тесты до реализации.",
+              "lineHeight": 1.43,
+              "fontFamily": "$font-sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
         }
       ]
     },
@@ -18782,7 +22792,7 @@
                                 {
                                   "type": "frame",
                                   "id": "noUyS",
-                                  "name": "Web / Tool / Препятствие",
+                                  "name": "Web / Obstacle tool / mode chooser",
                                   "height": 44,
                                   "fill": "$card",
                                   "cornerRadius": "$radius-sm",
@@ -18824,6 +22834,16 @@
                                       "fontFamily": "$font-sans",
                                       "fontSize": "$text-body",
                                       "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "icon",
+                                      "id": "llUn1",
+                                      "name": "Open obstacle mode menu",
+                                      "width": 12,
+                                      "height": 12,
+                                      "icon": "chevron-down",
+                                      "library": "lucide",
+                                      "fill": "$muted-foreground"
                                     }
                                   ]
                                 },
@@ -18874,7 +22894,7 @@
                               "fill": "$muted-foreground",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "Выбор: перетащите любой объект на свободную клетку",
+                              "content": "Выбор: перетащите объект на свободную клетку",
                               "lineHeight": 1.45,
                               "fontFamily": "$font-sans",
                               "fontSize": 12,
