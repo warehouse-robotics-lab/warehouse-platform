@@ -4,7 +4,17 @@
 
 Здесь будут страницы, формы, редактор карты и диспетчерская. Приложение использует компонент отрисовки склада из `@warehouse/warehouse-renderer`.
 
-Код интерфейса лежит в `src` по Feature-Sliced Design. Маршруты Next.js остаются в `src/app` и только подключают страницы из `src/_pages`. Общий UI-kit и утилиты находятся в `src/shared`.
+Код интерфейса лежит в `src` по Feature-Sliced Design:
+
+- `src/app` — маршруты Next.js. Файлы `page.tsx` только подключают страницы из `src/_pages`. Файлы `layout.tsx` групп маршрутов собирают каркас из виджетов, например `src/app/(cabinet)/layout.tsx`.
+- `src/_pages` — страницы.
+- `src/widgets` — крупные блоки интерфейса: шапка `app-header` и каркас личного кабинета `cabinet-layout`.
+- `src/shared` — общий UI-kit (компоненты shadcn/ui) и утилиты.
+
+## Маршруты
+
+- `/` — главная страница.
+- `/warehouses` — страница «Мои склады» в каркасе личного кабинета (группа маршрутов `(cabinet)`).
 
 ## Команды
 
@@ -26,6 +36,7 @@ pnpm dev
 pnpm build
 pnpm typecheck
 pnpm lint
+pnpm test
 pnpm start
 ```
 
