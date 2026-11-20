@@ -73,6 +73,26 @@ docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_te
 из `?schema=`: если в `public` уже есть таблица `User`, setup останавливается с
 диагностикой и не удаляет её.
 
+### CI
+
+Job `API database tests` в GitHub Actions запускает одноразовый service container
+`postgres:17-alpine`. Тестовые учётные данные и строки подключения заданы в
+workflow: `.env` и секреты репозитория не нужны.
+
+Container создаёт базу `warehouse`, а job после healthcheck создаёт отдельную
+`warehouse_test`. В CI используются следующие переменные:
+
+```dotenv
+DATABASE_URL=postgresql://warehouse:warehouse@localhost:5432/warehouse?schema=warehouse_api
+TEST_DATABASE_URL=postgresql://warehouse:warehouse@localhost:5432/warehouse_test?schema=warehouse_api
+```
+
+Job устанавливает зависимости, применяет `prisma migrate deploy` к базе из
+`DATABASE_URL`, затем запускает `test:integration` и `test:e2e`.
+`test:integration` дополнительно пересоздаёт только схему `warehouse_api` в
+`warehouse_test` и применяет миграции к этой тестовой базе. `test:e2e` использует
+`DATABASE_URL`, поэтому миграция основной базы выполняется до его запуска.
+
 ## Prisma
 
 Команды ниже выполняются из каталога `apps/api`.
@@ -99,7 +119,7 @@ pnpm prisma:migrate
 pnpm prisma:migrate:deploy
 ```
 
-`build`, `dev`, `typecheck`, `test`, `test:e2e` и `test:integration`
+`build`, `dev`, `lint`, `typecheck`, `test`, `test:e2e` и `test:integration`
 генерируют Prisma Client перед запуском. `start`, `start:dev` и `start:debug`
 используют уже сгенерированный клиент: перед первым запуском выполните
 `pnpm prisma:generate` или `pnpm build`. `PrismaService` подключается к
