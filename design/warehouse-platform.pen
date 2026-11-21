@@ -44080,6 +44080,2380 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "hNtZe",
+      "x": 6750,
+      "y": 3324,
+      "name": "Регистрация — Desktop",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "j2tluP",
+          "type": "ref",
+          "ref": "t20f7T",
+          "name": "App header",
+          "width": "fill_container"
+        },
+        {
+          "type": "frame",
+          "id": "vcj2m",
+          "name": "Main",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "padding": "$space-8",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "n7d9LD",
+              "name": "Register card (form)",
+              "width": 400,
+              "fill": "$card",
+              "cornerRadius": "$radius",
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "layout": "vertical",
+              "gap": "$space-6",
+              "padding": "$space-8",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VAYxA",
+                  "name": "Page title",
+                  "fill": "$card-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Регистрация",
+                  "lineHeight": "$leading-title",
+                  "fontFamily": "$font-sans",
+                  "fontSize": "$text-title",
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "RRE41",
+                  "name": "Fields",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-4",
+                  "children": [
+                    {
+                      "id": "joSjV",
+                      "type": "ref",
+                      "ref": "vyvgP",
+                      "name": "Field / Отображаемое имя (focus-visible)",
+                      "width": "fill_container",
+                      "height": 100,
+                      "descendants": {
+                        "FJllO": {
+                          "content": "Отображаемое имя"
+                        },
+                        "wyJF6": {
+                          "content": " "
+                        },
+                        "vCUuz": {
+                          "enabled": true,
+                          "width": 344
+                        }
+                      }
+                    },
+                    {
+                      "id": "B2amVQ",
+                      "type": "ref",
+                      "ref": "vyvgP",
+                      "name": "Field / Почта",
+                      "width": "fill_container",
+                      "height": 100,
+                      "descendants": {
+                        "FJllO": {
+                          "content": "Почта"
+                        }
+                      }
+                    },
+                    {
+                      "id": "G6Cab",
+                      "type": "ref",
+                      "ref": "vyvgP",
+                      "name": "Field / Пароль (скрыт, кнопка «Показать пароль»)",
+                      "width": "fill_container",
+                      "height": 100,
+                      "descendants": {
+                        "FJllO": {
+                          "content": "Пароль"
+                        },
+                        "wT2vR": {
+                          "type": "frame",
+                          "id": "u34Zb",
+                          "name": "Input",
+                          "width": "fill_container",
+                          "height": 44,
+                          "fill": "$card",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": "$space-2",
+                          "padding": [
+                            0,
+                            "$space-3"
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "YTQ5w",
+                              "name": "Input value",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": " ",
+                              "lineHeight": "$leading-input",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-input",
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "id": "cPNtc",
+                              "type": "ref",
+                              "ref": "BD4zN",
+                              "name": "Кнопка «Показать пароль» (aria-label)",
+                              "width": 44,
+                              "height": 44,
+                              "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                              "descendants": {
+                                "VLtK5": {
+                                  "icon": "eye"
+                                }
+                              }
+                            },
+                            {
+                              "type": "frame",
+                              "id": "dINEo",
+                              "layoutPosition": "absolute",
+                              "x": 276,
+                              "y": -4,
+                              "name": "Focus ring 2px + offset 2px",
+                              "enabled": false,
+                              "width": 52,
+                              "height": 52,
+                              "cornerRadius": 12,
+                              "stroke": "$ring",
+                              "strokeWidth": 2,
+                              "strokeAlignment": "inner"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "P0Nw3X",
+                  "type": "ref",
+                  "ref": "f24jhn",
+                  "name": "Submit «Создать аккаунт»",
+                  "width": "fill_container",
+                  "descendants": {
+                    "rHb8r": {
+                      "enabled": false
+                    },
+                    "L1iECf": {
+                      "content": "Создать аккаунт"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "x0lXB",
+      "x": 8310,
+      "y": 3324,
+      "name": "Регистрация — Mobile",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "fKGKU",
+          "type": "ref",
+          "ref": "t20f7T",
+          "name": "App header",
+          "width": "fill_container",
+          "padding": [
+            0,
+            "$space-4"
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "GEK2J",
+          "name": "Main",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            "$space-6",
+            "$space-4"
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "M9RVh",
+              "name": "Register card (form)",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": "$radius",
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "layout": "vertical",
+              "gap": "$space-6",
+              "padding": [
+                "$space-6",
+                "$space-4"
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mighX",
+                  "name": "Page title",
+                  "fill": "$card-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Регистрация",
+                  "lineHeight": "$leading-title",
+                  "fontFamily": "$font-sans",
+                  "fontSize": "$text-title",
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "XfIaD",
+                  "name": "Fields",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-4",
+                  "children": [
+                    {
+                      "id": "x4etAr",
+                      "type": "ref",
+                      "ref": "vyvgP",
+                      "name": "Field / Отображаемое имя",
+                      "width": "fill_container",
+                      "height": 100,
+                      "descendants": {
+                        "FJllO": {
+                          "content": "Отображаемое имя"
+                        },
+                        "wyJF6": {
+                          "content": " "
+                        }
+                      }
+                    },
+                    {
+                      "id": "u6twr",
+                      "type": "ref",
+                      "ref": "vyvgP",
+                      "name": "Field / Почта",
+                      "width": "fill_container",
+                      "height": 100,
+                      "descendants": {
+                        "FJllO": {
+                          "content": "Почта"
+                        }
+                      }
+                    },
+                    {
+                      "id": "rIBDY",
+                      "type": "ref",
+                      "ref": "vyvgP",
+                      "name": "Field / Пароль (скрыт, кнопка «Показать пароль»)",
+                      "width": "fill_container",
+                      "height": 100,
+                      "descendants": {
+                        "FJllO": {
+                          "content": "Пароль"
+                        },
+                        "wT2vR": {
+                          "type": "frame",
+                          "id": "dXhJN",
+                          "name": "Input",
+                          "width": "fill_container",
+                          "height": 44,
+                          "fill": "$card",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$input",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "gap": "$space-2",
+                          "padding": [
+                            0,
+                            "$space-3"
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GKpRK",
+                              "name": "Input value",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": " ",
+                              "lineHeight": "$leading-input",
+                              "fontFamily": "$font-sans",
+                              "fontSize": "$text-input",
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "id": "mJr5c",
+                              "type": "ref",
+                              "ref": "BD4zN",
+                              "name": "Кнопка «Показать пароль» (aria-label)",
+                              "width": 44,
+                              "height": 44,
+                              "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                              "descendants": {
+                                "VLtK5": {
+                                  "icon": "eye"
+                                }
+                              }
+                            },
+                            {
+                              "type": "frame",
+                              "id": "COH3M",
+                              "layoutPosition": "absolute",
+                              "x": 266,
+                              "y": -4,
+                              "name": "Focus ring 2px + offset 2px",
+                              "enabled": false,
+                              "width": 52,
+                              "height": 52,
+                              "cornerRadius": 12,
+                              "stroke": "$ring",
+                              "strokeWidth": 2,
+                              "strokeAlignment": "inner"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "N512KX",
+                  "type": "ref",
+                  "ref": "f24jhn",
+                  "name": "Submit «Создать аккаунт»",
+                  "width": "fill_container",
+                  "descendants": {
+                    "rHb8r": {
+                      "enabled": false
+                    },
+                    "L1iECf": {
+                      "content": "Создать аккаунт"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "TwEdQ",
+      "x": 6750,
+      "y": 4344,
+      "name": "Регистрация — Ошибки полей",
+      "gap": 120,
+      "children": [
+        {
+          "type": "frame",
+          "id": "CJUWG",
+          "name": "Desktop 1440 / Пустые обязательные поля",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 1440,
+          "height": 900,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "nWqrE",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "z7MGd",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": "$space-8",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yodXe",
+                  "name": "Register card (form)",
+                  "width": 400,
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": "$space-8",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uq93G",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NSf1w",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "bfB98",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя (error, aria-invalid + aria-describedby)",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wT2vR": {
+                              "stroke": "$destructive"
+                            },
+                            "wyJF6": {
+                              "content": " ",
+                              "fill": "$foreground"
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Укажите отображаемое имя"
+                            }
+                          }
+                        },
+                        {
+                          "id": "mLtrI",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта (error, aria-invalid + aria-describedby)",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wT2vR": {
+                              "stroke": "$destructive"
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Укажите почту"
+                            }
+                          }
+                        },
+                        {
+                          "id": "tlNVD",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (error, aria-invalid + aria-describedby)",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "rcl5J",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$destructive",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "CxJVl",
+                                  "name": "Input value",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": " ",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "ZpoMq",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "PVoGg",
+                                  "layoutPosition": "absolute",
+                                  "x": 276,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Укажите пароль"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "Yb7Iz",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit «Создать аккаунт»",
+                      "width": "fill_container",
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": false
+                        },
+                        "L1iECf": {
+                          "content": "Создать аккаунт"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "m4PGcR",
+          "name": "Desktop 1440 / Неверный формат почты",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 1440,
+          "height": 900,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "eAXAV",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "bDKDP",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": "$space-8",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ysRLh",
+                  "name": "Register card (form)",
+                  "width": 400,
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": "$space-8",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rXYQu",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CAFB6",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "W7B99",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wyJF6": {
+                              "content": "Анна Смирнова",
+                              "fill": "$foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "P59Kjl",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта (error, aria-invalid + aria-describedby)",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wT2vR": {
+                              "stroke": "$destructive"
+                            },
+                            "wyJF6": {
+                              "content": "userexample.com",
+                              "fill": "$foreground"
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Проверьте формат почты"
+                            }
+                          }
+                        },
+                        {
+                          "id": "JKzyu",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (скрыт, кнопка «Показать пароль»)",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "Pg5w4",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "JW9kM",
+                                  "name": "Input value",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "••••••••••",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "OM3Ph",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "kGoBC",
+                                  "layoutPosition": "absolute",
+                                  "x": 276,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "yQb8v",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit «Создать аккаунт»",
+                      "width": "fill_container",
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": false
+                        },
+                        "L1iECf": {
+                          "content": "Создать аккаунт"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kc2ev",
+          "name": "Desktop 1440 / Пароль показан — «Скрыть пароль» (фокус на кнопке)",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 1440,
+          "height": 900,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "S9xUs",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "qEkjY",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": "$space-8",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "d57mR",
+                  "name": "Register card (form)",
+                  "width": 400,
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": "$space-8",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gp9JF",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ImKKU",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "uRlGi",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wyJF6": {
+                              "fill": "$foreground",
+                              "content": "Анна Смирнова"
+                            }
+                          }
+                        },
+                        {
+                          "id": "G3Vu54",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта",
+                          "height": 100,
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wT2vR": {
+                              "stroke": "$input"
+                            },
+                            "wyJF6": {
+                              "fill": "$foreground",
+                              "content": "user@example.com"
+                            },
+                            "guV7O": {
+                              "enabled": false,
+                              "width": "fill_container(336)"
+                            },
+                            "BLkYI": {
+                              "content": "Проверьте формат почты"
+                            }
+                          }
+                        },
+                        {
+                          "id": "MWcBX",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (показан, кнопка «Скрыть пароль», focus-visible)",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "E8wc2",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "FYLro",
+                                  "name": "Input value",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Sklad-2026",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "GlgP5",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Скрыть пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Скрыть пароль; aria-pressed=true; пароль показан",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye-off"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "wdN21",
+                                  "layoutPosition": "absolute",
+                                  "x": 276,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "h2HNC",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit «Создать аккаунт»",
+                      "width": "fill_container",
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": false
+                        },
+                        "L1iECf": {
+                          "content": "Создать аккаунт"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cyky7",
+          "name": "Mobile 390 / Пустые обязательные поля",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 390,
+          "height": 844,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "rDCLH",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container",
+              "padding": [
+                0,
+                "$space-4"
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "v3RpYl",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                "$space-6",
+                "$space-4"
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zkhh3",
+                  "name": "Register card (form)",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": [
+                    "$space-6",
+                    "$space-4"
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yuYu6",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "l3Vhvi",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "KYPYl",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя (error, aria-invalid + aria-describedby)",
+                          "height": "fit_content",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wT2vR": {
+                              "stroke": "$destructive"
+                            },
+                            "wyJF6": {
+                              "content": " ",
+                              "fill": "$foreground"
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Укажите отображаемое имя"
+                            }
+                          }
+                        },
+                        {
+                          "id": "nFxNY",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта (error, aria-invalid + aria-describedby)",
+                          "height": "fit_content",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wT2vR": {
+                              "stroke": "$destructive"
+                            },
+                            "wyJF6": {
+                              "content": " ",
+                              "fill": "$foreground"
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Укажите почту"
+                            }
+                          }
+                        },
+                        {
+                          "id": "wTB93",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (error, aria-invalid + aria-describedby)",
+                          "height": "fit_content",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "URPUh",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$destructive",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "l2MRhY",
+                                  "name": "Input value",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": " ",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "ZxWtt",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "dG2U1",
+                                  "layoutPosition": "absolute",
+                                  "x": 266,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Укажите пароль"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "lvais",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit «Создать аккаунт»",
+                      "width": "fill_container",
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": false
+                        },
+                        "L1iECf": {
+                          "content": "Создать аккаунт"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "P4jOl",
+          "name": "Mobile 390 / Неверный формат почты",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 390,
+          "height": 844,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "UNIC9",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container",
+              "padding": [
+                0,
+                "$space-4"
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KOkSY",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                "$space-6",
+                "$space-4"
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oZihF",
+                  "name": "Register card (form)",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": [
+                    "$space-6",
+                    "$space-4"
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vmKhj",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pj7yK",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "n6gc8",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "height": "fit_content",
+                          "name": "Field / Отображаемое имя",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wyJF6": {
+                              "content": "Анна Смирнова",
+                              "fill": "$foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "glMKN",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта (error, aria-invalid + aria-describedby)",
+                          "height": "fit_content",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wT2vR": {
+                              "stroke": "$destructive"
+                            },
+                            "wyJF6": {
+                              "content": "userexample.com",
+                              "fill": "$foreground"
+                            },
+                            "guV7O": {
+                              "enabled": true,
+                              "width": "fill_container"
+                            },
+                            "BLkYI": {
+                              "content": "Проверьте формат почты"
+                            }
+                          }
+                        },
+                        {
+                          "id": "BBzGI",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "height": "fit_content",
+                          "name": "Field / Пароль (скрыт, кнопка «Показать пароль»)",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "Dvvqo",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "b6vnzF",
+                                  "name": "Input value",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "••••••••••",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "P9ag4",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "ppn5x",
+                                  "layoutPosition": "absolute",
+                                  "x": 266,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "j2KQu0",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit «Создать аккаунт»",
+                      "width": "fill_container",
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": false
+                        },
+                        "L1iECf": {
+                          "content": "Создать аккаунт"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "nHFAS",
+      "x": 6750,
+      "y": 5364,
+      "name": "Регистрация — Отправка и сбой",
+      "gap": 120,
+      "children": [
+        {
+          "type": "frame",
+          "id": "F3qTW",
+          "name": "Desktop 1440 / Отправка",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 1440,
+          "height": 900,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "DhJwT",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "OLOzO",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": "$space-8",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HY2RQ",
+                  "name": "Register card (form)",
+                  "width": 400,
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": "$space-8",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CdeFt",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LISxm",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "O7mD8",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя (read-only)",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wT2vR": {
+                              "fill": "$muted"
+                            },
+                            "wyJF6": {
+                              "content": "Анна Смирнова",
+                              "fill": "$muted-foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "W1KQS",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта (read-only)",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wT2vR": {
+                              "fill": "$muted"
+                            },
+                            "wyJF6": {
+                              "content": "user@example.com",
+                              "fill": "$muted-foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "MkUmq",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (read-only, скрыт)",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "xrdVp",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$muted",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Kv8fZ",
+                                  "name": "Input value",
+                                  "fill": "$muted-foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "••••••••••",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "fRCqW",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "NRLuw",
+                                  "layoutPosition": "absolute",
+                                  "x": 276,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "Q940mi",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit / loader only (недоступна, aria-busy)",
+                      "width": "fill_container",
+                      "fill": "$muted",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "height": 44,
+                      "gap": 0,
+                      "descendants": {
+                        "rHb8r": {
+                          "icon": "loader-circle",
+                          "fill": "$muted-foreground"
+                        },
+                        "L1iECf": {
+                          "content": "",
+                          "fill": "$muted-foreground",
+                          "enabled": false
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xoJP1",
+          "name": "Desktop 1440 / Общий сбой — повторить",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 1440,
+          "height": 900,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "pO1ed",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "E6jyW",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": "$space-8",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "eLr2P",
+                  "name": "Register card (form)",
+                  "width": 400,
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": "$space-8",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xQ7Od",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Z5iBc",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "RFgDr",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wyJF6": {
+                              "content": "Анна Смирнова",
+                              "fill": "$foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "VqqhE",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта",
+                          "width": "fill_container",
+                          "height": 100,
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wyJF6": {
+                              "content": "user@example.com",
+                              "fill": "$foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "b64oS1",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (скрыт, кнопка «Показать пароль»)",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "Q21PP",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "c5rqbK",
+                                  "name": "Input value",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "••••••••••",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "uCyvP",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "uGKZX",
+                                  "layoutPosition": "absolute",
+                                  "x": 276,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "a7Ala",
+                      "type": "ref",
+                      "ref": "eDsIO",
+                      "name": "Alert / Error (role=alert)",
+                      "width": "fill_container",
+                      "descendants": {
+                        "wbkvK": {
+                          "content": "Не удалось создать аккаунт. Попробуйте ещё раз."
+                        }
+                      }
+                    },
+                    {
+                      "id": "m55ZO",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit «Создать аккаунт» (повторная попытка доступна)",
+                      "width": "fill_container",
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": false
+                        },
+                        "L1iECf": {
+                          "content": "Создать аккаунт"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "w6e8yR",
+          "name": "Mobile 390 / Отправка",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 390,
+          "height": 844,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "XWc59",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container",
+              "padding": [
+                0,
+                "$space-4"
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "d66Jlx",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                "$space-6",
+                "$space-4"
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tNNds",
+                  "name": "Register card (form)",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": [
+                    "$space-6",
+                    "$space-4"
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "J63MhF",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HJnJW",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "UHmv8",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя (read-only)",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wT2vR": {
+                              "fill": "$muted"
+                            },
+                            "wyJF6": {
+                              "content": "Анна Смирнова",
+                              "fill": "$muted-foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "u0JkHH",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта (read-only)",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wT2vR": {
+                              "fill": "$muted"
+                            },
+                            "wyJF6": {
+                              "content": "user@example.com",
+                              "fill": "$muted-foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "JRja1",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (read-only, скрыт)",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "q7RlpD",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$muted",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "vG8wF",
+                                  "name": "Input value",
+                                  "fill": "$muted-foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "••••••••••",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "WXOm4",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "width": 44,
+                                  "height": 44,
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "XnkR3",
+                                  "layoutPosition": "absolute",
+                                  "x": 266,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "M5dMt",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit / loader only (недоступна, aria-busy)",
+                      "width": "fill_container",
+                      "fill": "$muted",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "height": 44,
+                      "gap": 0,
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": true,
+                          "icon": "loader-circle",
+                          "fill": "$muted-foreground"
+                        },
+                        "L1iECf": {
+                          "content": "",
+                          "fill": "$muted-foreground",
+                          "enabled": false
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "A1I422",
+          "name": "Mobile 390 / Общий сбой — повторить",
+          "theme": {
+            "mode": "light"
+          },
+          "clip": true,
+          "width": 390,
+          "height": 844,
+          "fill": "$background",
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "I4ron",
+              "type": "ref",
+              "ref": "t20f7T",
+              "name": "App header",
+              "width": "fill_container",
+              "padding": [
+                0,
+                "$space-4"
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "w9wGWX",
+              "name": "Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                "$space-6",
+                "$space-4"
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "G00yr",
+                  "name": "Register card (form)",
+                  "width": "fill_container",
+                  "fill": "$card",
+                  "cornerRadius": "$radius",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": "$space-6",
+                  "padding": [
+                    "$space-6",
+                    "$space-4"
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sv459",
+                      "name": "Page title",
+                      "fill": "$card-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Регистрация",
+                      "lineHeight": "$leading-title",
+                      "fontFamily": "$font-sans",
+                      "fontSize": "$text-title",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "p4jaYK",
+                      "name": "Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-4",
+                      "children": [
+                        {
+                          "id": "UZT1F",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Отображаемое имя",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Отображаемое имя"
+                            },
+                            "wyJF6": {
+                              "fill": "$foreground",
+                              "content": "Анна Смирнова"
+                            }
+                          }
+                        },
+                        {
+                          "id": "bXkaR",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Почта",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Почта"
+                            },
+                            "wyJF6": {
+                              "fill": "$foreground",
+                              "content": "user@example.com"
+                            }
+                          }
+                        },
+                        {
+                          "id": "BpDJ4",
+                          "type": "ref",
+                          "ref": "vyvgP",
+                          "name": "Field / Пароль (скрыт, кнопка «Показать пароль»)",
+                          "width": "fill_container",
+                          "descendants": {
+                            "FJllO": {
+                              "content": "Пароль"
+                            },
+                            "wT2vR": {
+                              "type": "frame",
+                              "id": "jKZ9j",
+                              "name": "Input",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "$card",
+                              "cornerRadius": "$radius-md",
+                              "stroke": "$input",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "gap": "$space-2",
+                              "padding": [
+                                0,
+                                "$space-3"
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "gXhQ7",
+                                  "name": "Input value",
+                                  "fill": "$foreground",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "••••••••••",
+                                  "lineHeight": "$leading-input",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": "$text-input",
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "id": "uogcO",
+                                  "type": "ref",
+                                  "ref": "BD4zN",
+                                  "name": "Кнопка «Показать пароль» (aria-label)",
+                                  "context": "type=button; aria-label=Показать пароль; aria-pressed=false; пароль скрыт",
+                                  "width": 44,
+                                  "height": 44,
+                                  "descendants": {
+                                    "VLtK5": {
+                                      "icon": "eye"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "MaPAI",
+                                  "layoutPosition": "absolute",
+                                  "x": 276,
+                                  "y": -4,
+                                  "name": "Focus ring 2px + offset 2px",
+                                  "enabled": false,
+                                  "width": 52,
+                                  "height": 52,
+                                  "cornerRadius": 12,
+                                  "stroke": "$ring",
+                                  "strokeWidth": 2,
+                                  "strokeAlignment": "inner"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "fqUeZ",
+                      "type": "ref",
+                      "ref": "eDsIO",
+                      "name": "Alert / Error (role=alert)",
+                      "width": "fill_container",
+                      "descendants": {
+                        "wbkvK": {
+                          "content": "Не удалось создать аккаунт. Попробуйте ещё раз."
+                        }
+                      }
+                    },
+                    {
+                      "id": "x3eckS",
+                      "type": "ref",
+                      "ref": "f24jhn",
+                      "name": "Submit «Создать аккаунт» (повторная попытка доступна)",
+                      "width": "fill_container",
+                      "descendants": {
+                        "rHb8r": {
+                          "enabled": false
+                        },
+                        "L1iECf": {
+                          "content": "Создать аккаунт"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {
