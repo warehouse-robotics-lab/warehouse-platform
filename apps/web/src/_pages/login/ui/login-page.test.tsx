@@ -265,9 +265,13 @@ describe("LoginPage", () => {
     expect(submitButton).not.toHaveAttribute("aria-busy", "true");
     expect(submitButton).toHaveTextContent(/^Войти$/);
 
-    expect(
-      submitButton.querySelector('[data-testid="login-submit-spinner"]'),
-    ).not.toBeVisible();
+    const spinnerAfterSubmit = submitButton.querySelector(
+      '[data-testid="login-submit-spinner"]',
+    );
+
+    if (spinnerAfterSubmit !== null) {
+      expect(spinnerAfterSubmit).not.toBeVisible();
+    }
   });
 
   it("показывает общее сообщение при неверных учётных данных", async ({
