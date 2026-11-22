@@ -93,13 +93,18 @@ describe("LoginPage", () => {
 
   it("показывает ошибку для почты неправильного формата", async () => {
     const user = userEvent.setup();
-    render(<LoginPage />);
+    const submitLogin = vi.fn(async () => "success" as const);
+    render(<LoginForm submitLogin={submitLogin} onSuccess={vi.fn()} />);
 
     await user.type(screen.getByLabelText("Почта"), "userexample.com");
     await user.type(screen.getByLabelText("Пароль"), "secret");
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
-    expect(screen.getByText("Введите корректную почту")).toBeInTheDocument();
+    expectFieldError(
+      screen.getByLabelText("Почта"),
+      "Введите корректную почту",
+    );
+    expect(submitLogin).not.toHaveBeenCalled();
   });
 
   it("считает почту из пробелов пустой", async () => {
@@ -162,7 +167,10 @@ describe("LoginPage", () => {
     await user.clear(screen.getByLabelText("Почта"));
     await user.type(screen.getByLabelText("Почта"), "userexample.com");
 
-    expect(screen.getByText("Введите корректную почту")).toBeInTheDocument();
+    expectFieldError(
+      screen.getByLabelText("Почта"),
+      "Введите корректную почту",
+    );
   });
 
   it("снова показывает ошибку, если после исправления очистить пароль", async () => {
@@ -188,54 +196,67 @@ describe("LoginPage", () => {
     await user.type(screen.getByLabelText("Пароль"), "secret");
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
-    expect(screen.getByText("Введите корректную почту")).toBeInTheDocument();
+    expectFieldError(
+      screen.getByLabelText("Почта"),
+      "Введите корректную почту",
+    );
 
     await user.clear(screen.getByLabelText("Почта"));
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
 
-    expect(
-      screen.queryByText("Введите корректную почту"),
-    ).not.toBeInTheDocument();
+    expectNoFieldError(screen.getByLabelText("Почта"));
   });
 
-  it("вызывает onSuccess один раз и без аргументов после успешной отправки", async ({
-    onTestFinished,
-  }) => {
+  it("не отправляет форму повторно в ожидании и вызывает onSuccess один раз без аргументов после успеха", async () => {
     const user = userEvent.setup();
     const onSuccess = vi.fn();
 
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "success");
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
-
-    onTestFinished(() => {
-      vi.unstubAllEnvs();
+    let finishSubmit!: (result: "success") => void;
+    const pendingSubmit = new Promise<"success">((resolve) => {
+      finishSubmit = resolve;
     });
+    const submitLogin = vi.fn(() => pendingSubmit);
 
-    render(<LoginPage onSuccess={onSuccess} />); // ошибка в onSuccess, потому что тест уже передаёт этот параметр, а текущий LoginPage пока его не принимает
+    render(<LoginForm submitLogin={submitLogin} onSuccess={onSuccess} />);
 
-    await user.type(screen.getByLabelText("Почта"), "user@example.com");
-    await user.type(screen.getByLabelText("Пароль"), "secret");
-    await user.click(screen.getByRole("button", { name: "Войти" }));
+    await user.type(screen.getByLabelText("Почта"), "User@Example.COM");
+    await user.type(screen.getByLabelText("Пароль"), "  SeCrEt  ");
+    const submitButton = screen.getByRole("button", { name: "Войти" });
+
+    await user.click(submitButton);
+
+    expect(submitButton).toBeDisabled();
+
+    await user.click(submitButton);
+    await user.click(screen.getByLabelText("Почта"));
+    await user.keyboard("{Enter}");
+
+    expect(submitLogin.mock.calls).toEqual([
+      [{ email: "user@example.com", password: "SeCrEt" }],
+    ]);
+    expect(onSuccess).not.toHaveBeenCalled();
+
+    finishSubmit("success");
 
     await vi.waitFor(
       () => {
+        expect(submitButton).toBeEnabled();
         expect(onSuccess.mock.calls).toEqual([[]]);
       },
       { timeout: 3000 },
     );
   });
 
-  it("блокирует кнопку во время отправки и разблокирует после ответа", async ({
-    onTestFinished,
-  }) => {
+  it("блокирует кнопку во время отправки и разблокирует после ответа", async () => {
     const user = userEvent.setup();
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "success");
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "500");
 
-    onTestFinished(() => {
-      vi.unstubAllEnvs();
+    let finishSubmit!: (result: "success") => void;
+    const pendingSubmit = new Promise<"success">((resolve) => {
+      finishSubmit = resolve;
     });
-    render(<LoginPage />);
+    const submitLogin = vi.fn(() => pendingSubmit);
+
+    render(<LoginForm submitLogin={submitLogin} onSuccess={vi.fn()} />);
 
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
     await user.type(screen.getByLabelText("Пароль"), "secret");
@@ -252,6 +273,8 @@ describe("LoginPage", () => {
 
     expect(screen.getByLabelText("Почта")).toHaveAttribute("readonly");
     expect(screen.getByLabelText("Пароль")).toHaveAttribute("readonly");
+
+    finishSubmit("success");
 
     await vi.waitFor(
       () => {
@@ -274,19 +297,20 @@ describe("LoginPage", () => {
     }
   });
 
-  it("показывает общее сообщение при неверных учётных данных", async ({
-    onTestFinished,
-  }) => {
+  it("показывает общее сообщение при неверных учётных данных", async () => {
     const user = userEvent.setup();
 
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "invalid-credentials");
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
-
-    onTestFinished(() => {
-      vi.unstubAllEnvs();
+    let finishRetry!: (result: "invalid-credentials") => void;
+    const pendingRetry = new Promise<"invalid-credentials">((resolve) => {
+      finishRetry = resolve;
     });
 
-    render(<LoginPage />);
+    const submitLogin = vi
+      .fn<() => Promise<"invalid-credentials">>()
+      .mockResolvedValueOnce("invalid-credentials")
+      .mockReturnValueOnce(pendingRetry);
+
+    render(<LoginForm submitLogin={submitLogin} onSuccess={vi.fn()} />);
 
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
     await user.type(screen.getByLabelText("Пароль"), "secret");
@@ -308,6 +332,16 @@ describe("LoginPage", () => {
     await user.clear(screen.getByLabelText("Пароль"));
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
+    await user.clear(screen.getByLabelText("Пароль"));
+    await user.click(screen.getByRole("button", { name: "Войти" }));
+
+    expect(screen.getByText("Неверная почта или пароль")).toBeVisible();
+    expect(submitLogin).toHaveBeenCalledTimes(1);
+
+    expectFieldError(screen.getByLabelText("Пароль"), "Обязательное поле");
+
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+
     expect(screen.getByText("Неверная почта или пароль")).toBeVisible();
 
     await user.type(screen.getByLabelText("Пароль"), "secret");
@@ -316,6 +350,8 @@ describe("LoginPage", () => {
     expect(
       screen.queryByText("Неверная почта или пароль"),
     ).not.toBeInTheDocument();
+
+    finishRetry("invalid-credentials");
 
     expect(
       await screen.findByText(
@@ -326,19 +362,12 @@ describe("LoginPage", () => {
     ).toBeVisible();
   });
 
-  it("показывает общее сообщение при технической ошибке", async ({
-    onTestFinished,
-  }) => {
+  it("показывает общее сообщение при технической ошибке", async () => {
     const user = userEvent.setup();
 
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "technical-error");
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
+    const submitLogin = vi.fn(async () => "technical-error" as const);
 
-    onTestFinished(() => {
-      vi.unstubAllEnvs();
-    });
-
-    render(<LoginPage />);
+    render(<LoginForm submitLogin={submitLogin} onSuccess={vi.fn()} />);
 
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
     await user.type(screen.getByLabelText("Пароль"), "secret");
@@ -354,29 +383,28 @@ describe("LoginPage", () => {
     expect(screen.getByRole("button", { name: "Войти" })).toBeEnabled();
   });
 
-  it("показывает ошибку, если результат тестового обработчика задан пустой строкой", async ({
-    onTestFinished,
-  }) => {
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_RESULT", "");
-    vi.stubEnv("NEXT_PUBLIC_LOGIN_MOCK_DELAY_MS", "100");
-
-    onTestFinished(() => {
-      vi.unstubAllEnvs();
-    });
-
+  it("показывает ошибку настройки и не отправляет форму", async () => {
     const user = userEvent.setup();
-    render(<LoginPage />);
+    const submitLogin = vi.fn(async () => "success" as const);
+    const onSuccess = vi.fn();
+    const configurationError =
+      "Ошибка настройки тестового обработчика. Проверьте настройки разработки.";
 
-    expect(
-      screen.getByText(
-        "Ошибка настройки тестового обработчика. Проверьте настройки разработки.",
-      ),
-    ).toBeVisible();
+    render(
+      <LoginForm
+        submitLogin={submitLogin}
+        onSuccess={onSuccess}
+        configurationError={configurationError}
+      />,
+    );
+
+    expect(screen.getByText(configurationError)).toBeVisible();
 
     await user.type(screen.getByLabelText("Почта"), "user@example.com");
     await user.type(screen.getByLabelText("Пароль"), "secret");
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
-    expect(screen.getByRole("button", { name: "Войти" })).toBeEnabled();
+    expect(submitLogin).not.toHaveBeenCalled();
+    expect(onSuccess).not.toHaveBeenCalled();
   });
 });
