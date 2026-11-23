@@ -1,14 +1,23 @@
+import Link from "next/link";
+
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyTitle,
 } from "@/shared/ui/empty";
+import { buttonVariants } from "@/shared/ui/button";
 
 export function WarehousesPage() {
   return (
     <div className="flex flex-1 flex-col gap-4 md:gap-6">
       <h1 className="text-title font-semibold">Мои склады</h1>
+      <Link
+        href="/warehouses/demo/edit"
+        className={buttonVariants({ className: "w-fit" })}
+      >
+        Открыть редактор
+      </Link>
       <Empty className="p-0 text-wrap">
         <EmptyHeader className="max-w-none">
           {/* `cn` не знает токен `text-section` как размер шрифта и оставил бы `text-sm`
