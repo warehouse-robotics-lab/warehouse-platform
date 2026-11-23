@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { LoginPage } from "./login-page";
+import { LoginForm } from "./login-form";
 
 function expectFieldError(field: HTMLElement, message: string) {
   expect(field).toHaveAttribute("aria-invalid", "true");
@@ -48,7 +49,8 @@ describe("LoginPage", () => {
 
   it("показывает ошибки обязательных полей при отправке пустой формы", async () => {
     const user = userEvent.setup();
-    render(<LoginPage />);
+    const submitLogin = vi.fn(async () => "success" as const);
+    render(<LoginForm submitLogin={submitLogin} onSuccess={vi.fn()} />);
 
     await user.click(screen.getByRole("button", { name: "Войти" }));
 
@@ -67,6 +69,8 @@ describe("LoginPage", () => {
     expect(screen.getByLabelText("Пароль")).toHaveAccessibleDescription(
       /Обязательное поле/,
     );
+
+    expect(submitLogin).not.toHaveBeenCalled();
   });
 
   it("показывает ошибку, если почта пустая, а пароль заполнен", async () => {
@@ -232,7 +236,7 @@ describe("LoginPage", () => {
     await user.keyboard("{Enter}");
 
     expect(submitLogin.mock.calls).toEqual([
-      [{ email: "user@example.com", password: "SeCrEt" }],
+      [{ email: "user@example.com", password: "  SeCrEt  " }],
     ]);
     expect(onSuccess).not.toHaveBeenCalled();
 
@@ -381,6 +385,33 @@ describe("LoginPage", () => {
       ),
     ).toBeVisible();
     expect(screen.getByRole("button", { name: "Войти" })).toBeEnabled();
+  });
+
+  it("показывает техническую ошибку и выходит из ожидания, если отправка отклонена", async () => {
+    const user = userEvent.setup();
+
+    let rejectSubmit!: (error: Error) => void;
+    const pendingSubmit = new Promise<never>((_, reject) => {
+      rejectSubmit = reject;
+    });
+    const submitLogin = vi.fn(() => pendingSubmit);
+
+    render(<LoginForm submitLogin={submitLogin} onSuccess={vi.fn()} />);
+
+    await user.type(screen.getByLabelText("Почта"), "user@example.com");
+    await user.type(screen.getByLabelText("Пароль"), "secret");
+
+    const submitButton = screen.getByRole("button", { name: "Войти" });
+    await user.click(submitButton);
+
+    expect(submitButton).toBeDisabled();
+
+    rejectSubmit(new Error("Сбой отправки"));
+
+    expect(
+      await screen.findByText("Не удалось войти. Попробуйте ещё раз."),
+    ).toBeVisible();
+    expect(submitButton).toBeEnabled();
   });
 
   it("показывает ошибку настройки и не отправляет форму", async () => {
