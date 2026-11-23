@@ -412,6 +412,10 @@ describe("LoginPage", () => {
       await screen.findByText("Не удалось войти. Попробуйте ещё раз."),
     ).toBeVisible();
     expect(submitButton).toBeEnabled();
+
+    expect(submitButton).not.toHaveAttribute("aria-busy", "true");
+    expect(screen.getByLabelText("Почта")).not.toHaveAttribute("readonly");
+    expect(screen.getByLabelText("Пароль")).not.toHaveAttribute("readonly");
   });
 
   it("показывает ошибку настройки и не отправляет форму", async () => {
