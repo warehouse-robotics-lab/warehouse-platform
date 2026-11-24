@@ -25,7 +25,7 @@ import { WarehouseCanvas } from "@warehouse/warehouse-renderer";
 <WarehouseCanvas gridWidth={20} gridHeight={20} />
 ```
 
-Web показывает этот компонент на `/warehouses/[id]/edit`. Konva нужен браузер, поэтому страница подключает компонент с `ssr: false`.
+Web показывает этот компонент на `/warehouses/demo/edit`. Konva нужен браузер, поэтому страница подключает компонент с `ssr: false`.
 
 ## Команды
 

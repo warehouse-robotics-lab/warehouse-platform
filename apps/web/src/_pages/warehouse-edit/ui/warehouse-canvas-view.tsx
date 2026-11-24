@@ -26,5 +26,9 @@ const WarehouseCanvas = dynamic(
 );
 
 export function WarehouseCanvasView() {
-  return <WarehouseCanvas />;
+  return (
+    <div className="max-w-full min-w-0 overflow-x-auto">
+      <WarehouseCanvas />
+    </div>
+  );
 }
