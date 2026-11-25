@@ -1,21 +1,19 @@
+import type { KonvaEventObject } from "konva/lib/Node";
 import { useState } from "react";
 import { Layer, Line, Rect, Stage } from "react-konva";
+import { AxisStrip } from "./components/axis-strip.js";
+import {
+  AXIS_SIZE_PX,
+  CELL_SIZE_PX,
+  DEFAULT_GRID_SIZE,
+  GRID_BACKGROUND_COLOR,
+  GRID_LINE_COLOR,
+  GRID_LINE_WIDTH,
+  LABEL_ACTIVE_COLOR,
+} from "./consts.js";
+import type { HoveredCell, WarehouseCanvasProps } from "./types.js";
 
-const CELL_SIZE_PX = 32;
-const AXIS_SIZE_PX = 28;
-const DEFAULT_GRID_SIZE = 20;
-const LABEL_COLOR = "#0f172a";
-const LABEL_ACTIVE_COLOR = "#2563eb";
-
-export type WarehouseCanvasProps = {
-  gridWidth?: number;
-  gridHeight?: number;
-};
-
-type HoveredCell = {
-  column: number;
-  row: number;
-};
+export type { WarehouseCanvasProps } from "./types.js";
 
 export function WarehouseCanvas({
   gridWidth = DEFAULT_GRID_SIZE,
@@ -34,9 +32,27 @@ export function WarehouseCanvas({
     });
   }
 
+  function clearHover() {
+    setHovered(null);
+  }
+
+  function handleStageMouseMove(event: KonvaEventObject<MouseEvent>) {
+    const position = event.target.getStage()?.getPointerPosition();
+    if (!position) {
+      return;
+    }
+    const column = Math.floor(position.x / CELL_SIZE_PX);
+    const row = Math.floor(position.y / CELL_SIZE_PX);
+    if (column < 0 || row < 0 || column >= gridWidth || row >= gridHeight) {
+      clearHover();
+      return;
+    }
+    hoverCell(column, row);
+  }
+
   return (
     <div
-      onMouseLeave={() => setHovered(null)}
+      onMouseLeave={clearHover}
       style={{
         display: "grid",
         gridTemplateColumns: `${AXIS_SIZE_PX}px ${width}px`,
@@ -45,73 +61,38 @@ export function WarehouseCanvas({
       }}
     >
       <div />
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${gridWidth}, ${CELL_SIZE_PX}px)`,
-        }}
-      >
-        {Array.from({ length: gridWidth }, (_, column) => (
-          <AxisLabel
-            key={`column-label-${column}`}
-            active={hovered?.column === column}
-            label={column + 1}
-          />
-        ))}
-      </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateRows: `repeat(${gridHeight}, ${CELL_SIZE_PX}px)`,
-        }}
-      >
-        {Array.from({ length: gridHeight }, (_, row) => (
-          <AxisLabel
-            key={`row-label-${row}`}
-            active={hovered?.row === row}
-            label={row + 1}
-          />
-        ))}
-      </div>
+      <AxisStrip
+        count={gridWidth}
+        activeIndex={hovered?.column}
+        orientation="horizontal"
+      />
+      <AxisStrip
+        count={gridHeight}
+        activeIndex={hovered?.row}
+        orientation="vertical"
+      />
       <Stage
         width={width}
         height={height}
-        onMouseLeave={() => setHovered(null)}
-        onMouseMove={(event) => {
-          const position = event.target.getStage()?.getPointerPosition();
-          if (!position) {
-            return;
-          }
-          const column = Math.floor(position.x / CELL_SIZE_PX);
-          const row = Math.floor(position.y / CELL_SIZE_PX);
-          if (
-            column < 0 ||
-            row < 0 ||
-            column >= gridWidth ||
-            row >= gridHeight
-          ) {
-            setHovered(null);
-            return;
-          }
-          hoverCell(column, row);
-        }}
+        onMouseLeave={clearHover}
+        onMouseMove={handleStageMouseMove}
       >
         <Layer>
-          <Rect width={width} height={height} fill="#f8fafc" />
+          <Rect width={width} height={height} fill={GRID_BACKGROUND_COLOR} />
           {Array.from({ length: gridWidth + 1 }, (_, index) => (
             <Line
               key={`column-${index}`}
               points={[index * CELL_SIZE_PX, 0, index * CELL_SIZE_PX, height]}
-              stroke="#cbd5e1"
-              strokeWidth={1}
+              stroke={GRID_LINE_COLOR}
+              strokeWidth={GRID_LINE_WIDTH}
             />
           ))}
           {Array.from({ length: gridHeight + 1 }, (_, index) => (
             <Line
               key={`row-${index}`}
               points={[0, index * CELL_SIZE_PX, width, index * CELL_SIZE_PX]}
-              stroke="#cbd5e1"
-              strokeWidth={1}
+              stroke={GRID_LINE_COLOR}
+              strokeWidth={GRID_LINE_WIDTH}
             />
           ))}
           {hovered ? (
@@ -121,31 +102,12 @@ export function WarehouseCanvas({
               width={CELL_SIZE_PX - 1}
               height={CELL_SIZE_PX - 1}
               stroke={LABEL_ACTIVE_COLOR}
-              strokeWidth={1}
+              strokeWidth={GRID_LINE_WIDTH}
               listening={false}
             />
           ) : null}
         </Layer>
       </Stage>
     </div>
-  );
-}
-
-function AxisLabel({ active, label }: { active: boolean; label: number }) {
-  return (
-    <span
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: active ? LABEL_ACTIVE_COLOR : LABEL_COLOR,
-        fontSize: 12,
-        fontWeight: active ? 600 : 400,
-        lineHeight: 1,
-        userSelect: "none",
-      }}
-    >
-      {label}
-    </span>
   );
 }
