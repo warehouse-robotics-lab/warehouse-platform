@@ -24,16 +24,20 @@ MUST соответствовать единому формату из согл�
 | Создание | `POST /warehouses` с `{"name":"Основной склад"}` | `201` и `{"warehouse":{"uuid":"7d7cc15c-4260-4dcb-94c5-58aa5b364ed6","name":"Основной склад","createdAt":"2026-11-21T10:00:00.000Z","updatedAt":"2026-11-21T10:00:00.001Z"}}` |
 | Повторяющееся имя | `POST /warehouses` с `{"name":"Основной склад"}`, когда у пользователя уже есть склад с тем же именем | `201` и `{"warehouse":{"uuid":"f714dfe6-7625-4beb-9d7e-b8f04d6d3615","name":"Основной склад","createdAt":"2026-11-21T11:00:00.000Z","updatedAt":"2026-11-21T11:00:00.001Z"}}` |
 | Пустой список | `GET /warehouses` | `200` и `{"warehouses":[]}` |
-| Список | `GET /warehouses` | `200` и `{"warehouses":[{"uuid":"f714dfe6-7625-4beb-9d7e-b8f04d6d3615","name":"Новый склад","createdAt":"2026-11-21T11:00:00.000Z","updatedAt":"2026-11-21T11:00:00.001Z"},{"uuid":"7d7cc15c-4260-4dcb-94c5-58aa5b364ed6","name":"Основной склад","createdAt":"2026-11-21T10:00:00.000Z","updatedAt":"2026-11-21T10:00:00.001Z"}]}` |
+| Список | `GET /warehouses` | `200` и `{"warehouses":[{"uuid":"f714dfe6-7625-4beb-9d7e-b8f04d6d3615","name":"Основной склад","createdAt":"2026-11-21T11:00:00.000Z","updatedAt":"2026-11-21T11:00:00.001Z"},{"uuid":"7d7cc15c-4260-4dcb-94c5-58aa5b364ed6","name":"Основной склад","createdAt":"2026-11-21T10:00:00.000Z","updatedAt":"2026-11-21T10:00:00.001Z"}]}` |
 | Получение | `GET /warehouses/7d7cc15c-4260-4dcb-94c5-58aa5b364ed6` | `200` и `{"warehouse":{"uuid":"7d7cc15c-4260-4dcb-94c5-58aa5b364ed6","name":"Основной склад","createdAt":"2026-11-21T10:00:00.000Z","updatedAt":"2026-11-21T10:00:00.001Z"}}` |
 | Переименование | `PATCH /warehouses/7d7cc15c-4260-4dcb-94c5-58aa5b364ed6` с `{"name":"Склад № 1"}` | `200` и `{"warehouse":{"uuid":"7d7cc15c-4260-4dcb-94c5-58aa5b364ed6","name":"Склад № 1","createdAt":"2026-11-21T10:00:00.000Z","updatedAt":"2026-11-21T11:30:00.000Z"}}` |
 | Удаление | `DELETE /warehouses/7d7cc15c-4260-4dcb-94c5-58aa5b364ed6` | `204` без тела |
 | Отсутствующее или пустое имя | `POST /warehouses` с `{}`, `PATCH /warehouses/:uuid` без тела либо `POST /warehouses` с `{"name":"   "}` | `400` и `{"code":"VALIDATION_FAILED","message":"Проверьте поля формы","fields":{"name":["REQUIRED"]}}` |
 | Слишком длинное имя | `POST /warehouses` с `name` длиной более 100 Unicode code points после `String.prototype.trim()` | `400` и `{"code":"VALIDATION_FAILED","message":"Проверьте поля формы","fields":{"name":["NAME_TOO_LONG"]}}` |
+| Имя с нулевым символом | `POST /warehouses` с `{"name":"Основной\u0000склад"}` | `400` и `{"code":"INVALID_REQUEST","message":"Некорректный запрос"}` |
 | Неверная структура тела | `POST /warehouses` с `{"name":123}`, `{"name":null}`, массивом либо `null` | `400` и `{"code":"INVALID_REQUEST","message":"Некорректный запрос"}` |
 | Лишний владелец | `POST /warehouses` с `{"name":"Основной склад","ownerUuid":"…"}` | `400` и `{"code":"INVALID_REQUEST","message":"Некорректный запрос"}` |
 | Неверный UUID | `GET /warehouses/abc` | `400` и `{"code":"INVALID_REQUEST","message":"Некорректный запрос"}` |
 | Отсутствующий или чужой склад | `GET /warehouses/7d7cc15c-4260-4dcb-94c5-58aa5b364ed6` для отсутствующего либо чужого склада | `404` и `{"code":"WAREHOUSE_NOT_FOUND","message":"Склад не найден"}` |
+| Нет сессии | `GET /warehouses` без сессии | `401` и `{"code":"UNAUTHENTICATED","message":"Требуется вход"}` |
+| Недоверенный источник | `PATCH /warehouses/:uuid` с недоверенным `Origin`, без сессии и с `{"name":123}` | `403` и `{"code":"CSRF_REJECTED","message":"Недоверенный источник запроса"}` |
+| Сессию временно невозможно проверить | `GET /warehouses` с предъявленной сессией при недоступном Redis | `503` и `{"code":"SERVICE_UNAVAILABLE","message":"Сервис временно недоступен. Повторите позже."}` |
 
 ### Requirement: Представление склада
 
@@ -63,8 +67,9 @@ MUST содержать только `uuid`, `name`, `createdAt` и `updatedAt`;
 Перед проверкой и сохранением система SHALL нормализовать `name` методом
 ECMAScript `String.prototype.trim()`. Итоговое имя MUST содержать от 1 до 100
 Unicode code points; длина MUST NOT считаться в UTF-16 units или grapheme
-clusters. Отсутствующее, пустое после нормализации или слишком длинное имя MUST
-давать `400 VALIDATION_FAILED` с кодом в `fields.name`.
+clusters. Оно MUST NOT содержать нулевой символ `U+0000`, который PostgreSQL не
+может сохранить в `text`. Отсутствующее, пустое после нормализации или слишком
+длинное имя MUST давать `400 VALIDATION_FAILED` с кодом в `fields.name`.
 
 #### Scenario: Имя нормализуется перед сохранением
 
@@ -105,6 +110,14 @@ clusters. Отсутствующее, пустое после нормализа
 - **THEN** API возвращает `400 VALIDATION_FAILED` с
   `{"name":["NAME_TOO_LONG"]}` в `fields`
 - **AND** создание или изменение склада не происходит
+
+#### Scenario: Нулевой символ отклоняется до записи в PostgreSQL
+
+- **WHEN** пользователь передаёт `name`, содержащий `U+0000`, например
+  `{"name":"Основной\u0000склад"}`
+- **THEN** API возвращает `400 INVALID_REQUEST` без `fields`
+- **AND** создание или изменение склада не происходит
+- **AND** API не передаёт это значение в PostgreSQL
 
 ### Requirement: Структура тела и UUID пути
 
