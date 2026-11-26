@@ -590,11 +590,11 @@ MUST содержать тело `{"status":"ok","service":"api"}`.
 ### Requirement: CORS и preflight
 
 API MUST отвечать на запросы с доверенного источника заголовками
-`Access-Control-Allow-Origin` и `Access-Control-Allow-Credentials: true`. Список
-источников MUST задаваться конфигурацией и проверяться при запуске: пустой список MUST
-останавливать запуск. `OPTIONS` MUST обрабатываться без cookie: доверенный источник —
-`204` с разрешающими заголовками; недоверенный, `Origin: null` или без `Origin` — `403
-CSRF_REJECTED`; неизвестный адрес — `404`.
+`Access-Control-Allow-Origin`, `Access-Control-Allow-Credentials: true` и
+`Access-Control-Expose-Headers: Retry-After`, включая ошибки. Список источников MUST
+задаваться конфигурацией; пустой список MUST останавливать запуск. `OPTIONS` MUST
+обрабатываться без cookie: доверенный источник — `204` с разрешающими заголовками;
+недоверенный/`null`/без `Origin` — `403 CSRF_REJECTED`; неизвестный адрес — `404`.
 
 #### Scenario: Ответ с доверенного источника
 
