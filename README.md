@@ -175,6 +175,7 @@ Workflow GitHub Actions из `.github/workflows/ci.yml` запускается �
 - `Typecheck` — `pnpm typecheck`;
 - `Build` — `pnpm build`;
 - `Test` — `pnpm test`.
+- `API database tests` — integration и e2e-тесты API на PostgreSQL.
 
 Каждая job устанавливает зависимости командой `pnpm install --frozen-lockfile`.
 Это гарантирует, что CI завершится ошибкой, если `package.json` и
@@ -193,6 +194,17 @@ pnpm test
 ```
 
 Задание `Test` запускает модульные тесты API и Web. У Simulation пока нет скрипта `test`.
+
+В отличие от unit-тестов, database-проверки требуют подготовленной PostgreSQL,
+баз `warehouse` и `warehouse_test`, а также `DATABASE_URL` и
+`TEST_DATABASE_URL`. Подготовьте их по инструкции в
+[README API](apps/api/README.md), затем выполните:
+
+```sh
+pnpm --filter @warehouse/api prisma:migrate:deploy
+pnpm --filter @warehouse/api test:integration
+pnpm --filter @warehouse/api test:e2e
+```
 
 ## Спецификации OpenSpec
 
