@@ -15,21 +15,29 @@
 
 - `/` — главная страница.
 - `/warehouses` — страница «Мои склады» в каркасе личного кабинета (группа маршрутов `(cabinet)`).
+- `/warehouses/demo/edit` — демо-редактор склада. Показывает сетку 20×20 из `@warehouse/warehouse-renderer`. Карта с API не загружается.
 
 ## Команды
+
+Перед `dev`, `build` и `typecheck` соберите renderer, если каталога `packages/warehouse-renderer/dist` ещё нет:
+
+```sh
+pnpm --filter @warehouse/warehouse-renderer build
+```
 
 Из корня репозитория:
 
 ```sh
+pnpm --filter @warehouse/warehouse-renderer build
 pnpm --filter @warehouse/web dev
 pnpm --filter @warehouse/web build
 pnpm --filter @warehouse/web typecheck
 pnpm --filter @warehouse/web lint
 ```
 
-Корневые `pnpm dev`, `pnpm build`, `pnpm typecheck` и `pnpm lint` запускают те же скрипты через Turbo. После сборки продакшен-сервер стартует командой `pnpm --filter @warehouse/web start`.
+Корневые `pnpm dev`, `pnpm build` и `pnpm typecheck` через Turbo сначала собирают зависимости Web, в том числе `@warehouse/warehouse-renderer`. Прямые команды внутри `apps/web` этого не делают. После сборки продакшен-сервер стартует командой `pnpm --filter @warehouse/web start`.
 
-Из каталога `apps/web` скрипты пакета вызываются напрямую:
+Из каталога `apps/web` скрипты пакета вызываются напрямую. Перед `dev`, `build` и `typecheck` сначала выполните из корня `pnpm --filter @warehouse/warehouse-renderer build`, затем:
 
 ```sh
 pnpm dev

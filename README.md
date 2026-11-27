@@ -135,7 +135,7 @@ apps/
   simulation/          # Node.js: исполнение симуляции
 packages/
   contracts/           # Общие контракты — инструмент обсуждается
-  warehouse-renderer/  # Компонент карты — библиотека обсуждается
+  warehouse-renderer/  # Сетка склада на Konva для Web
 docs/
   adr/                 # Архитектурные решения и их статус
 ```
