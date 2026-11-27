@@ -1,9 +1,10 @@
 import userEvent from "@testing-library/user-event";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { LoginPage } from "./login-page";
 import { LoginForm } from "./login-form";
+import { renderToString } from "react-dom/server";
 
 function expectFieldError(field: HTMLElement, message: string) {
   expect(field).toHaveAttribute("aria-invalid", "true");
@@ -22,6 +23,17 @@ describe("LoginPage", () => {
     expect(screen.getByLabelText("Почта")).toBeInTheDocument();
     expect(screen.getByLabelText("Пароль")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Войти" })).toBeInTheDocument();
+  });
+
+  it("блокирует поля и кнопку до подключения JavaScript", () => {
+    const html = renderToString(<LoginPage />);
+    const container = document.createElement("div");
+    container.innerHTML = html;
+
+    const form = within(container);
+    expect(form.getByLabelText("Почта")).toBeDisabled();
+    expect(form.getByLabelText("Пароль")).toBeDisabled();
+    expect(form.getByRole("button", { name: "Войти" })).toBeDisabled();
   });
 
   it("не показывает ошибки полей до первой отправки", () => {
