@@ -107,7 +107,7 @@ pnpm --filter @warehouse/api prisma:generate
 pnpm --filter @warehouse/api prisma:migrate
 ```
 
-Для интеграционных тестов создайте отдельную тестовую базу один раз:
+Для интеграционных и e2e-тестов создайте отдельную тестовую базу один раз:
 
 ```sh
 docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_test'
@@ -120,11 +120,11 @@ docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_te
 пересоздаётся автоматически, миграции применяются в неё.
 
 Подробности о переменных окружения, миграциях и проверках — в
-[README API](apps/api/README.md). Интеграционные тесты API используют
+[README API](apps/api/README.md). Интеграционные и e2e-тесты API используют
 отдельную тестовую базу: setup пересоздаёт только выделенную схему и применяет
 миграции, затем тесты создают и удаляют записи `User` в этой схеме. Объекты в
-`public` и других схемах не изменяются; при наличии `public.User` setup
-останавливается с диагностикой.
+`public` и других схемах не изменяются; при наличии `public.User` или
+`public.Warehouse` setup останавливается с диагностикой до очистки схемы.
 
 ## Структура
 
@@ -158,8 +158,9 @@ Turbo запускает соответствующие скрипты из `pac
 `dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
 `test` запускает модульные тесты API и Web. У Simulation тестовый скрипт пока не объявлен.
 `test:integration` проверяет API на отдельной тестовой базе из `TEST_DATABASE_URL`
-и сам применяет миграции в её выделенной схеме. `test:e2e` использует базу из
-`DATABASE_URL` и требует запущенной PostgreSQL с применёнными миграциями.
+и сам применяет миграции в её выделенной схеме. `test:e2e` использует тот же
+setup и `TEST_DATABASE_URL`. Эти наборы запускаются последовательно: каждый
+пересоздаёт выделенную тестовую схему.
 
 ## CI
 
@@ -202,8 +203,8 @@ pnpm test
 
 ```sh
 pnpm --filter @warehouse/api prisma:migrate:deploy
-pnpm --filter @warehouse/api test:integration
 pnpm --filter @warehouse/api test:e2e
+pnpm --filter @warehouse/api test:integration
 ```
 
 ## Спецификации OpenSpec

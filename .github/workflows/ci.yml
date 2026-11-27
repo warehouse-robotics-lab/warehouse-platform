@@ -115,5 +115,5 @@ jobs:
         run: psql --host localhost --username warehouse --dbname warehouse --command 'CREATE DATABASE warehouse_test;'
       - name: Apply API migrations
         run: pnpm --filter @warehouse/api prisma:migrate:deploy
-      - run: pnpm --filter @warehouse/api test:integration
       - run: pnpm --filter @warehouse/api test:e2e
+      - run: pnpm --filter @warehouse/api test:integration
