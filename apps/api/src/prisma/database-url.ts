@@ -20,13 +20,14 @@ export function getDatabaseLocation(databaseUrl: string): DatabaseLocation {
   };
 }
 
-export function isSameDatabase(first: string, second: string): boolean {
+export function mayBeSameDatabase(first: string, second: string): boolean {
   const firstLocation = getDatabaseLocation(first);
   const secondLocation = getDatabaseLocation(second);
+  const unambiguousName = /^[A-Za-z0-9_-]+$/;
 
   return (
-    firstLocation.host === secondLocation.host &&
-    firstLocation.port === secondLocation.port &&
+    !unambiguousName.test(firstLocation.database) ||
+    !unambiguousName.test(secondLocation.database) ||
     firstLocation.database === secondLocation.database
   );
 }

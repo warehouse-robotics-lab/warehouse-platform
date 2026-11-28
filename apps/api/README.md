@@ -55,23 +55,45 @@ cp apps/api/.env.example apps/api/.env
 
 ### Тестовая PostgreSQL
 
-Интеграционные и e2e-тесты используют отдельную базу из `TEST_DATABASE_URL`, а не
-`DATABASE_URL`. Создайте её один раз из корня репозитория, если базы ещё нет:
+Интеграционные и e2e-тесты используют полностью одноразовую базу и отдельную
+роль без повышенных прав. Для выделенного локального PostgreSQL можно создать
+их один раз из корня репозитория:
 
 ```sh
-docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_test'
+docker compose exec -T postgres sh -c \
+  'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -v ON_ERROR_STOP=1' <<'SQL'
+CREATE ROLE warehouse_test LOGIN PASSWORD 'warehouse_test'
+  NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS;
+CREATE DATABASE warehouse_isolated_test OWNER warehouse_test;
+SELECT format('REVOKE CONNECT ON DATABASE %I FROM PUBLIC', datname)
+FROM pg_database WHERE datallowconn
+\gexec
+SQL
 ```
 
-В `TEST_DATABASE_URL` укажите тестовую базу с параметром `?schema=warehouse_api`.
-Пример есть в `apps/api/.env.example`. Если параметры PostgreSQL изменены,
-обновите `TEST_DATABASE_URL` так же, как `DATABASE_URL`. Схема должна быть не
-`public`: это проверяет, что Prisma CLI и runtime используют одну и ту же схему.
+Эта команда отзывает `CONNECT` у `PUBLIC` во всех базах сервера: другие роли
+без отдельного разрешения потеряют доступ. Выполняйте её только на выделенном
+локальном сервере; для общего сервера попросите администратора ограничить
+тестовую роль без нарушения доступа других пользователей. Если роль или база
+уже существует, выберите новые имена: команда их не пересоздаёт. `REVOKE`
+изменяет права существующих баз.
 
-`TEST_DATABASE_URL` должен указывать на другую физическую базу, чем
-`DATABASE_URL`. Перед изменениями setup сравнивает host, port и имя базы и
-останавливается, если они совпадают. Разрушительная очистка ограничена схемой
-из `?schema=`: если в `public` уже есть таблица `User` или `Warehouse`, setup
-останавливается с диагностикой до очистки схемы и не удаляет эти таблицы.
+Укажите тестовую роль и базу в `TEST_DATABASE_URL` из `apps/api/.env`; пример
+есть в `apps/api/.env.example`. Если локальный файл уже существует, обновите
+переменную вручную. Пример пароля предназначен только для локальной разработки.
+Если порт PostgreSQL изменён, укажите его и в `TEST_DATABASE_URL`.
+
+`DATABASE_URL` и `TEST_DATABASE_URL` обязательны и должны указывать на разные
+базы с разными именами, даже если серверы или порты различаются. Setup
+консервативно отклоняет одинаковые или неоднозначные имена; он не проверяет
+права роли, поэтому ограничьте их при настройке PostgreSQL. Используйте прямые
+подключения: сравнение имён не распознаёт прокси, переименовывающий базы. Имена
+баз должны состоять из латинских букв, цифр, `_` или `-`.
+
+Setup удаляет схему из `?schema=` с `CASCADE`, поэтому зависимые объекты в
+других схемах также могут быть удалены. Вся тестовая база должна быть
+одноразовой. При наличии `public.User` или `public.Warehouse` setup дополнительно
+останавливается до очистки. Схема из `?schema=` должна быть не `public`.
 
 ### CI
 
@@ -80,17 +102,18 @@ Job `API database tests` в GitHub Actions запускает одноразов
 workflow: `.env` и секреты репозитория не нужны.
 
 Container создаёт базу `warehouse`, а job после healthcheck создаёт отдельную
-`warehouse_test`. В CI используются следующие переменные:
+`warehouse_isolated_test` и ограниченную роль `warehouse_test`. Доступ этой
+роли к остальным базам контейнера закрывается. В CI используются переменные:
 
 ```dotenv
 DATABASE_URL=postgresql://warehouse:warehouse@localhost:5432/warehouse?schema=warehouse_api
-TEST_DATABASE_URL=postgresql://warehouse:warehouse@localhost:5432/warehouse_test?schema=warehouse_api
+TEST_DATABASE_URL=postgresql://warehouse_test:warehouse_test@localhost:5432/warehouse_isolated_test?schema=warehouse_api
 ```
 
 Job устанавливает зависимости, применяет `prisma migrate deploy` к базе из
 `DATABASE_URL`, затем запускает `test:e2e` и `test:integration`.
-Оба тестовых набора пересоздают только схему `warehouse_api` в
-`warehouse_test` и применяют миграции к этой тестовой базе. E2e больше не
+Оба набора пересоздают схему `warehouse_api` в
+`warehouse_isolated_test` и применяют миграции к этой тестовой базе. E2e больше не
 требует миграции основной базы; отдельный шаг её применения пока остаётся
 в workflow. E2e запускается первым на новой тестовой базе и проверяет, что
 приложение подключено к ней и таблица `User` из миграции доступна.
@@ -177,12 +200,10 @@ pnpm test:e2e
 Из корня репозитория те же скрипты доступны через
 `pnpm --filter @warehouse/api <script>`.
 
-Интеграционные и e2e-тесты используют `TEST_DATABASE_URL` и отдельную тестовую базу.
-Перед запуском setup проверяет, что `DATABASE_URL` и `TEST_DATABASE_URL` не
-указывают на одну физическую базу, удаляет только схему из `?schema=`,
-создаёт её заново и применяет в неё миграции. Объекты в `public` и других схемах
-не изменяются; при наличии `public.User` или `public.Warehouse` setup
-останавливается с диагностикой до очистки схемы.
+Интеграционные и e2e-тесты используют `TEST_DATABASE_URL` и отдельную одноразовую
+базу. Setup проверяет имена баз до удаления схемы из `?schema=` с
+`CASCADE`, затем создаёт её заново и применяет миграции. Зависимые объекты в
+других схемах тоже могут быть удалены.
 
 В выделенной схеме тесты создают и удаляют записи `User`: `deleteMany()`
 выполняется перед каждым тестом, проверки уникальности и ограничений создают
@@ -193,6 +214,10 @@ e2e проверяет равенство этих адресов; отдель�
 базе и таблице `User`. Оба набора требуют доступную PostgreSQL и автоматически
 применяют миграции. Запускайте их последовательно: каждый прогон пересоздаёт
 выделенную тестовую схему.
+
+Integration-набор проверяет сохранность контрольной таблицы при разных адресах
+одной базы. Сценарий выполняется для `localhost` и `127.0.0.1`, как в CI; для
+другого хоста он пропускается.
 
 `test:e2e` и `test:integration` запускают Jest с `--experimental-vm-modules`:
 Prisma 7 загружает WASM query compiler через динамический импорт.

@@ -32,6 +32,25 @@ describe('test database setup public schema protection', () => {
     process.env = { ...originalEnvironment };
   });
 
+  it('rejects the same database name even when the hosts differ', async () => {
+    process.env.DATABASE_URL =
+      'postgresql://warehouse:warehouse@localhost:5433/warehouse_test';
+    process.env.TEST_DATABASE_URL =
+      'postgresql://warehouse:warehouse@127.0.0.1:5433/warehouse_test?schema=warehouse_api';
+
+    await expect(globalSetup()).rejects.toThrow(/same database/i);
+    expect(mockExecuteRawUnsafe).not.toHaveBeenCalled();
+    expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('requires the application database URL before deleting the test schema', async () => {
+    delete process.env.DATABASE_URL;
+
+    await expect(globalSetup()).rejects.toThrow(/DATABASE_URL is not set/i);
+    expect(mockExecuteRawUnsafe).not.toHaveBeenCalled();
+    expect(execFileSync).not.toHaveBeenCalled();
+  });
+
   it.each(['User', 'Warehouse'])(
     'stops before deleting the test schema when public.%s exists',
     async (table) => {

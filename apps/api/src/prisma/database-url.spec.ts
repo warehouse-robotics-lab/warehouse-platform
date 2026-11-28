@@ -1,7 +1,7 @@
 import {
   getDatabaseLocation,
   getDatabaseSchema,
-  isSameDatabase,
+  mayBeSameDatabase,
 } from './database-url';
 
 describe('getDatabaseSchema', () => {
@@ -52,13 +52,13 @@ describe('getDatabaseLocation', () => {
   });
 });
 
-describe('isSameDatabase', () => {
+describe('mayBeSameDatabase', () => {
   const testDatabase =
     'postgresql://warehouse:warehouse@localhost:5432/warehouse_test?schema=warehouse_api';
 
   it('ignores credentials, schema and other query parameters', () => {
     expect(
-      isSameDatabase(
+      mayBeSameDatabase(
         'postgres://another:secret@localhost:5432/warehouse_test?schema=public&sslmode=disable',
         testDatabase,
       ),
@@ -67,7 +67,7 @@ describe('isSameDatabase', () => {
 
   it('treats a missing port as the default PostgreSQL port', () => {
     expect(
-      isSameDatabase(
+      mayBeSameDatabase(
         'postgresql://warehouse:warehouse@localhost/warehouse_test',
         testDatabase,
       ),
@@ -76,7 +76,7 @@ describe('isSameDatabase', () => {
 
   it('compares host names case-insensitively', () => {
     expect(
-      isSameDatabase(
+      mayBeSameDatabase(
         'postgresql://warehouse:warehouse@LOCALHOST:5432/warehouse_test',
         testDatabase,
       ),
@@ -85,28 +85,37 @@ describe('isSameDatabase', () => {
 
   it('distinguishes databases on the same server', () => {
     expect(
-      isSameDatabase(
+      mayBeSameDatabase(
         'postgresql://warehouse:warehouse@localhost:5432/warehouse',
         testDatabase,
       ),
     ).toBe(false);
   });
 
-  it('distinguishes ports', () => {
+  it('treats the same name on different ports as potentially the same database', () => {
     expect(
-      isSameDatabase(
+      mayBeSameDatabase(
         'postgresql://warehouse:warehouse@localhost:5433/warehouse_test',
         testDatabase,
       ),
-    ).toBe(false);
+    ).toBe(true);
   });
 
-  it('distinguishes hosts', () => {
+  it('treats the same name on different hosts as potentially the same database', () => {
     expect(
-      isSameDatabase(
+      mayBeSameDatabase(
         'postgresql://warehouse:warehouse@127.0.0.1:5432/warehouse_test',
         testDatabase,
       ),
-    ).toBe(false);
+    ).toBe(true);
+  });
+
+  it('treats ambiguous encoded names as potentially the same database', () => {
+    expect(
+      mayBeSameDatabase(
+        'postgresql://warehouse:warehouse@localhost:5432/warehouse%2Ftest',
+        'postgresql://warehouse:warehouse@127.0.0.1:5432/warehouse%252Ftest',
+      ),
+    ).toBe(true);
   });
 });

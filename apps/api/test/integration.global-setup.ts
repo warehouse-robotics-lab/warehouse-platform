@@ -5,7 +5,7 @@ import { config as loadEnv } from 'dotenv';
 import { PrismaClient } from '../src/generated/prisma/client';
 import {
   getDatabaseLocation,
-  isSameDatabase,
+  mayBeSameDatabase,
 } from '../src/prisma/database-url';
 
 const appRoot = path.resolve(__dirname, '..');
@@ -55,12 +55,15 @@ function readTestDatabase(): {
 
   const applicationDatabaseUrl = process.env.DATABASE_URL;
 
-  if (
-    applicationDatabaseUrl &&
-    isSameDatabase(applicationDatabaseUrl, databaseUrl)
-  ) {
+  if (!applicationDatabaseUrl) {
     throw new Error(
-      'DATABASE_URL and TEST_DATABASE_URL point to the same database. Integration tests delete and recreate the test schema, so TEST_DATABASE_URL must use a separate database.',
+      'DATABASE_URL is not set. Configure the application database before running database tests.',
+    );
+  }
+
+  if (mayBeSameDatabase(applicationDatabaseUrl, databaseUrl)) {
+    throw new Error(
+      'DATABASE_URL and TEST_DATABASE_URL may refer to the same database. Use distinct, unambiguous database names.',
     );
   }
 
@@ -79,7 +82,7 @@ async function assertNoPublicTables(
 
     if (exists) {
       throw new Error(
-        `Found table "public"."${table}" in test database "${databaseName}". Test setup only resets the dedicated schema "${schema}" and does not delete objects in the "public" schema. Verify that the table belongs to another test suite, or remove it manually if it is a leftover from this suite.`,
+        `Found table "public"."${table}" in test database "${databaseName}". Test setup resets schema "${schema}" with CASCADE and requires a fully disposable database.`,
       );
     }
   }

@@ -107,24 +107,15 @@ pnpm --filter @warehouse/api prisma:generate
 pnpm --filter @warehouse/api prisma:migrate
 ```
 
-Для интеграционных и e2e-тестов создайте отдельную тестовую базу один раз:
-
-```sh
-docker compose exec -T postgres sh -c 'createdb -U "$POSTGRES_USER" warehouse_test'
-```
-
-Тестовая база указывается в `TEST_DATABASE_URL` из `apps/api/.env`.
-`TEST_DATABASE_URL` должен указывать на другую физическую базу, чем
-`DATABASE_URL`: перед изменениями setup сравнивает host, port и имя базы и
-останавливается при совпадении. Схема из `?schema=` (`warehouse_api` в примере)
-пересоздаётся автоматически, миграции применяются в неё.
+Для интеграционных и e2e-тестов подготовьте одноразовую тестовую базу и
+ограниченную роль по инструкции в [README API](apps/api/README.md). Укажите
+их в `TEST_DATABASE_URL` из `apps/api/.env`; пример — в `apps/api/.env.example`.
 
 Подробности о переменных окружения, миграциях и проверках — в
 [README API](apps/api/README.md). Интеграционные и e2e-тесты API используют
-отдельную тестовую базу: setup пересоздаёт только выделенную схему и применяет
-миграции, затем тесты создают и удаляют записи `User` в этой схеме. Объекты в
-`public` и других схемах не изменяются; при наличии `public.User` или
-`public.Warehouse` setup останавливается с диагностикой до очистки схемы.
+полностью одноразовую тестовую базу. Setup удаляет схему из `?schema=` с
+`CASCADE` и применяет миграции; зависимые объекты в других схемах также могут
+быть удалены. Не размещайте в тестовой базе нужные данные.
 
 ## Структура
 
@@ -160,7 +151,8 @@ Turbo запускает соответствующие скрипты из `pac
 `test:integration` проверяет API на отдельной тестовой базе из `TEST_DATABASE_URL`
 и сам применяет миграции в её выделенной схеме. `test:e2e` использует тот же
 setup и `TEST_DATABASE_URL`. Эти наборы запускаются последовательно: каждый
-пересоздаёт выделенную тестовую схему.
+пересоздаёт выделенную тестовую схему. Integration-набор также проверяет защиту
+от двух разных адресов одной базы.
 
 ## CI
 
@@ -176,7 +168,7 @@ Workflow GitHub Actions из `.github/workflows/ci.yml` запускается �
 - `Typecheck` — `pnpm typecheck`;
 - `Build` — `pnpm build`;
 - `Test` — `pnpm test`.
-- `API database tests` — integration и e2e-тесты API на PostgreSQL.
+- `API database tests` — проверка безопасности setup, integration и e2e API.
 
 Каждая job устанавливает зависимости командой `pnpm install --frozen-lockfile`.
 Это гарантирует, что CI завершится ошибкой, если `package.json` и
@@ -193,12 +185,11 @@ pnpm typecheck
 pnpm build
 pnpm test
 ```
-
 Задание `Test` запускает модульные тесты API и Web. У Simulation пока нет скрипта `test`.
 
-В отличие от unit-тестов, database-проверки требуют подготовленной PostgreSQL,
-баз `warehouse` и `warehouse_test`, а также `DATABASE_URL` и
-`TEST_DATABASE_URL`. Подготовьте их по инструкции в
+В отличие от unit-тестов, database-проверки требуют запущенной PostgreSQL,
+одноразовой тестовой базы, а также `DATABASE_URL` и `TEST_DATABASE_URL`.
+Подготовьте их по инструкции в
 [README API](apps/api/README.md), затем выполните:
 
 ```sh
