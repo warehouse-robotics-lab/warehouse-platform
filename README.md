@@ -156,7 +156,7 @@ pnpm --filter @warehouse/api test:e2e
 
 Turbo запускает соответствующие скрипты из `package.json` workspace-пакетов.
 `dev`, `build`, `typecheck` и `lint` выполняют задачи Web, API и Simulation.
-`test` запускает unit-тесты API; у Web и Simulation тестовый скрипт пока не объявлен.
+`test` запускает модульные тесты API и Web. У Simulation тестовый скрипт пока не объявлен.
 `test:integration` проверяет API на отдельной тестовой базе из `TEST_DATABASE_URL`
 и сам применяет миграции в её выделенной схеме. `test:e2e` использует базу из
 `DATABASE_URL` и требует запущенной PostgreSQL с применёнными миграциями.
@@ -193,6 +193,8 @@ pnpm build
 pnpm test
 ```
 
+Задание `Test` запускает модульные тесты API и Web. У Simulation пока нет скрипта `test`.
+
 В отличие от unit-тестов, database-проверки требуют подготовленной PostgreSQL,
 баз `warehouse` и `warehouse_test`, а также `DATABASE_URL` и
 `TEST_DATABASE_URL`. Подготовьте их по инструкции в
@@ -203,9 +205,6 @@ pnpm --filter @warehouse/api prisma:migrate:deploy
 pnpm --filter @warehouse/api test:integration
 pnpm --filter @warehouse/api test:e2e
 ```
-
-Сейчас тесты есть только у API. У Web и Simulation тестовых скриптов нет, поэтому
-job `Test` выполняет только unit-тесты API.
 
 ## Спецификации OpenSpec
 
