@@ -100,7 +100,7 @@ jobs:
           --health-retries 5
     env:
       DATABASE_URL: postgresql://warehouse:warehouse@localhost:5432/warehouse?schema=warehouse_api
-      TEST_DATABASE_URL: postgresql://warehouse:warehouse@localhost:5432/warehouse_test?schema=warehouse_api
+      TEST_DATABASE_URL: postgresql://warehouse_test:warehouse_test@localhost:5432/warehouse_isolated_test?schema=warehouse_api
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -109,11 +109,18 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Create test database
+      - name: Create restricted test role and database
         env:
           PGPASSWORD: warehouse
-        run: psql --host localhost --username warehouse --dbname warehouse --command 'CREATE DATABASE warehouse_test;'
+        run: |
+          psql --host localhost --username warehouse --dbname warehouse --set ON_ERROR_STOP=1 \
+            --command "CREATE ROLE warehouse_test LOGIN PASSWORD 'warehouse_test' NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS;" \
+            --command 'CREATE DATABASE warehouse_isolated_test OWNER warehouse_test;' \
+            --command 'REVOKE CONNECT ON DATABASE warehouse FROM PUBLIC;' \
+            --command 'REVOKE CONNECT ON DATABASE postgres FROM PUBLIC;' \
+            --command 'REVOKE CONNECT ON DATABASE template1 FROM PUBLIC;' \
+            --command 'REVOKE CONNECT ON DATABASE warehouse_isolated_test FROM PUBLIC;'
       - name: Apply API migrations
         run: pnpm --filter @warehouse/api prisma:migrate:deploy
-      - run: pnpm --filter @warehouse/api test:integration
       - run: pnpm --filter @warehouse/api test:e2e
+      - run: pnpm --filter @warehouse/api test:integration
